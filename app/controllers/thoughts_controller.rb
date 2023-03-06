@@ -10,6 +10,7 @@ class ThoughtsController < ApplicationController
   end
 
   def connect
+    raise
     if @thought.connect(params[:selected_id])
       respond_to do |format|
         format.html { redirect_to root_path }

@@ -1,6 +1,7 @@
 class Thought < ApplicationRecord
   belongs_to :user
   belongs_to :collection
+  has_many :connections
 
   has_many :parent_relationships, foreign_key: :parent_id, class_name: 'Connection'
   # has_one :parent, through: :parent_relationship, source: :parent

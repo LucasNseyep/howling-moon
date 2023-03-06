@@ -1,4 +1,4 @@
-<h1>This is the Browse Page</h1>
+<h1>Browse thoughts to connect to: <%= @thought.title %></h1>
 
 <h1>Thoughts:</h1>
 <ul>
@@ -9,14 +9,14 @@
     <%# <form action="/thoughts/<% @thought.id &>/connect method='post'></form> %>
     <form action="/thoughts/<%= @thought.id %>/connect" method='post'>
       <%# <div class="hidden"> %>
-        <input type="text" name='seleted_id' value='<%= thought.id %>' class='' id='parent_thought_connect'>
+        <input type="text" name='selected_id' value='<%= thought.id %>' class='' id='parent_thought_connect'>
       <%# </div> %>
       <input type="submit" name='commit' value='Connect' class=''>
     </form>
   <% else %>
     <form action="/thoughts/<%= @thought.id %>/disconnect" method='post'>
       <%# <div class="hidden"> %>
-        <input type="text" name='seleted_id' value='<%= thought.id %>' class='' id='parent_thought_disconnect'>
+        <input type="text" name='selected_id' value='<%= thought.id %>' class='' id='parent_thought_disconnect'>
       <%# </div> %>
       <input type="submit" name='commit' value='Disconnect' class=''>
     </form>
