@@ -1,0 +1,18 @@
+.button {
+  font-size: larger;
+  text-decoration: none;
+  padding: 10px;
+  padding-inline: 20px;
+  background-color: white;
+  border: 1px solid grey;
+  color: grey;
+  font-weight: 400;
+  border-radius: 50px;
+  opacity: 0.8;
+}
+
+.button:hover {
+  color: rgb(97, 97, 97);
+  border: 1px solid rgb(97, 97, 97);
+  opacity: 1;
+}
