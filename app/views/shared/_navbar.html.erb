@@ -1,4 +1,6 @@
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 navbar-fixed-top">
   <div class="container-fluid text-center">
     <%= link_to user_signed_in? ? "" : "/", class: "navbar-brand fw-bolder" do %>
       <div class="logo-container">
@@ -16,7 +18,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-items-group" >
+          <li class="nav-items-group d-flex" >
+            <%# <%= link_to "Search", "#", :class=>"nav-items-list search", :style=>"text-decoration: none;" %>
+            <div>
+              <input type="text" class="searchbar">
+              <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
             <%= link_to "+", "#", :class=>"nav-items-list plus", :style=>"text-decoration: none;" %>
             <%= link_to "Collections", "#", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
           </li>
@@ -27,7 +34,7 @@
             </div>
               <div class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="navbarDropdown">
                 <%= link_to "My Collections", "#", class: "dropdown-item" %>
-                <%= link_to "Log out", "#", class: "dropdown-item btn-log-out", data: {turbo_method: :delete} %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item btn-log-out", data: {turbo_method: :delete} %>
               </div>
           </li>
         <% else %>
