@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_152646) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_151517) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,8 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_152646) do
     t.integer "child_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["child_id", "parent_id"], name: "index_connections_on_child_id_and_parent_id", unique: true
     t.index ["child_id"], name: "index_connections_on_child_id"
-    t.index ["parent_id", "child_id"], name: "index_connections_on_parent_id_and_child_id", unique: true
     t.index ["parent_id"], name: "index_connections_on_parent_id"
   end
 
@@ -43,9 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_152646) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "first_name", default: ""
-    t.string "last_name", default: ""
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -53,6 +50,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_152646) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
