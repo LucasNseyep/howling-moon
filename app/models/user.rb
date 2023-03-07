@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :thoughts
   has_many :collections, through: :thoughts
+  # validates :username, presence: true
 end
