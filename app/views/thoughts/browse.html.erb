@@ -1,0 +1,21 @@
+<%# Page where you can see all the other cards you can connect to other cards %>
+<h1>Browse thoughts to connect to: <%= @thought.title %></h1>
+<h1>Thoughts:</h1>
+<ul>
+  <% @thoughts.each do |thought| %>
+    <%= thought.title %>
+    <%# Checks if the current thought: @thought is connected to the potential parents %>
+    <%# If it is, it shows the disconnect button, if not, the connect button %>
+    <% if !thought.is_connected?(@thought.id) %>
+      <form action="/thoughts/<%= thought.id %>/connect" method='post'>
+          <input type="text" name='selected_id' value='<%= @thought.id %>' class='' id='child_thought_connect'>
+        <input type="submit" name='commit' value='Connect' class=''>
+      </form>
+    <% else %>
+      <form action="/thoughts/<%= thought.id %>/disconnect" method='post'>
+          <input type="text" name='selected_id' value='<%= @thought.id %>' class='' id='child_thought_disconnect'>
+        <input type="submit" name='commit' value='Disconnect' class=''>
+      </form>
+    <% end %>
+  <% end %>
+</ul>
