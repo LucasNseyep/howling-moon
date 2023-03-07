@@ -6,9 +6,9 @@ class CreateConnections < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    
+
     add_index :connections, :parent_id
     add_index :connections, :child_id
-    add_index :connections, [:parent_id, :child_id], unique: true
+    add_index :connections, [:child_id, :parent_id], unique: true
   end
 end
