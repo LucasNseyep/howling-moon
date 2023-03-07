@@ -1,0 +1,10 @@
+<h1>Hi <%= current_user.username %></h1>
+
+<h3>Here are your last 10 cards:</h3>
+
+<ul>
+  <% @thoughts.last(10).each do |thought| %>
+    <li><%= link_to(thought.title, thought_path(thought)) %></li>
+    <li><%= thought.content %></li>
+  <% end %>
+</ul>
