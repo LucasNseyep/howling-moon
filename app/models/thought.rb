@@ -15,15 +15,15 @@ class Thought < ApplicationRecord
   # has_many :children, through: :child_relationships, source: :children
 
   def connect(thought_id)
-    parent_relationship.create!(parent_id: thought_id)
+    Connection.create!(parent_id: thought_id, child_id: id)
   end
 
   def disconnect(thought_id)
-    parent_relationship.find_by(parent_id: thought_id).destroy
+    Connection.find_by(parent_id: thought_id.to_i, child_id: id).destroy
   end
 
   def is_connected?(thought_id)
-    relationship = Connection.find_by(parent_id: thought_id, child_id: id)
+    relationship = Connection.find_by(parent_id: thought_id.to_i, child_id: id)
     return true if relationship
   end
 
