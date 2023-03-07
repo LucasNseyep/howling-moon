@@ -5,18 +5,18 @@
   <% @thoughts.each do |thought| %>
     <%# <li data-thought=<%= thought.id %>
   <%= thought.title %>
-  <% if !@thought.is_connected?(thought.id) %>
+  <% if !thought.is_connected?(@thought.id) %>
     <%# <form action="/thoughts/<% @thought.id &>/connect method='post'></form> %>
-    <form action="/thoughts/<%= @thought.id %>/connect" method='post'>
+    <form action="/thoughts/<%= thought.id %>/connect" method='post'>
       <%# <div class="hidden"> %>
-        <input type="text" name='selected_id' value='<%= thought.id %>' class='' id='parent_thought_connect'>
+        <input type="text" name='selected_id' value='<%= @thought.id %>' class='' id='child_thought_connect'>
       <%# </div> %>
       <input type="submit" name='commit' value='Connect' class=''>
     </form>
   <% else %>
-    <form action="/thoughts/<%= @thought.id %>/disconnect" method='post'>
+    <form action="/thoughts/<%= thought.id %>/disconnect" method='post'>
       <%# <div class="hidden"> %>
-        <input type="text" name='selected_id' value='<%= thought.id %>' class='' id='parent_thought_disconnect'>
+        <input type="text" name='selected_id' value='<%= @thought.id %>' class='' id='child_thought_disconnect'>
       <%# </div> %>
       <input type="submit" name='commit' value='Disconnect' class=''>
     </form>

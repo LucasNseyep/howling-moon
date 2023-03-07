@@ -11,7 +11,8 @@ class ThoughtsController < ApplicationController
 
   def connect
     # raise
-    if @thought.connect(params[:selected_id])
+    set_selected_thought
+    if @thought.connect(@selected_thought.id)
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
@@ -20,7 +21,8 @@ class ThoughtsController < ApplicationController
   end
 
   def disconnect
-    if @thought.disconnect(params[:selected_id])
+    set_selected_thought
+    if @thought.disconnect(@selected_thought.id)
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js { render action: :connect }
@@ -32,5 +34,9 @@ class ThoughtsController < ApplicationController
 
   def set_thought
     @thought = Thought.find(params[:id])
+  end
+
+  def set_selected_thought
+    @selected_thought = Thought.find(params[:selected_id])
   end
 end
