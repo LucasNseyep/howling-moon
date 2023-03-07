@@ -1,16 +1,17 @@
 class ThoughtsController < ApplicationController
   before_action :set_thought, only: [:browse, :connect, :disconnect, :show]
 
+  #shows cards that are not ourself with our connections to them
   def browse
     @thoughts = Thought.where.not(id: @thought.id)
-    # raise
   end
+
 
   def show
   end
 
+  #Used in the post requests to redirect on connect
   def connect
-    # raise
     set_selected_thought
     if @thought.connect(@selected_thought.id)
       respond_to do |format|
@@ -20,6 +21,7 @@ class ThoughtsController < ApplicationController
     end
   end
 
+  #Used in the post requests to redirect on disconnect
   def disconnect
     set_selected_thought
     if @thought.disconnect(@selected_thought.id)
