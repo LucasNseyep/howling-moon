@@ -6,6 +6,17 @@ class ThoughtsController < ApplicationController
     @thoughts = Thought.where.not(id: @thought.id)
   end
 
+  def index
+    @thoughts = Thought.all
+  end
+
+  def new
+    @thought = Thought.new
+  end
+
+  def create
+
+  end
 
   def show
   end

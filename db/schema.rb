@@ -26,8 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_152646) do
     t.integer "child_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["child_id", "parent_id"], name: "index_connections_on_child_id_and_parent_id", unique: true
     t.index ["child_id"], name: "index_connections_on_child_id"
-    t.index ["parent_id", "child_id"], name: "index_connections_on_parent_id_and_child_id", unique: true
     t.index ["parent_id"], name: "index_connections_on_parent_id"
   end
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_152646) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", null: false
+    t.string "username", default: "", null: false
     t.string "first_name", default: ""
     t.string "last_name", default: ""
     t.string "email", default: "", null: false
