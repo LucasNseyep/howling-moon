@@ -12,10 +12,10 @@
       <div class="buttons">
         <%= link_to "Delete",
             thought_path(@thought),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        <%= link_to "Edit", edit_thought_path(@thought) %>
-        <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought) %>
-        <%= link_to "See all thoughts", thoughts_path %>
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button" %>
+        <%= link_to "Edit", edit_thought_path(@thought), class:"button" %>
+        <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
+        <%= link_to "See all thoughts", thoughts_path, class:"button" %>
       </div>
     </div>
 
