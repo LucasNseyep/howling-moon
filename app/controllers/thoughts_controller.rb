@@ -26,6 +26,22 @@ class ThoughtsController < ApplicationController
     redirect_to thought_path(@thought)
   end
 
+  def edit
+    @thought = Thought.find(params[:id])
+  end
+
+  def update
+    @thought = Thought.find(params[:id])
+    @thought.update(thought_params)
+    redirect_to thought_path(@thought)
+  end
+
+  def destroy
+    @thought = Thought.find(params[:id])
+    @thought.destroy
+    redirect_to thoughts_path status: :see_other
+  end
+
   #Used in the post requests to redirect on connect
   def connect
     set_selected_thought
