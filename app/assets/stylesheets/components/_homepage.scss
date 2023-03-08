@@ -1,9 +1,15 @@
+.container-home {
+  overflow-y: hidden;
+}
+
 .section1 {
-  background-image: url(note-home_med.jpg);
-  background-size: cover;
+  background-image: url(note-home.jpg);
+  background-size: 130%;
+  background-position: -280px -160px;
+  background-repeat: no-repeat;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
-  padding-top: 80px;
+  padding-top: 30px;
 
   .homeheader {
     font-family: $font;
@@ -18,26 +24,19 @@
     margin-top: 30px;
   }
 
-  .content__wrapper {
-      max-width: 1200px;
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
-      position: relative;
-  }
-
   .ellipses-container {
       width: 50rem;
       height: 50rem;
       border-radius: 50%;
       margin: 0 auto;
+      margin-top: -100px;
       position: relative;
       top: 10.5rem;
 
       .greeting {
           position: absolute;
           top: 11.6rem;
-          left: 9rem;
+          left: 11rem;
           margin: 0 auto;
           text-transform: uppercase;
           letter-spacing: 1rem;
@@ -54,7 +53,7 @@
               background-color: #000000b3;
               position: relative;
               top: -0.65rem;
-              left: -5.05rem;
+              left: -7.3rem;
           }
       }
 
@@ -103,7 +102,7 @@
       height: 2.5rem;
       border-width: 2px;
       border-color: #000000;
-      top: 5rem;
+      top: 5.4rem;
       right: 6.75rem;
 
       &:before {
@@ -145,7 +144,7 @@
 
   .homecloser {
     font-family: $font;
-    font-size: 16px;
+    font-size: 20px;
     font-style: italic;
     font-weight: 600;
     line-height: 20px;
@@ -164,11 +163,16 @@
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+
 
   .leftpc {
     width: 20px;
     height: 20px;
+  }
+
+  .rightpic {
+
   }
 
   .section2-header {
