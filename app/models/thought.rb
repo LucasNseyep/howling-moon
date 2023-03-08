@@ -1,6 +1,6 @@
 class Thought < ApplicationRecord
   belongs_to :user
-  # belongs_to :collection
+  belongs_to :collection
 
   #Tis section makes subtables of connections for parents and children
   #https://3rd-edition.railstutorial.org/book/following_users#fig-user_has_many_followers
