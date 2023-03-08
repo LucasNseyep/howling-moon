@@ -23,8 +23,7 @@
       <h3 class="mb-4">Your parent is: </h3>
       <div class="small-card">
         <% if @thought.parent %>
-          <p><%= @thought.parent.title %></p>
-          <p><%= @thought.parent.content %></p>
+          <p><%= @thought.parent.content[0,100] + "..." %></p>
         <% end %>
       </div>
     </div>
