@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_151517) do
     t.string "title"
     t.text "content"
     t.bigint "user_id", null: false
-    t.bigint "collection_id"
+    t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collection_id"], name: "index_thoughts_on_collection_id"
