@@ -156,7 +156,6 @@
 }
 
 
-
 .section2 {
   background-color: #000000;
   height: 800px;
@@ -344,6 +343,42 @@
         text-align: center;
         color: #FFFFFFBF;
       }
+    }
+  }
+}
+
+.section3 {
+  background: url(note-review.jpg);
+  background-size: cover;
+  height: 800px;
+  // align-items: end;
+  $font: Arial, Helvetica, sans-serif;
+
+  // display: flex;
+  // justify-content: center;
+
+  .testimonal {
+    position: relative;
+    top: 280px;
+    right: 20px;
+    height: 400px;
+    width: 45%;
+    margin: 0 auto;
+    // background-color: aquamarine;
+  }
+
+  #carouselExampleIndicators {
+    width: 100%;
+    padding: 72px;
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 250px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
