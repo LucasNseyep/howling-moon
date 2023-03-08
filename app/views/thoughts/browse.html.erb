@@ -1,17 +1,21 @@
-<h1>Browse thoughts to connect to: <%= @thought.title %></h1>
-<h1>Thoughts:</h1>
-<ul>
-  <% @thoughts.each do |thought| %>
-    <% if !thought.is_connected?(@thought.id) %>
-      <form action="/thoughts/<%= thought.id %>/connect" method='post'>
-          <input type="hidden" name='selected_id' value='<%= @thought.id %>' id='child_thought_connect'>
-        <input class="small-card" type="submit" name='commit' value='<%= thought.title %>' class=''>
-      </form>
-    <% else %>
-      <form action="/thoughts/<%= thought.id %>/disconnect" method='post'>
-          <input type="hidden" name='selected_id' value='<%= @thought.id %>' id='child_thought_disconnect'>
-        <input class="small-card" type="submit" name='commit' value='<%= thought.content %>' class=''>
-      </form>
-    <% end %>
-  <% end %>
-</ul>
+<div class="page-container">
+  <div class="container">
+    <h1>Browse thoughts to connect to: <%= @thought.title %></h1>
+    <h1>Thoughts:</h1>
+  </div>
+  <div class="container">
+    <div class="row gy-3">
+      <% @thoughts.each do |thought| %>
+        <% if !thought.is_connected?(@thought.id) %>
+          <div class="col-3 d-flex justify-content-center mb-3">
+          <%= button_to thought.content, connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+          </div>
+        <% else %>
+          <div class="col-3 d-flex justify-content-center mb-3">
+          <%= link_to thought.content, disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
