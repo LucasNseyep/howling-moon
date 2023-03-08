@@ -24,20 +24,20 @@
     <h1>Welcome, <%= current_user.username %></h1>
   </div>
 
-  <div class="cards-container container">
+  <div class="container">
     <div class="row gy-5">
-    <div class="col-3 d-flex justify-content-center mb-3">
-      <div class="new-thought-card">
-        Start a new thought
-        <%= link_to '', new_thought_path, class: 'new-thought-card-link' %>
+      <div class="col-3 d-flex justify-content-center mb-3">
+        <div class="new-thought-card">
+          Start a new thought
+          <%= link_to '', new_thought_path, class: 'new-thought-card-link' %>
+        </div>
       </div>
-    </div>
 
       <% @thoughts.reverse.each do |thought| %>
         <div class="col-3 d-flex justify-content-center mb-3">
           <div class="small-card">
-            <p><%= thought.title %></p>
-            <p><%= thought.content %></p>
+            <p class="card-title"><%= thought.title %></p>
+            <p class="card-content"><%= thought.content %></p>
             <%= link_to '', thought_path(thought), class: 'small-card-link' %>
           </div>
         </div>

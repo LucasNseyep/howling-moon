@@ -1,10 +1,15 @@
 .new-thought-card {
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 300px;
   height: 200px;
   border-radius: 20px;
-  background-color: $light-grey;
-  color: $dark-grey;
+  background-color: $black;
+  color: $white;
+  border: none;
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
 }
 
