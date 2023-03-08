@@ -1,5 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 fixed-top">
-  <div class="container-fluid">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 navbar-fixed-top">
+  <div class="container-fluid text-center">
     <%= link_to user_signed_in? ? "" : "/", class: "navbar-brand fw-bolder" do %>
       <div class="logo-container">
         <span class="fa-stack fa-md">
@@ -16,7 +16,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-items-group" >
+          <li class="nav-items-group d-flex" >
+            <%# <%= link_to "Search", "#", :class=>"nav-items-list search", :style=>"text-decoration: none;" %>
+            <div>
+              <input type="text" class="searchbar">
+              <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
             <%= link_to "+", "#", :class=>"nav-items-list plus", :style=>"text-decoration: none;" %>
             <%= link_to "Collections", "#", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
           </li>
@@ -40,4 +45,4 @@
     </div>
   </div>
 </div>
-<div style="height: 105px"></div>
+<div style="height: 65px"></div>

@@ -6,8 +6,24 @@ class ThoughtsController < ApplicationController
     @thoughts = Thought.where.not(id: @thought.id)
   end
 
+  def index
+    @thoughts = Thought.all
+  end
+
 
   def show
+  end
+
+  def new
+    @thought = Thought.new
+  end
+
+  def create
+    @thought = Thought.new(thought_params)
+    @thought.user = current_user
+    @thought.save
+
+    redirect_to thought_path(@thought)
   end
 
   #Used in the post requests to redirect on connect
@@ -15,7 +31,7 @@ class ThoughtsController < ApplicationController
     set_selected_thought
     if @thought.connect(@selected_thought.id)
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { redirect_to thought_path(@selected_thought) }
         format.js
       end
     end
@@ -26,7 +42,7 @@ class ThoughtsController < ApplicationController
     set_selected_thought
     if @thought.disconnect(@selected_thought.id)
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { redirect_to thought_path(@selected_thought) }
         format.js { render action: :connect }
       end
     end
@@ -40,5 +56,9 @@ class ThoughtsController < ApplicationController
 
   def set_selected_thought
     @selected_thought = Thought.find(params[:selected_id])
+  end
+
+  def thought_params
+    params.require(:thought).permit(:title, :content)
   end
 end
