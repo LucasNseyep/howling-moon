@@ -13,3 +13,9 @@
 @import "components/button";
 @import "components/close_button";
 @import "components/new_note_button";
+@import "components/main_card";
+@import "components/small_card";
+
+body {
+  background-color: white;
+}

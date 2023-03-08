@@ -1,27 +1,32 @@
-<div class="container d-flex">
-  <div class="container text-center">
-    <h1>This is the show page for thought n<%= @thought.id %>:</h1>
-    <h1>Title: <%= @thought.title %></h1>
-    <p>Content: <%= @thought.content %></p>
-    <% if @thought.parent %>
-      <p>Your parent is: <%= @thought.parent.title %></p>
-      <p><%= @thought.parent.content %></p>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <%# <>This is the show page for thought n<%= @thought.id %>
+        <div class="card-body">
+          <h1>Title: <%= @thought.title %></h1>
+          <p class="card-text">Content: <%= @thought.content %></p>
+        </div>
+      </div>
 
-    <%= link_to "Delete",
-        thought_path(@thought),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
+      <div class="buttons">
+        <%= link_to "Delete",
+            thought_path(@thought),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <%= link_to "Edit", edit_thought_path(@thought) %>
+        <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought) %>
+        <%= link_to "See all thoughts", thoughts_path %>
+      </div>
+    </div>
 
-    <%= link_to "Edit",
-        edit_thought_path(@thought)
-    %>
-
-    <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought) %>
-    <%= link_to "See all thoughts", thoughts_path %>
-  </div>
-
-  <div class="container">
-    <h1>hi!</h1>
+    <div class="col-4 mt-1">
+      <p>Your parent is: </p>
+      <div class="small-card">
+        <% if @thought.parent %>
+          <p><%= @thought.parent.title %></p>
+          <p><%= @thought.parent.content %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
