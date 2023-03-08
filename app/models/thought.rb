@@ -27,4 +27,37 @@ class Thought < ApplicationRecord
     return true if relationship
   end
 
+  def root
+    thought = self
+    return thought if thought.parent.nil?
+
+    until thought.parent.nil?
+      thought = thought.parent
+    end
+    return thought
+  end
+
+  def ancestors
+    thought = self
+    path = []
+
+    until thought.parent.nil?
+      thought = thought.parent
+      path.append(thought)
+    end
+    return path.reverse
+  end
+
+  def path
+    return ancestors.append(self)
+  end
+
+  #Can we refactor to use join of Thoughts and Connection models
+  def self.roots
+    roots = []
+    Thought.all.each do |thought|
+      roots.append(thought) if thought.parent.nil?
+    end
+    return roots
+  end
 end
