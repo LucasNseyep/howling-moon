@@ -164,22 +164,23 @@
   $font: Arial, Helvetica, sans-serif;
   padding-top: 30px;
 
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-
+  .pc {
+    display: flex;
+    justify-content: space-evenly;
+    // @media
+  }
 
   .leftpic, .rightpc {
     width: 100%;
   }
 
   .leftpc img {
-    width: 40%;
+    width: 80%;
     height: auto;
   }
 
   .rightpc img {
-    width: 40%;
+    width: 80%;
     height: auto;
   }
   .section2-header {
@@ -193,9 +194,9 @@
   }
 
   .infogrid {
-    display: flex;
+    // display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 
     .simpletxt {
       .fa-face-smile {
