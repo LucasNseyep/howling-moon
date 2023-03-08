@@ -8,6 +8,7 @@
 @import "font-awesome";
 
 // Your CSS partials
+// Import index here and import the components inside the index
 @import "components/index";
 @import "pages/index";
 @import "components/button";
@@ -15,6 +16,8 @@
 @import "components/new_note_button";
 @import "components/main_card";
 @import "components/small_card";
+@import "pages/home";
+
 
 body {
   background-color: white;
