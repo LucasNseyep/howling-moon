@@ -162,19 +162,26 @@
   height: 800px;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
+  padding-top: 30px;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
 
 
-  .leftpc {
-    width: 20px;
-    height: 20px;
+  .leftpic, .rightpc {
+    width: 100%;
   }
 
-  .rightpic {
-
+  .leftpc img {
+    width: 40%;
+    height: auto;
   }
 
+  .rightpc img {
+    width: 40%;
+    height: auto;
+  }
   .section2-header {
     font-family: $font;
     font-size: 16px;
@@ -183,5 +190,155 @@
     letter-spacing: 0em;
     text-align: center;
     color: #FFFFFFBF;
+  }
+
+  .infogrid {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .simpletxt {
+      .fa-face-smile {
+        color: #FFFFFFBF;
+      }
+
+      .simpletxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .simpletxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .chaintxt {
+      .fa-link {
+        color: #FFFFFFBF;
+      }
+
+      .chaintxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .chaintxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .chronologytxt {
+      .fa-calendar-check {
+        color: #FFFFFFBF;
+      }
+
+      .chronologytxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .chronologytxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .securetxt {
+      .fa-lock {
+        color: #FFFFFFBF;
+      }
+
+      .securetxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .securetxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .desktoptxt {
+      .fa-computer {
+        color: #FFFFFFBF;
+      }
+
+      .desktoptxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .desktoptxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .freetxt {
+      .fa-piggy-bank {
+        color: #FFFFFFBF;
+      }
+
+      .freetxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .freetxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
   }
 }
