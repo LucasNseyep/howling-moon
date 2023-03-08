@@ -162,7 +162,7 @@
   height: 800px;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
-  padding-top: 30px;
+  padding-top: 82px;
 
   .pc {
     display: flex;
@@ -183,20 +183,24 @@
     width: 80%;
     height: auto;
   }
+
+  .section2-head {
+    padding: 45px;
+    padding-top: 24px;
+  }
+
   .section2-header {
     font-family: $font;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 20px;
     letter-spacing: 0em;
     text-align: center;
-    color: #FFFFFFBF;
+    color: $light-grey;
   }
 
   .infogrid {
-    // display: flex;
     justify-content: space-evenly;
-    // flex-wrap: wrap;
 
     .simpletxt {
       .fa-face-smile {
