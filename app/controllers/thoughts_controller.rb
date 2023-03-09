@@ -61,9 +61,10 @@ class ThoughtsController < ApplicationController
     if @thought.disconnect(@selected_thought.id)
       respond_to do |format|
         @selected_thought.collection = nil
+        @selected_thought.save
         format.html { redirect_to thought_path(@selected_thought) }
         format.js { render action: :disconnect }
-        raise
+        # raise
       end
     end
   end
@@ -77,8 +78,8 @@ class ThoughtsController < ApplicationController
     if @thought.parent
       @thought.collection = @thought.parent.collection
     else
+      # @thought.collection_id = nil
       @thought.collection = Collection.create
-      # @thought.collection = Collection.create
     end
   end
 
