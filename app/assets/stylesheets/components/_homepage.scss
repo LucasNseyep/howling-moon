@@ -366,21 +366,22 @@
 .section3 {
   background: url(note-review.jpg);
   background-size: cover;
-  height: 800px;
-  // align-items: end;
+  // height: 800px;
+  height: 100vh;  //new
+  background-position-y: -55px; //new
+  background-repeat: no-repeat; //new
+
   $font: Arial, Helvetica, sans-serif;
 
-  // display: flex;
-  // justify-content: center;
 
   .testimonal {
     position: relative;
-    top: 250px;
-    right: 20px;
-    height: 400px;
+    // top: 250px;
+    top: 150px; //new
+    // right: 20px;
+    right: 75px; //new
     width: 45%;
     margin: 0 auto;
-    // background-color: white;
   }
 
   #carouselExampleIndicators {
