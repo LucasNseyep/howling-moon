@@ -3,13 +3,18 @@
 }
 
 .section1 {
-  background-image: url(note-home.jpg);
-  background-size: 130%;
-  background-position: -280px -160px;
+  background-image: url(sky_unsplash.jpg);
+  height: 100vh;
+  padding-top: 40px;
+  background-size: cover;
+  background-position: 0px -160px;
+
+  // background-size: 130%;
+  // background-position: -280px -160px;
   background-repeat: no-repeat;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
-  padding-top: 30px;
+  // padding-top: 30px;
 
   .homeheader {
     font-family: $font;
@@ -151,7 +156,8 @@
     letter-spacing: 0em;
     text-align: center;
     margin: 0;
-    padding-bottom: 50px;
+    // padding-bottom: 50px;
+    padding-top: 270px;
   }
 }
 
