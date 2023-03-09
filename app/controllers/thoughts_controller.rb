@@ -21,7 +21,7 @@ class ThoughtsController < ApplicationController
   def create
     @thought = Thought.new(thought_params)
     @thought.user = current_user
-    add_collection
+    # add_collection
     @thought.save
 
     redirect_to thought_path(@thought)
@@ -33,7 +33,7 @@ class ThoughtsController < ApplicationController
 
   def update
     @thought = Thought.find(params[:id])
-    add_collection
+    # add_collection
     @thought.update(thought_params)
     redirect_to thought_path(@thought)
   end
@@ -47,10 +47,12 @@ class ThoughtsController < ApplicationController
   #Used in the post requests to redirect on connect
   def connect
     set_selected_thought
+    # add_collection
+    @selected_thought.collection = Collection.create
+    @thought.collection = @selected_thought.collection
+    @selected_thought.save
+    @thought.save
     if @thought.connect(@selected_thought.id)
-      add_collection
-      @thought.save
-      @selected_thought.save
       respond_to do |format|
         format.html { redirect_to thought_path(@selected_thought) }
         format.js
@@ -78,13 +80,13 @@ class ThoughtsController < ApplicationController
   # HOW TO FIND THE ORIGINAL THE COLLECTION ID?
   # SOMETHING TO DO WITH CONNECCTIONS?
   def add_collection
-    if @thought.parent
-      @thought.parent.collection = Collection.create
-      @thought.collection = @thought.parent.collection
-    else
-      @thought.collection_id = nil
+    # if @thought.parent
+      @thought.collection = Collection.create
+      # @thought.collection = @thought.parent.collection
+    # else
+    #   @thought.collection_id = nil
       # @thought.collection = Collection.create
-    end
+    # end
   end
 
   private
