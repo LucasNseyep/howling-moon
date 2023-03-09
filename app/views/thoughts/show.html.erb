@@ -10,23 +10,23 @@
       </div>
 
       <div class="buttons">
+        <%= link_to "Back to all thoughts", thoughts_path, class:"button" %>
+        <%= link_to "Edit", edit_thought_path(@thought), class:"button" %>
+        <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
         <%= link_to "Delete",
             thought_path(@thought),
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button" %>
-        <%= link_to "Edit", edit_thought_path(@thought), class:"button" %>
-        <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
-        <%= link_to "See all thoughts", thoughts_path, class:"button" %>
       </div>
     </div>
 
     <div class="col-4 mt-1">
-      <h3 class="mb-4">Your parent is: </h3>
-      <div class="small-card">
         <% if @thought.parent %>
-          <p><%= @thought.parent.title %></p>
-          <p><%= @thought.parent.content %></p>
+          <h3 class="mb-4">Your parent is: </h3>
+          <div class="small-card">
+            <p><%= @thought.parent.title %></p>
+            <p><%= @thought.parent.content %></p>
+          </div>
         <% end %>
-      </div>
     </div>
   </div>
 </div>
