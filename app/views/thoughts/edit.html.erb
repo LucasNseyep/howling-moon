@@ -1,10 +1,10 @@
 <div class="new-page-container container">
   <%= form_with model: @thought do |f| %>
   <div class="left-side">
-    <div class="thought-container form-card-main">
-      <%= f.text_field :title, class: 'form-card-title' %>
+    <div class="form-card-main">
+        <%= f.text_field :title, class: 'form-card-title' %>
       <hr class="line">
-      <%= f.text_field :content, class: 'form-card-text' %>
+      <%= f.text_area :content, size: "20x7", class: 'form-card-text' %>
     </div>
     <div class="buttons-container">
       <%= link_to 'Cancel', thoughts_path, class: 'cancel-btn' %>
@@ -16,14 +16,20 @@
     <div class="link-thoughts-title-container mb-3">
       <h3>Linked thoughts</h3>
     </div>
-    <!--
-    Commented for now because there's no functionality
     <div class="search-container">
       Enter keywords...
     </div>
-    -->
     <div class="cards-to-link-container empty-links-box">
       No thoughts to link
     </div>
   </div>
 </div>
+
+
+<!--
+  <%= form_with model: @thought do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+  <% end %>
+-->

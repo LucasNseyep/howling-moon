@@ -1,19 +1,10 @@
-<%= form_with model: @thought do |f| %>
-<%= f.text_field :title %>
-<%= f.text_field :content %>
-<%= f.submit %>
-<% end %>
-
-
-
-<!--
 <div class="new-page-container container">
-
+  <%= form_with model: @thought do |f| %>
   <div class="left-side">
-    <div class="thought-container form-card-main">
+    <div class="form-card-main">
         <%= f.text_field :title, placeholder: 'Title of your card', class: 'form-card-title' %>
       <hr class="line">
-      <%= f.text_field :content, placeholder: 'Say it in your own words...', class: 'form-card-text' %>
+      <%= f.text_area :content, size: "20x7", placeholder: 'Say it in your own words...', class: 'form-card-text' %>
     </div>
     <div class="buttons-container">
       <%= link_to 'Cancel', thoughts_path, class: 'cancel-btn' %>
@@ -33,4 +24,3 @@
     </div>
   </div>
 </div>
--->

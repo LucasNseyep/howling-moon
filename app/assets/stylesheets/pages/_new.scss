@@ -1,11 +1,17 @@
 .new-page-container {
-  padding-top: 34px;
+  padding-top: 50px;
   display: flex;
   justify-content: space-around;
 }
 
 .left-side {
   width: 805px;
+}
+
+.right-side {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .buttons-container {
@@ -16,12 +22,6 @@
 
 .cancel-btn {
   margin-right: 24px;
-}
-
-.right-side {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
 }
 
 .link-thoughts-title-container {
@@ -41,32 +41,21 @@
 }
 
 .form-card-title {
-  text-align: center;
-  padding: 26px 0;
+  width: 100%;
   border: none;
   background-color: #f2f2f2;
-  margin: 0;
   color: $black;
   font-size: 38px;
   font-style: bold;
-  line-height: 44px;
-  border-radius: 20px;
+  border: none;
 }
 
 .form-card-text {
   background-color: #f2f2f2;
   border: none;
-  // position: absolute;
-  // left: 7.45%;
-  // right: 0%;
-  // top: 32.13%;
-  // bottom: 0%;
-  padding-left: 7.45%;
-  padding-right: 7.45%;
-  padding-top: 26px;
   font-size: 28px;
   color: $black;
-  border-radius: 20px;
+  width: 100%;
 }
 
 *:focus {
