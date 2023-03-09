@@ -48,6 +48,9 @@ class ThoughtsController < ApplicationController
   def connect
     set_selected_thought
     if @thought.connect(@selected_thought.id)
+      add_collection
+      @thought.save
+      @selected_thought.save
       respond_to do |format|
         format.html { redirect_to thought_path(@selected_thought) }
         format.js
@@ -76,10 +79,11 @@ class ThoughtsController < ApplicationController
   # SOMETHING TO DO WITH CONNECCTIONS?
   def add_collection
     if @thought.parent
+      @thought.parent.collection = Collection.create
       @thought.collection = @thought.parent.collection
     else
-      # @thought.collection_id = nil
-      @thought.collection = Collection.create
+      @thought.collection_id = nil
+      # @thought.collection = Collection.create
     end
   end
 
