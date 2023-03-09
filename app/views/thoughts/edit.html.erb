@@ -1,8 +1,8 @@
 <div class="new-page-container container">
   <%= form_with model: @thought do |f| %>
   <div class="left-side">
-    <div class="thought-container card">
-        <%= f.text_field :title, class: 'form-card-title' %>
+    <div class="thought-container form-card-main">
+      <%= f.text_field :title, class: 'form-card-title' %>
       <hr class="line">
       <%= f.text_field :content, class: 'form-card-text' %>
     </div>

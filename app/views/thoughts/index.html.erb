@@ -36,8 +36,7 @@
       <% @thoughts.reverse.each do |thought| %>
         <div class="col-3 d-flex justify-content-center mb-3">
           <div class="small-card">
-            <p class="small-card-title"><%= thought.title %></p>
-            <p class="small-card-content"><%= thought.content %></p>
+            <p class="card-content"><%= thought.content[0,100] + "..." %></p>
             <%= link_to '', thought_path(thought), class: 'small-card-link' %>
           </div>
         </div>

@@ -1,7 +1,16 @@
+<%= form_with model: @thought do |f| %>
+<%= f.text_field :title %>
+<%= f.text_field :content %>
+<%= f.submit %>
+<% end %>
+
+
+
+<!--
 <div class="new-page-container container">
-  <%= form_with model: @thought do |f| %>
+
   <div class="left-side">
-    <div class="thought-container card">
+    <div class="thought-container form-card-main">
         <%= f.text_field :title, placeholder: 'Title of your card', class: 'form-card-title' %>
       <hr class="line">
       <%= f.text_field :content, placeholder: 'Say it in your own words...', class: 'form-card-text' %>
@@ -16,14 +25,12 @@
     <div class="link-thoughts-title-container mb-3">
       <h3>Linked thoughts</h3>
     </div>
-    <!--
-    Commented for now because there's no functionality
     <div class="search-container">
       Enter keywords...
     </div>
-    -->
     <div class="cards-to-link-container empty-links-box">
       No thoughts to link
     </div>
   </div>
 </div>
+-->

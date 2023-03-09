@@ -3,11 +3,11 @@ class ThoughtsController < ApplicationController
 
   #shows cards that are not ourself with our connections to them
   def browse
-    @thoughts = Thought.where.not(id: @thought.id)
+    @thoughts = current_user.thoughts.where.not(id: @thought.id)
   end
 
   def index
-    @thoughts = Thought.all
+    @thoughts = current_user.thoughts
   end
 
 
@@ -21,6 +21,7 @@ class ThoughtsController < ApplicationController
   def create
     @thought = Thought.new(thought_params)
     @thought.user = current_user
+    add_collection
     @thought.save
 
     redirect_to thought_path(@thought)
@@ -32,6 +33,7 @@ class ThoughtsController < ApplicationController
 
   def update
     @thought = Thought.find(params[:id])
+    add_collection
     @thought.update(thought_params)
     redirect_to thought_path(@thought)
   end
@@ -64,10 +66,19 @@ class ThoughtsController < ApplicationController
     end
   end
 
+  def add_collection
+    if @thought.parent
+      @thought.collection = @thought.parent.collection
+    else
+      @thought.collection = Collection.create
+    end
+  end
+
   private
 
   def set_thought
     @thought = Thought.find(params[:id])
+    return if @thought.user = current_user
   end
 
   def set_selected_thought
