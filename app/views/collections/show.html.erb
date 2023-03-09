@@ -1,8 +1,10 @@
 <h1>Collection <%= @collection.id  %>:</h1>
 
-<%= @collection.title %>
+<h3><%= @collection.title %></h3>
 <br>
 <% @thoughts.each do |thought| %>
   <ul><h4><%= thought.title %></h4>
   <%= thought.content %></ul>
 <% end %>
+<br>
+<%= link_to "edit collection title and description", edit_collection_path(@collection) %>
