@@ -21,12 +21,12 @@ class CollectionsController < ApplicationController
 
  def destroy
   @collection = Collection.find(params[:id])
-  @collection.thoughts.each do |thought|
-    thought.collection_id = nil
-    thought.save
-  end
-  # @collection.save
-  # raise
+  # THINK THIS WILL WORK BUT NEED TO GO OVER IT ALL AGAIN TOMORROW
+  # CURRENTLY NOT LIKING THE DESTROY ON THE disconnect METHOD
+  # @collection.thoughts.each do |thought|
+  #   thought.disconnect(thought[:id])
+  #   thought.save
+  # end
   @collection.destroy
   redirect_to collections_path
  end
