@@ -1,29 +1,42 @@
+.container-home {
+  overflow-y: hidden;
+}
+
 .section1 {
-  background: url(note-home.jpg);
-  background-size: cover;
+  background-image: url(sky_unsplash.jpg); //new
+  height: 100vh;  //new
+  padding-top: 40px;  //new
+  background-size: cover; //new
+  background-position: 0px -160px;  //new
+
+  // background-size: 130%;
+  // background-position: -280px -160px;
+  background-repeat: no-repeat;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
-  padding-top: 80px;
+  // padding-top: 30px;
 
   .homeheader {
     font-family: $font;
-    font-size: 36px;
+    // font-size: 36px;
+    font-size: 24px; //new
     font-weight: 400;
-    line-height: 46px;
+    // line-height: 46px;
+    line-height: 24px; //new
     letter-spacing: 0em;
     text-align: center;
   }
 
   .btn-outline-primary {
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
-  .content__wrapper {
-      max-width: 1200px;
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
-      position: relative;
+  .maintitle { //new
+    text-align: center;
+    padding: 80px;
+    padding-top: 130px;
+    font-size: 45px;
+    font-family: monospace;
   }
 
   .ellipses-container {
@@ -31,13 +44,14 @@
       height: 50rem;
       border-radius: 50%;
       margin: 0 auto;
+      margin-top: -100px;
       position: relative;
       top: 10.5rem;
 
       .greeting {
           position: absolute;
           top: 11.6rem;
-          left: 9rem;
+          left: 11rem;
           margin: 0 auto;
           text-transform: uppercase;
           letter-spacing: 1rem;
@@ -54,7 +68,7 @@
               background-color: #000000b3;
               position: relative;
               top: -0.65rem;
-              left: -5.05rem;
+              left: -7.3rem;
           }
       }
 
@@ -103,7 +117,7 @@
       height: 2.5rem;
       border-width: 2px;
       border-color: #000000;
-      top: 5rem;
+      top: 5.4rem;
       right: 6.75rem;
 
       &:before {
@@ -145,17 +159,17 @@
 
   .homecloser {
     font-family: $font;
-    font-size: 16px;
+    font-size: 20px;
     font-style: italic;
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0em;
     text-align: center;
     margin: 0;
-    padding-bottom: 50px;
+    // padding-bottom: 50px;
+    padding-top: 142px; //new
   }
 }
-
 
 
 .section2 {
@@ -163,21 +177,225 @@
   height: 800px;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: flex-start;
+  padding-top: 82px;
 
-  .leftpc {
-    width: 20px;
-    height: 20px;
+  .pc {
+    display: flex;
+    justify-content: space-evenly;
+    // @media
+  }
+
+  .leftpic, .rightpc {
+    width: 100%;
+  }
+
+  .leftpc img {
+    width: 80%;
+    height: auto;
+  }
+
+  .rightpc img {
+    width: 80%;
+    height: auto;
+  }
+
+  .section2-head {
+    padding: 45px;
+    padding-top: 24px;
   }
 
   .section2-header {
     font-family: $font;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 20px;
     letter-spacing: 0em;
     text-align: center;
-    color: #FFFFFFBF;
+    color: $light-grey;
+  }
+
+  .infogrid {
+    justify-content: space-evenly;
+
+    .simpletxt {
+      .fa-face-smile {
+        color: #FFFFFFBF;
+      }
+
+      .simpletxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .simpletxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .chaintxt {
+      .fa-link {
+        color: #FFFFFFBF;
+      }
+
+      .chaintxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .chaintxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .chronologytxt {
+      .fa-calendar-check {
+        color: #FFFFFFBF;
+      }
+
+      .chronologytxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .chronologytxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .securetxt {
+      .fa-lock {
+        color: #FFFFFFBF;
+      }
+
+      .securetxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .securetxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .desktoptxt {
+      .fa-computer {
+        color: #FFFFFFBF;
+      }
+
+      .desktoptxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .desktoptxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+
+    .freetxt {
+      .fa-piggy-bank {
+        color: #FFFFFFBF;
+      }
+
+      .freetxt-h3 {
+        font-family: $font;
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+
+      .freetxt-p {
+        font-family: $font;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFFBF;
+      }
+    }
+  }
+}
+
+.section3 {
+  background: url(note-review.jpg);
+  background-size: cover;
+  // height: 800px;
+  height: 100vh;  //new
+  background-position-y: -55px; //new
+  background-repeat: no-repeat; //new
+
+  $font: Arial, Helvetica, sans-serif;
+
+
+  .testimonal {
+    position: relative;
+    // top: 250px;
+    top: 150px; //new
+    // right: 20px;
+    right: 75px; //new
+    width: 45%;
+    margin: 0 auto;
+  }
+
+  #carouselExampleIndicators {
+    width: 100%;
+    padding: 72px;
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 250px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
