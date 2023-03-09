@@ -1,1 +1,5 @@
 <h1>Collection <%= @collection.id  %>:</h1>
+<% @thoughts.each do |thought| %>
+  <ul><h4><%= thought.title %></h4>
+  <%= thought.content %></ul>
+<% end %>

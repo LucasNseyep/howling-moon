@@ -1,2 +1,6 @@
 <h1>Your Collections:</h1>
 
+<% @collections.each do |collection| %>
+  <%= link_to collection_path(collection.id) %>
+  <%= collection %>
+<% end %>

@@ -5,5 +5,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = current_user.collections.find(params[:id])
+    @thoughts = Thought.where(collection_id: @collection.id)
+    # raise
   end
 end
