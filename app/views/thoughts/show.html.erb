@@ -28,18 +28,22 @@
           </div>
         <% end %>
 
-        <div class="mb-4">--------------------------------------</div>
+      <div class="mb-4">--------------------------------------</div>
 
-        <% if @thought.ancestors.any? %>
-          <h3 class="mb-4">Ancestors:</h3>
-          <% @thought.ancestors.each do |ancestor| %>
-            <div class="small-card">
-              <p><%= ancestor.title %></p>
-              <p><%= ancestor.content %></p>
-            </div>
+      <div class="ancestor">
+          <% if @thought.ancestors.any? %>
+            <h3 class="mb-4">Ancestors:</h3>
+            <% @thought.ancestors.each do |ancestor| %>
+              <div class="small-card">
+                <p><%= ancestor.title %></p>
+                <p><%= ancestor.content %></p>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
+      </div>
     </div>
+
+
 
   </div>
 </div>
