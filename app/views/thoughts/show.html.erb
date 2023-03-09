@@ -23,6 +23,8 @@
         <% if @thought.parent %>
           <h3 class="mb-4">Your parent is: </h3>
           <div class="small-card">
+          <!-- HAVE AN ISSUE HERE WITH IT STILL SHOWING A PARENT WHEN
+          COLLECTION IDS ARE REMOVED -->
             <p><%= @thought.parent.title %></p>
             <p><%= @thought.parent.content[0,100] %></p>
           </div>
