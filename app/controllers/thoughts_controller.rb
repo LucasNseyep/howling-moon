@@ -47,9 +47,9 @@ class ThoughtsController < ApplicationController
   #Used in the post requests to redirect on connect
   def connect
     set_selected_thought
-    # add_collection
-    @selected_thought.collection = Collection.create
-    @thought.collection = @selected_thought.collection
+    add_collection
+    # @selected_thought.collection = Collection.create
+    # @thought.collection = @selected_thought.collection
     @selected_thought.save
     @thought.save
     if @thought.connect(@selected_thought.id)
@@ -80,13 +80,13 @@ class ThoughtsController < ApplicationController
   # HOW TO FIND THE ORIGINAL THE COLLECTION ID?
   # SOMETHING TO DO WITH CONNECCTIONS?
   def add_collection
-    # if @thought.parent
+    set_selected_thought
+    if @thought.collection == nil
       @thought.collection = Collection.create
-      # @thought.collection = @thought.parent.collection
-    # else
-    #   @thought.collection_id = nil
-      # @thought.collection = Collection.create
-    # end
+      @selected_thought.collection = @thought.collection
+    else
+      @selected_thought.collection = @thought.collection
+    end
   end
 
   private
