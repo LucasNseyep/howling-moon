@@ -23,8 +23,9 @@ class CollectionsController < ApplicationController
   @collection = Collection.find(params[:id])
   @collection.thoughts.each do |thought|
     thought.collection_id = nil
+    thought.save
   end
-  @collection.save
+  # @collection.save
   # raise
   @collection.destroy
   redirect_to collections_path
