@@ -3,11 +3,12 @@ class ThoughtsController < ApplicationController
 
   #shows cards that are not ourself with our connections to them
   def browse
-    @thoughts = Thought.where.not(id: @thought.id)
+    @thoughts = current_user.thoughts.where.not(id: @thought.id)
   end
 
   def index
-    @thoughts = Thought.all
+    @user = current_user
+    @thoughts = @user.thoughts
   end
 
 

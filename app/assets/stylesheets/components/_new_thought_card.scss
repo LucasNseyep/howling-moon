@@ -11,6 +11,16 @@
   color: $white;
   border: none;
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
+  border: 0;
+}
+
+.small-card-selected {
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: $light-grey;
+  color: $dark-grey;
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
 }
 
 .new-thought-card-link {
