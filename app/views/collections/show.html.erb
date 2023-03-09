@@ -1,4 +1,7 @@
 <h1>Collection <%= @collection.id  %>:</h1>
+
+<%= @collection.title %>
+<br>
 <% @thoughts.each do |thought| %>
   <ul><h4><%= thought.title %></h4>
   <%= thought.content %></ul>
