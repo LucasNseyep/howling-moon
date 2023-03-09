@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 navbar-fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 border-bottom fixed-top">
   <div class="container-fluid text-center">
-    <%= link_to user_signed_in? ? "" : "/", class: "navbar-brand fw-bolder" do %>
+    <%= link_to user_signed_in? ? "/thoughts" : "/", class: "navbar-brand fw-bolder" do %>
       <div class="logo-container">
         <span class="fa-stack fa-md">
           <i class="fa fa-circle fa-stack-2x"></i>
@@ -17,12 +17,14 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-items-group d-flex" >
-            <%# <%= link_to "Search", "#", :class=>"nav-items-list search", :style=>"text-decoration: none;" %>
+
+            <%# searchbar %>
             <div>
               <input type="text" class="searchbar">
-              <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-            <%= link_to "+", "#", :class=>"nav-items-list plus", :style=>"text-decoration: none;" %>
+
+            <button class="add-button">+</button>
             <%= link_to "Collections", "#", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
           </li>
           <li class="nav-item dropdown h-100">
@@ -45,4 +47,4 @@
     </div>
   </div>
 </div>
-<%# <div style="height: 65px"></div> %>
+<div style="height: 105px"></div>

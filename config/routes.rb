@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :thoughts, only: [:index, :show, :new, :create] do
+  resources :thoughts do
     member do
       post :connect
       post :disconnect
     end
   end
+
+  resources :collections, only: [:index, :show]
 
   get "/thoughts/:id/browse", to: "thoughts#browse", as: :browse_thoughts
 end

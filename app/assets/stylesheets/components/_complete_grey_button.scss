@@ -1,0 +1,14 @@
+.complete-grey-btn {
+  font-weight: 600;
+  font-size: larger;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 50px;
+  border: 1px solid $border;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: $white;
+}
