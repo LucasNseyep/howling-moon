@@ -4,12 +4,50 @@
   // position: relative;
   // width: 300px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
   height: 200px;
   padding: 20px;
   border-radius: 20px;
   background-color: $light-grey;
   color: $dark-grey;
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
+  border : 0;
+}
+
+.small-card-selected {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: $light-grey;
+  color: $dark-grey;
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
+}
+
+.small-card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.card-title {
+  align-self: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid $dark-grey;
+  padding-bottom: 2px;
+}
+
+.card-content {
+  align-self: flex-start;
 }
 
 .small-card-link {

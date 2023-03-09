@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :collections, only: [:index, :show]
+
   get "/thoughts/:id/browse", to: "thoughts#browse", as: :browse_thoughts
 end
