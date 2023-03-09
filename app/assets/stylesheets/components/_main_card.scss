@@ -1,9 +1,9 @@
 .card {
+  width: 805px;
+  height: 417px;
   position: sticky;
   left: 120px;
   top: 112px;
-  width: 805px;
-  height: 417px;
   background-color: #f2f2f2;
   border-radius: 20px;
   border: none;
@@ -13,25 +13,11 @@
 .line {
   position: absolute;
   left: 7.45%;
-  right: 7.33%;
-  top: 22%;
+  right: 7.45%;
+  top: 19%;
   bottom: 17.03%;
   height: 1px;
   background-color: $light-grey;
-}
-
-.card-text {
-  position: absolute;
-  left: 7.45%;
-  right: 7.33%;
-  top: 30%;
-  bottom: 17.03%;
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 33px;
-  color: $dark-grey;
 }
 
 .card-body {
@@ -39,6 +25,16 @@
   align-items: center;
 }
 
+.card-text {
+  font-size: 24px;
+  line-height: 33px;
+  color: $dark-grey;
+  position: absolute;
+  left: 7.45%;
+  right: 7.33%;
+  top: 32.13%;
+  bottom: 17.03%;
+}
 
 .buttons {
   margin-top: 60px;
