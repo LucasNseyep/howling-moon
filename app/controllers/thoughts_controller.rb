@@ -60,17 +60,25 @@ class ThoughtsController < ApplicationController
     set_selected_thought
     if @thought.disconnect(@selected_thought.id)
       respond_to do |format|
+        @selected_thought.collection = nil
         format.html { redirect_to thought_path(@selected_thought) }
-        format.js { render action: :connect }
+        format.js { render action: :disconnect }
+        raise
       end
     end
   end
 
+  # I THINK ITS TO DO WITH THIS, NEED IT TO START AS NIL SO ITS EASY TO SWITCH BACK TO
+  # WITHOUT A COLLECTION
+  # COULD SOLVE WITH A COLLECTION AT 1 THAT HAS EVERYTHING AUTOMATICALLY ON IT?
+  # HOW TO FIND THE ORIGINAL THE COLLECTION ID?
+  # SOMETHING TO DO WITH CONNECCTIONS?
   def add_collection
     if @thought.parent
       @thought.collection = @thought.parent.collection
     else
       @thought.collection = Collection.create
+      # @thought.collection = Collection.create
     end
   end
 
