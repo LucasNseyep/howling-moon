@@ -19,3 +19,8 @@ $border: #00000080;
 // $dark: #555555;
 // $accent: #DEC0F1;
 // $accent2: #5899E2;
+
+:export {
+  light-grey: $light-grey;
+  dark-grey: $dark-grey;
+}
