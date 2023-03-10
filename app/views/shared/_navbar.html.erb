@@ -25,7 +25,7 @@
             </div>
 
             <button class="add-button">+</button>
-            <%= link_to "Collections", "#", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
+            <%= link_to "Collections", collections_path, :class=>"nav-items-list", :style=>"text-decoration: none;" %>
           </li>
           <li class="nav-item dropdown h-100">
             <div class="dropdown-toggle menu-profile h-100" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,7 +33,7 @@
               <span class="navbar-toggler-icon"></span>
             </div>
               <div class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="navbarDropdown">
-                <%= link_to "My Collections", "#", class: "dropdown-item" %>
+                <%= link_to "My Collections", collections_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item btn-log-out", data: {turbo_method: :delete} %>
               </div>
           </li>
