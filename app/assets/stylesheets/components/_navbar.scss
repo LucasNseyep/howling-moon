@@ -47,6 +47,7 @@
 
 .menu-profile:hover {
   opacity: 1;
+  border: 1px solid #000000;
 }
 
 .nav-items-group {
@@ -64,7 +65,7 @@
 }
 
 .nav-items-list:hover {
-  color: #4B7246;
+  color: #000000;
   opacity: 1;
 }
 
@@ -76,10 +77,14 @@
  border: none;
  background-color: white;
  color: #9e9e9e;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 .add-button:hover {
-  border: 1px solid #4B7246;
+  border: 1px solid #000000;
+  color: #000000;
 }
 
 .round-button:before {
@@ -95,7 +100,7 @@ span {
   max-width:90%;
 }
 .round-button:active{
-  background-color: #4B7246;
+  background-color: #000000;
 }
 
 .fa-circle {
@@ -103,7 +108,7 @@ span {
 }
 
 .dropdown-item :active {
-  color: #4B7246;
+  color: #000000;
 }
 
 // searchbar

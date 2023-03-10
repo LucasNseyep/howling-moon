@@ -1,38 +1,73 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <div class="card-main">
-        <div class="card-body">
-          <h1>Title: <%= @thought.title %></h1>
-          <p class="card-text">Content: <%= @thought.content %></p>
+<div style="padding-top: 50px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="card-main">
+          <div class="card-body">
+            <h1 class="card-title" style=""><%= @thought.title %></h1>
+            <p class="card-text"><%= @thought.content %></p>
+          </div>
+        </div>
+
+        <div class="buttons-container">
+          <%= link_to "Back to all thoughts", thoughts_path, class:"button" %>
+          <%= link_to "Edit", edit_thought_path(@thought), class:"button" %>
+          <%# <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
+          <%= link_to "Delete",
+              thought_path(@thought),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button" %>
         </div>
       </div>
 
-      <div class="buttons">
-        <%= link_to "Back to all thoughts", thoughts_path, class:"button" %>
-        <%= link_to "Edit", edit_thought_path(@thought), class:"button" %>
-        <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
-        <%= link_to "Delete",
-            thought_path(@thought),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button" %>
+      <div class="col-4">
+        <div class="right-side">
+          <div class="link-thoughts-title-container">
+            <h3 class="mb-4">Your parent is: </h3>
+          </div>
+          <div class="small-card">
+            <% if @thought.parent %>
+              <p><%= @thought.parent.title %></p>
+              <p><%= @thought.parent.content[0,120] + "..." %></p>
+              <%= link_to '', thought_path(@thought.parent), class: 'small-card-link' %>
+            <% end %>
+          </div>
+          <div class="link-thoughts-title-container mt-4">
+            <h3 class="mb-4">Ancestors:</h3>
+          </div>
+          <div class="small-card-roll">
+            <% if @thought.ancestors.any? %>
+              <% @thought.ancestors.each do |ancestor| %>
+                <div class="small-card">
+                  <p><%= ancestor.title %></p>
+                  <p><%= ancestor.content[0,120] + "..." %></p>
+                  <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-4 mt-1">
-      <h3 class="mb-4">Your parent is: </h3>
-      <div class="small-card-roll">
-        <div class="small-card">
-          <% if @thought.parent %>
-            <p><%= @thought.parent.title %></p>
-            <p><%= @thought.parent.content[0,100] %></p>
-          </div>
-        <% end %>
 
-      <div class="mb-4">--------------------------------------</div>
+<!--
+      <div class="col-4" style="margin-left: 70px">
+        <h3 class="mb-4">Your parent is: </h3>
+          <div class="small-card">
+            <% if @thought.parent %>
+              <p><%= @thought.parent.title %></p>
+              <p><%= @thought.parent.content[0,100] %></p>
+            </div>
+          <% end %>
+
+        <%# <div class="mb-4">--------------------------------------</div> %>
 
       <div class="ancestor">
+        <h3 class="mb-4">Ancestors:</h3>
+        <div class="small-card-roll">
           <% if @thought.ancestors.any? %>
-            <h3 class="mb-4">Ancestors:</h3>
             <% @thought.ancestors.each do |ancestor| %>
               <div class="small-card">
                 <p><%= ancestor.title %></p>
@@ -40,10 +75,6 @@
               </div>
             <% end %>
           <% end %>
+        </div>
       </div>
-    </div>
-
-
-
-  </div>
-</div>
+-->
