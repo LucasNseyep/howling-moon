@@ -175,10 +175,11 @@
 
 .section2 {
   background-color: #000000;
-  height: 800px;
+  height: 500px;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
-  padding-top: 82px;
+  // padding-top: 82px;
+  padding-top: 30; //new
 
   .pc {
     display: flex;
@@ -207,7 +208,8 @@
 
   .section2-header {
     font-family: $font;
-    font-size: 12px;
+    // font-size: 12px;
+    font-size: 18px; //new
     font-weight: 700;
     line-height: 20px;
     letter-spacing: 0em;
@@ -365,10 +367,11 @@
 }
 
 .section3 {
-  background: url(note-review.jpg);
+  // background: url(white.jpg);
+  background-color: whitesmoke;
   background-size: cover;
   // height: 800px;
-  height: 100vh;  //new
+  height: 70vh;  //new
   background-position-y: -55px; //new
   background-repeat: no-repeat; //new
 
@@ -376,11 +379,9 @@
 
 
   .testimonal {
-    position: relative;
+    // position: relative;
     // top: 250px;
-    top: 150px; //new
     // right: 20px;
-    right: 75px; //new
     width: 45%;
     margin: 0 auto;
   }
