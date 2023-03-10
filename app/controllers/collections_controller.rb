@@ -2,7 +2,7 @@ require "json"
 
 class CollectionsController < ApplicationController
   def index
-    @collections = current_user.collections
+    @collections = current_user.collections.uniq
   end
 
   def show
@@ -14,14 +14,14 @@ class CollectionsController < ApplicationController
         {
           "name": thought.title,
           "parent": "null",
-          "url":"http://www.google.co.uk",
+          "url":"http://www.howlingmoon.xyz/thoughts/#{thought.id}",
           "content": thought.content
         }
       else
         {
           "name": thought.title,
           "parent": thought.parent.title,
-          "url":"http://www.google.co.uk",
+          "url":"http://www.howlingmoon.xyz/thoughts/#{thought.id}",
           "content": thought.content
         }
       end
