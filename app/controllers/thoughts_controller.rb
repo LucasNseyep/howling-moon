@@ -21,7 +21,7 @@ class ThoughtsController < ApplicationController
   def create
     @thought = Thought.new(thought_params)
     @thought.user = current_user
-    add_collection
+    # add_collection
     @thought.save
 
     redirect_to thought_path(@thought)
@@ -33,7 +33,7 @@ class ThoughtsController < ApplicationController
 
   def update
     @thought = Thought.find(params[:id])
-    add_collection
+    # add_collection
     @thought.update(thought_params)
     redirect_to thought_path(@thought)
   end
@@ -47,6 +47,11 @@ class ThoughtsController < ApplicationController
   #Used in the post requests to redirect on connect
   def connect
     set_selected_thought
+    add_collection
+    # @selected_thought.collection = Collection.create
+    # @thought.collection = @selected_thought.collection
+    @selected_thought.save
+    @thought.save
     if @thought.connect(@selected_thought.id)
       respond_to do |format|
         format.html { redirect_to thought_path(@selected_thought) }
@@ -60,17 +65,27 @@ class ThoughtsController < ApplicationController
     set_selected_thought
     if @thought.disconnect(@selected_thought.id)
       respond_to do |format|
+        @selected_thought.collection = nil
+        @selected_thought.save
         format.html { redirect_to thought_path(@selected_thought) }
-        format.js { render action: :connect }
+        format.js { render action: :disconnect }
+        # raise
       end
     end
   end
 
+  # I THINK ITS TO DO WITH THIS, NEED IT TO START AS NIL SO ITS EASY TO SWITCH BACK TO
+  # WITHOUT A COLLECTION
+  # COULD SOLVE WITH A COLLECTION AT 1 THAT HAS EVERYTHING AUTOMATICALLY ON IT?
+  # HOW TO FIND THE ORIGINAL THE COLLECTION ID?
+  # SOMETHING TO DO WITH CONNECCTIONS?
   def add_collection
-    if @thought.parent
-      @thought.collection = @thought.parent.collection
-    else
+    set_selected_thought
+    if @thought.collection == nil
       @thought.collection = Collection.create
+      @selected_thought.collection = @thought.collection
+    else
+      @selected_thought.collection = @thought.collection
     end
   end
 
