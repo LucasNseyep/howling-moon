@@ -10,6 +10,8 @@
   width: 300px;
   height: 200px;
   padding: 20px;
+  margin: 20px;
+  text-align: center;
   border-radius: 20px;
   background-color: $light-grey;
   color: $dark-grey;
@@ -38,7 +40,7 @@
   width: 100%;
 }
 
-.card-title {
+.small-card-title {
   align-self: center;
   margin-bottom: 12px;
   font-weight: 600;
@@ -46,7 +48,7 @@
   padding-bottom: 2px;
 }
 
-.card-content {
+.small-card-content {
   align-self: flex-start;
 }
 
