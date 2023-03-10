@@ -15,11 +15,11 @@ class CollectionsController < ApplicationController
   def create
     @collection = Collection.new(collection_params)
     # @collection.user = current_user
-    if @collection.save
+    @collection.save
       redirect_to collection_path(@collection)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def edit
