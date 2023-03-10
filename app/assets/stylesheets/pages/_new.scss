@@ -1,17 +1,18 @@
 .new-page-container {
   padding-top: 50px;
-  display: flex;
-  justify-content: space-around;
+  // display: flex;
+  // justify-content: space-around;
 }
 
-.left-side {
-  width: 805px;
-}
+// .left-side {
+//   width: 805px;
+// }
 
 .right-side {
   width: 300px;
   display: flex;
   flex-direction: column;
+  margin-left: 90px;
 }
 
 .buttons-container {
@@ -29,10 +30,10 @@
 }
 
 .form-card-main {
-  position: sticky;
-  left: 120px;
-  top: 112px;
-  width: 805px;
+  // position: sticky;
+  // left: 120px;
+  // top: 112px;
+  // width: 905px;
   height: 417px;
   background-color: #f2f2f2;
   border-radius: 20px;
@@ -41,21 +42,29 @@
 }
 
 .form-card-title {
-  width: 100%;
-  border: none;
   background-color: #f2f2f2;
-  color: $black;
-  font-size: 38px;
-  font-style: bold;
   border: none;
+  margin-bottom: 20px;
+  // color: $black;
+  // font-size: 38px;
+  // font-style: bold;
+  // text-align: center;
+  // border: none;
 }
 
 .form-card-text {
   background-color: #f2f2f2;
   border: none;
-  font-size: 28px;
-  color: $black;
-  width: 100%;
+  font-size: 24px;
+  color: $dark-grey;
+  // width: 380px;
+  // font-size: 24px;
+  // color: $dark-grey;
+  // width: 100%;
+  // margin-top: 40px;
+  // margin-bottom: 10px;
+  // padding-left: 22px;
+  // padding-right: 22px;
 }
 
 *:focus {
