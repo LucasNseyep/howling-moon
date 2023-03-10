@@ -1,0 +1,9 @@
+<%= @collection.title %>
+
+<%= link_to "Delete", collection_path(@collection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+<%= simple_form_for(@collection) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,2 +1,16 @@
 <h1>Your Collections:</h1>
 
+<% @collections.each do |collection| %>
+  <ul><%= link_to "view thoughts within the collection", collection_path(collection) %>
+  <%= collection.id %></ul>
+  <% if collection.title == nil %>
+    <%= simple_form_for(collection) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.button :submit %>
+    <% end %>
+  <% else %>
+    <%= collection.title %>
+    <%= collection.description %>
+  <% end %>
+<% end %>
