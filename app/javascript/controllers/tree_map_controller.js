@@ -6,16 +6,8 @@ export default class extends Controller {
     data: Array
   }
   connect() {
-    // console.log("Hi from tree-map-controller")
-    // const realData = document.getElementById('tree-data').dataset.treeData
-    // console.log(realData)
-    console.log(this.dataValue)
 
     let data = this.dataValue
-
-
-  // buildTree() {
-  //   let data = document.getElementById('tree-data').dataset.treeData
 
     let dataMap = data.reduce(function(map, node) {
       map[node.name] = node;
@@ -43,6 +35,44 @@ export default class extends Controller {
     height = 500 - margin.top - margin.bottom;
 
     let i = 0;
+
+    var Tooltip = d3.select("#col-tree-map")
+      .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("background-color", "#F2F2F2")
+      // .style("border", "solid")
+      // .style("border-width", "2px")
+      .style("border-radius", "20px")
+      .style("padding", "20px")
+      .style("width", "300px")
+      .style("position", "absolute")
+      .style("text-align", "center")
+      .style("color", "$dark-grey")
+      .style("filter", "drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04))" )
+      .style("left", "40px")
+
+
+    var mouseover = function(d) {
+      Tooltip
+        .style("opacity", 1)
+      d3.select(this)
+        .style("stroke", "black")
+        .style("opacity", 1)
+    }
+    var mousemove = function(d) {
+      Tooltip
+        .html(d.content)
+        .style("text-align", "center")
+    }
+
+    var mouseleave = function(d) {
+      Tooltip
+        .style("opacity", 0)
+      d3.select(this)
+        .style("stroke", "none")
+        .style("opacity", 0.8)
+    }
 
     let tree = d3.layout.tree()
     .size([height, width]);
@@ -80,20 +110,30 @@ export default class extends Controller {
       let nodeEnter = node.enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) {
-        return "translate(" + d.y + "," + d.x + ")"; });
+        return "translate(" + d.y + "," + d.x + ")"; })
+      .on("click", click)
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
 
-      nodeEnter.append("circle")
-      .attr("r", 10)
-      .style("fill", "#fff");
 
-      nodeEnter.append("text")
-      .attr("x", function(d) {
-        return d.children || d._children ? -13 : 13; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", function(d) {
-        return d.children || d._children ? "end" : "start"; })
+      nodeEnter.append("a")
+      .attr("xlink:href", function(d) { return d.url; })
+        .append("circle")
+        .attr("r", 10)
+        .style("fill", "#fff")
+        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; })
+        .on("click", click)
+      ;
+
+      nodeEnter.append("a")
+      .attr("xlink:href", function(d) { return d.url; })
+      .append("text")
+      .attr("class", "clickable")
+      .attr("y", 16)
+      .attr("x", function (d) { return d.children || d._children ? -10 : 10; })
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name; })
-      .style("fill-opacity", 1);
 
       // Declare the linksâ€¦
       let link = svg.selectAll("path.link")
@@ -104,6 +144,16 @@ export default class extends Controller {
       .attr("class", "link")
       .attr("d", diagonal);
 
+      function click(d) {
+        if (d.children) {
+          d._children = d.children;
+          d.children = null;
+        } else {
+          d.children = d._children;
+          d._children = null;
+        }
+        update(d);
+      }
     }
   }
 }

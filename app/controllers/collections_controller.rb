@@ -10,9 +10,19 @@ class CollectionsController < ApplicationController
 
     @data = @collection.thoughts.map do |thought|
       if thought.parent.nil?
-        { "name": thought.title, "parent": "null" }
+        {
+          "name": thought.title,
+          "parent": "null",
+          "url":"http://www.google.co.uk",
+          "content": thought.content
+        }
       else
-        { "name": thought.title, "parent": thought.parent.title }
+        {
+          "name": thought.title,
+          "parent": thought.parent.title,
+          "url":"http://www.google.co.uk",
+          "content": thought.content
+        }
       end
     end
 
