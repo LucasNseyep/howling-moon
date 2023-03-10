@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <div class="card">
-        <%# <>This is the show page for thought n<%= @thought.id %>
+      <div class="card-main">
         <div class="card-body">
           <h1>Title: <%= @thought.title %></h1>
           <p class="card-text">Content: <%= @thought.content %></p>
@@ -20,13 +19,15 @@
     </div>
 
     <div class="col-4 mt-1">
-        <% if @thought.parent %>
-          <h3 class="mb-4">Your parent is: </h3>
-          <div class="small-card">
+      <h3 class="mb-4">Your parent is: </h3>
+      <div class="small-card-roll">
+        <div class="small-card">
+          <% if @thought.parent %>
             <p><%= @thought.parent.title %></p>
-            <p><%= @thought.parent.content[0,100] %></p>
-          </div>
-        <% end %>
+            <p><%= @thought.parent.content %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
