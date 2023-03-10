@@ -1,0 +1,66 @@
+.new-page-container {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.left-side {
+  width: 805px;
+}
+
+.right-side {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 26px;
+}
+
+.cancel-btn {
+  margin-right: 24px;
+}
+
+.link-thoughts-title-container {
+  align-self: center;
+}
+
+.form-card-main {
+  position: sticky;
+  left: 120px;
+  top: 112px;
+  width: 805px;
+  height: 417px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 20px;
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
+}
+
+.form-card-title {
+  background-color: #f2f2f2;
+  color: $black;
+  font-size: 38px;
+  font-style: bold;
+  text-align: center;
+  border: none;
+}
+
+.form-card-text {
+  background-color: #f2f2f2;
+  border: none;
+  font-size: 28px;
+  color: $black;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+*:focus {
+  outline: none;
+}
