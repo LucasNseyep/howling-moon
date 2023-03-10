@@ -8,6 +8,20 @@ class CollectionsController < ApplicationController
     @thoughts = Thought.where(collection_id: @collection.id)
   end
 
+  def new
+    @collection = Collection.new
+  end
+
+  def create
+    @collection = Collection.new(collection_params)
+    # @collection.user = current_user
+    if @collection.save
+      redirect_to collection_path(@collection)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def edit
     @collection = Collection.find(params[:id])
   end
