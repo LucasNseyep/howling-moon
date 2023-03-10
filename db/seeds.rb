@@ -7,10 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Deleting all thoughts"
 Thought.delete_all
+Collection.delete_all
+Connection.delete_all
 
-lucas = User.create(email: "lucas.nseyep@gmail.com", password:"1234567", username: "Lucas" )
 
-post_lewagon_collection = Collection.new(title:"Post Le Wagon")
+lucas = User.create!(email: "lucas.nseyep@gmail.com", password:"1234567", username: "Lucas" )
+
+post_lewagon_collection = Collection.create!(title:"Post Le Wagon")
 
 puts "Creating thoughts"
 

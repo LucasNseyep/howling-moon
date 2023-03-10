@@ -1,2 +1,14 @@
 <h1>Your Collections:</h1>
 
+<% @collections.reverse.each do |collection| %>
+  <div class="small-card">
+  <% if collection.title %>
+      <p class="card-content"><%= collection.title %></p>
+      <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+    </div>
+  <% else %>
+      <p class="card-content"><%= collection.title %></p>
+      <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+    </div>
+  <% end %>
+<% end %>

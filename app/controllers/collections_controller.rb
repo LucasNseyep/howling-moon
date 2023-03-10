@@ -2,7 +2,7 @@ require "json"
 
 class CollectionsController < ApplicationController
   def index
-    @collections = current_user.collections
+    @collections = current_user.collections.uniq
   end
 
   def show
