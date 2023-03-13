@@ -151,4 +151,82 @@ thought_10.parent = thought_1
 thought_10.save!
 puts "Thought 10 created"
 
+deep_work_collection = Collection.create!(title:"Deep Work by Cal Newport")
+
+thought_11 = Thought.new(
+  title: "Deep Work take aways",
+  content: "It's a book that people keep recommending and that I have read. It's hard to recommend it when my memory is
+  as bad as it is. So let's consolidate all my notes",
+  user: lucas,
+  collection: deep_work_collection,
+)
+thought_11.save!
+puts "Thought 11 created"
+
+thought_12 = Thought.new(
+  title: "Distractions",
+  content: "It's easy to get distracted in this world of ours. You could spend 98% of your time surfing the web instead
+  of doing work or hobbies.",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
+thought_13 = Thought.new(
+  title: "There's a solution",
+  content: "But it's possible to cut these things out and get your life back. Imaging being able to focus so that you
+  won't need to go home and do extra work. Imagine being able to focus for hours at a time and to be efficient in your work.
+  That's deep work!",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
+thought_14 = Thought.new(
+  title: "The Science of Deep Work",
+  content: "Myelin is a layer of fatty tissue that wraps around neurons like an insulator that allows them to activate faster.
+  You get better at something the more you fire its specific neural pathway, making its myeling layer grow, making it easier
+  to use the pathway as you go along. It's an amazing positive feedback loop.",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
+thought_15 = Thought.new(
+  title: "Distractions",
+  content: "Therefore if you keep getting distracted and activating other pathways while trying to work, you're not going
+  to upskill as quickly as you can.",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
+thought_16 = Thought.new(
+  title: "Eudaimonia Machine",
+  content: "Turning office space into a Deep Work space because open floor plans are more distracting than anything else.
+  Sure they increase communication among workers but they ever noisy and active environment makes it hard to focus.",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
+thought_17 = Thought.new(
+  title: "Bimodal Philosophy",
+  content: "Split your time into deep work time and shallow work time",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
+thought_18 = Thought.new(
+  title: "Systemisation",
+  content: "Creative work or any type of work isn't dependent of inspiration but routine and habits. You need to support
+  your efforts to go deep. Wake up at the same time everyday. Have a morning routine, etc... So that you can use your energy
+  on deep work.",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
+thought_18 = Thought.new(
+  title: "Have a buddy",
+  content: "Working with someone else or just having someone else working near you can help make you push out insights and
+  avoid shallow work.",
+  user: lucas,
+  collection: deep_work_collection,
+)
+
 puts "All done!"

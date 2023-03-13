@@ -8,11 +8,11 @@
       <% @thoughts.each do |thought| %>
         <% if !thought.is_connected?(@thought.id) %>
           <div class="col-3 d-flex justify-content-center mb-3">
-            <%= button_to thought.content[0,100] + "...", connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+            <%= button_to thought.content[0,120] + "...", connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
           </div>
         <% else %>
           <div class="col-3 d-flex justify-content-center mb-3">
-            <%= button_to thought.content[0,100] + "...", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-selected", method: :post %>
+            <%= button_to thought.content[0,120] + "...", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-parent", method: :post %>
           </div>
         <% end %>
       <% end %>
