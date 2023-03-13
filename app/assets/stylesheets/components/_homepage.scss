@@ -5,9 +5,11 @@
 
 .section1 {
   background-image: url(sky_unsplash.jpg); //new
-  height: 100vh;  //new
+  height: 90vh;  //new
   background-size: cover; //new
   background-position: 0px -160px;  //new
+  background-attachment: fixed;
+
 
   // background-size: 130%;
   // background-position: -280px -160px;
@@ -19,7 +21,7 @@
   .homeheader {
     font-family: $font;
     // font-size: 36px;
-    font-size: 24px; //new
+    font-size: 16px; //new
     font-weight: 400;
     // line-height: 46px;
     line-height: 24px; //new
@@ -32,7 +34,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20vh;
+    padding: 25vh;
 
     .logo-title-container {
       display: flex;
@@ -195,7 +197,7 @@
 
   .homecloser {
     font-family: $font;
-    font-size: 20px;
+    font-size: 16px;
     font-style: italic;
     font-weight: 600;
     line-height: 20px;
@@ -210,11 +212,10 @@
 
 .section2 {
   background-color: #000000;
-  height: 450px;
+  height: 100vh;
   text-align: center;
   $font: Arial, Helvetica, sans-serif;
   // padding-top: 82px;
-  padding-top: 30; //new
 
   .pc {
     display: flex;
@@ -237,9 +238,9 @@
   }
 
   .section2-head {
-    padding: 45px;
+    padding: 40px;
     // padding-top: 24px;
-    padding-top: 50px;
+    padding-top: 72px;
   }
 
   .section2-header {
@@ -255,6 +256,7 @@
 
   .infogrid {
     justify-content: space-evenly;
+    padding: 30px;
 
     .simpletxt {
       .fa-face-smile {
@@ -263,7 +265,7 @@
 
       .simpletxt-h3 {
         font-family: $font;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
         line-height: 20px;
         text-align: center;
@@ -272,7 +274,7 @@
 
       .simpletxt-p {
         font-family: $font;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 14px;
         text-align: center;
@@ -287,7 +289,7 @@
 
       .chaintxt-h3 {
         font-family: $font;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
         line-height: 20px;
         text-align: center;
@@ -296,7 +298,7 @@
 
       .chaintxt-p {
         font-family: $font;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 14px;
         text-align: center;
@@ -311,7 +313,7 @@
 
       .chronologytxt-h3 {
         font-family: $font;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
         line-height: 20px;
         text-align: center;
@@ -320,7 +322,7 @@
 
       .chronologytxt-p {
         font-family: $font;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 14px;
         text-align: center;
@@ -335,7 +337,7 @@
 
       .securetxt-h3 {
         font-family: $font;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
         line-height: 20px;
         text-align: center;
@@ -344,7 +346,7 @@
 
       .securetxt-p {
         font-family: $font;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 14px;
         text-align: center;
@@ -359,7 +361,7 @@
 
       .desktoptxt-h3 {
         font-family: $font;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
         line-height: 20px;
         text-align: center;
@@ -368,7 +370,7 @@
 
       .desktoptxt-p {
         font-family: $font;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 14px;
         text-align: center;
@@ -383,7 +385,7 @@
 
       .freetxt-h3 {
         font-family: $font;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
         line-height: 20px;
         text-align: center;
@@ -392,7 +394,7 @@
 
       .freetxt-p {
         font-family: $font;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 14px;
         text-align: center;
@@ -404,12 +406,12 @@
 
 .section3 {
   // background: url(white.jpg);
-  background-color: whitesmoke;
-  background-size: cover;
+  // background-color: whitesmoke;
+  // background-size: cover;
   // height: 800px;
   height: 70vh;  //new
-  background-position-y: -55px; //new
-  background-repeat: no-repeat; //new
+  // background-position-y: -55px; //new
+  // background-repeat: no-repeat; //new
 
   $font: Arial, Helvetica, sans-serif;
 
