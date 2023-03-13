@@ -11,6 +11,7 @@
 
 .collection-container {
   margin-top: 60px;
+  display: flex;
 }
 
 .collection-line {
@@ -18,3 +19,4 @@
   margin: 0 auto 24px;
   border-top: 1px solid $black;
 }
+
