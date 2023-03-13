@@ -380,7 +380,7 @@ export default class extends Controller {
             }
         };
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
+        var newHeight = d3.max(levelWidth) * 500; // 25 pixels per line
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
@@ -389,7 +389,7 @@ export default class extends Controller {
 
         // Set widths between levels based on maxLabelLength.
         nodes.forEach(function(d) {
-            d.y = (d.depth * (maxLabelLength * 10)); //maxLabelLength * 10px
+            d.y = (d.depth * (maxLabelLength * 30)); //maxLabelLength * 10px
             // alternatively to keep a fixed scale one can set a fixed depth per level
             // Normalize for fixed-depth by commenting out below line
             // d.y = (d.depth * 500); //500px per level.
@@ -420,16 +420,27 @@ export default class extends Controller {
                   return d._children ? "lightsteelblue" : "#fff";
               })
 
-
-        nodeEnter.append("a")
+        nodeEnter
+            .append("a")
             .attr("xlink:href", function(d) { return d.url; })
             .attr("class", "clickable")
             .append("text")
+            // .attr('width', 200)
+            // .attr('height', 200)
+            // .append('xhtml').html(function(d) {
+            //   return '<div style="width: '
+            //       + 200 + 'px; height: '
+            //       + 200 + 'px;" class="node-text wordwrap">'
+            //       + '<b>' + d.name + '</b><br><br>'
+            //       + '<b>Code: </b>' + d.content + '<br>'
+            //       + '</div>';
+            // })
             .attr("x", function(d) {
                 return d.children || d._children ? -10 : 10;
             })
             .attr("dy", ".35em")
             .attr('class', 'nodeText')
+            .style("stroke", "red")
             .attr("text-anchor", function(d) {
                 return d.children || d._children ? "end" : "start";
             })
@@ -437,7 +448,57 @@ export default class extends Controller {
                 return d.name;
             })
             .style("fill-opacity", 0)
-            .attr("xlink:href", function(d) { return d.url; })
+
+            let nodesElement = d3.selectAll(".node")
+            // console.log(nodesElement)
+
+            nodeEnter.append("rect")
+              .attr("class", "rect")
+              
+              .attr("width", 300)
+              .attr("height", 50)
+              .attr("transform", d => `translate(${d.y}, ${d.x})`)
+            nodesElement.each(node => {
+              // var svgns = "http://www.w3.org/2000/svg";
+
+              // let rect = document.createElementNS(svgns, "rect");
+              // node.append(rect)
+              // console.log(node.x)
+              // node.append("div")
+              // .attr("class", "node-wrapper")
+              // .style("background-color", "#F2F2F2")
+              // .style("border-radius", "20px")
+              // .style("padding", "20px")
+              // .style("width", "300px")
+              // .style("text-align", "center")
+              // .style("color", "$dark-grey")
+              // .style("filter", "drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04))" )
+              // d3.select(this.parentNode).insert("g", function() {return this;})
+              // .attr("class", "wrapper")
+              // .append(function() { return this;});
+              // let el = this
+
+              // d3.select(el.parentNode)
+              //   .insert("div")
+              //   .attr("class", "wrapped")
+              //   .append(function() {
+              //     return el
+              //   })
+
+            });
+
+
+        // let textElm = document.querySelector(".nodeText")
+
+        // console.log(textElm)
+
+          // var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          //   rect.setAttribute("x", 200);
+          //   rect.setAttribute("y", 200);
+          //   rect.setAttribute("width", 200);
+          //   rect.setAttribute("height", 200);
+          //   rect.setAttribute("fill", "yellow");
+          //   document.insertBefore(rect, textElm);
 
         // phantom node to give us mouseover in a radius around it
         nodeEnter.append("circle")
@@ -471,6 +532,7 @@ export default class extends Controller {
             .style("fill", function(d) {
                 return d._children ? "lightsteelblue" : "#fff";
             });
+
 
         // Transition nodes to their new position.
         var nodeUpdate = node.transition()
@@ -552,7 +614,7 @@ export default class extends Controller {
     root.x0 = viewerHeight / 2;
     root.y0 = 0;
 
-    console.log(root)
+    // console.log(root)
 
     // Layout the tree initially and center on the root node.
     update(root);

@@ -2,19 +2,24 @@
   cursor: pointer;
 }
 
-/* .overlay{
-  background-color:#EEE;
-} */
-
 .node circle {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px;
 }
 
+.nodeCircle {
+
+}
+
+.nodeText {
+  background-color: red !important;
+}
+
 .node text {
-  font-size:10px;
-  font-family:sans-serif;
+  font-size: 30px;
+  font-family: sans-serif;
+  background-color: red !important;
 }
 
 .link {
@@ -35,4 +40,10 @@
 
 .ghostCircle, .activeDrag .ghostCircle{
   display: none;
+}
+
+.wrapper {
+  width: 200px;
+  height: 200px;
+  background-color: red;
 }
