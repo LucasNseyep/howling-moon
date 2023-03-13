@@ -34,6 +34,10 @@ class Thought < ApplicationRecord
     child_relationships.find_by(parent_id: id, child_id: thought_id).destroy
   end
 
+  # def disconnect_from_collection(param_thought)
+  #   param_thought.destroy
+  # end
+
   def is_connected?(thought_id)
     relationship = Connection.find_by(parent_id: id, child_id: thought_id)
     return true if relationship

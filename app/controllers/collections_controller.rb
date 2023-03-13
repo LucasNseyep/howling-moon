@@ -3,7 +3,7 @@ require "json"
 class CollectionsController < ApplicationController
   def index
     if params[:query].present?
-      @collections = current_user.collections.uniq.search_collection(params[:query])
+      @collections = current_user.collections.search_by_title_and_description(params[:query]).uniq
     else
       @collections = current_user.collections.uniq
     end
@@ -50,7 +50,7 @@ class CollectionsController < ApplicationController
     # THINK THIS WILL WORK BUT NEED TO GO OVER IT ALL AGAIN TOMORROW
     # CURRENTLY NOT LIKING THE DESTROY ON THE disconnect METHOD
     # @collection.thoughts.each do |thought|
-    #   thought.disconnect(thought[:id])
+    #   thought.disconnect_from_collection(thought[:id])
     #   thought.save
     # end
     @collection.destroy
