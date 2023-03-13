@@ -10,6 +10,18 @@ class Thought < ApplicationRecord
   has_many :child_relationships, foreign_key: :parent_id, class_name: 'Connection'
   has_many :children, through: :child_relationships, source: :child
 
+  # SEARCH STUFF IMPLEMENTATION
+  # PgSearch::Multisearch.rebuild(Thought)
+  include PgSearch::Model
+  pg_search_scope :search,
+  against: [ :title, :content ],
+  associated_against: {
+    collection: [ :title, :description  ]
+  },
+  using: {
+    tsearch: { prefix: true}
+  }
+
   #Connects the card you select as a parent. We do this by going to the parent and
   #making the current card its child.
   def connect(thought_id)

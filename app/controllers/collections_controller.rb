@@ -2,7 +2,11 @@ require "json"
 
 class CollectionsController < ApplicationController
   def index
-    @collections = current_user.collections.uniq
+    if params[:query].present?
+      @collections = current_user.collections.uniq.search_collection(params[:query])
+    else
+      @collections = current_user.collections.uniq
+    end
   end
 
   def show

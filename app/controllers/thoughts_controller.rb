@@ -7,9 +7,12 @@ class ThoughtsController < ApplicationController
   end
 
   def index
-    @thoughts = current_user.thoughts
+    if params[:query].present?
+      @thoughts = current_user.thoughts.search(params[:query])
+    else
+      @thoughts = current_user.thoughts
+    end
   end
-
 
   def show
   end
