@@ -1,0 +1,20 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collections-container {
+  margin-right: 90px;
+  margin-left: 90px;
+
+}
+
+.collection-container {
+  margin-top: 60px;
+}
+
+.collection-line {
+  width: 76%;
+  margin: 0 auto 24px;
+  border-top: 1px solid $black;
+}

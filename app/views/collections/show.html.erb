@@ -1,12 +1,14 @@
-<% if @collection.title %>
-  <h1><%= @collection.title  %> Collection:</h1>
-<% else %>
-  <h1>Titless Collection</h1>
-<% end %>
+<div class="container page-container page-title-container">
+  <% if @collection.title %>
+    <h1><%= @collection.title  %> Collection:</h1>
+  <% else %>
+    <h1>Titless Collection</h1>
+  <% end %>
+</div>
 <div id="tree-data"
   data-controller="tree-map"
   data-tree-map-data-value="<%= @stringified_data %>">
-  </div>
-  
-  <div id="col-tree-map" style="text-align: center;" >
+</div>
+
+<div id="col-tree-map" style="text-align: center;">
 </div>

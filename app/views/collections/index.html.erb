@@ -1,27 +1,38 @@
-<h1>Your Collections:</h1>
+<!-- A container for the entire page -->
+<div class="container page-container">
+  <!-- A container for the title of the page -->
+  <div class="header-container mb-5">
+    <h1>Your thought collections</h1>
+    <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
+  </div>
 
-<% @collections.reverse.each do |collection| %>
-  <div class="small-card">
-  <% if collection.title %>
-      <p class="card-content"><%= collection.title %></p>
-      <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+<!--
+  <div class="search-bar-container">
+    <div class="search-input">
+      Look for a collection of thoughts...
     </div>
-  <% else %>
-      <p class="card-content"><%= collection.title %></p>
-      <%= link_to '', collection_path(collection), class: 'small-card-link' %>
-    </div>
+    <button class="button">Search</button>
+  </div>
+-->
 
-  <%# <% @collections.each do |collection| %>
-    <%# <ul><%= link_to "view thoughts within the collection", collection_path(collection) %>
-    <%# <%= collection.id</ul> %>
-    <%# <% if collection.title == nil
-      <%# <%= simple_form_for(collection) do |f| %>
-        <%# <%= f.input :title %>
-        <%# <%= f.input :description %>
-        <%# <%= f.button :submit %>
-      <%# <% end %>
-    <%# <% else %>
-      <%# <%= collection.title %>
-      <%# <%= collection.description %>
-  <% end %>
-<% end %>
+  <!-- A container for all the collections -->
+  <div class="collections-container">
+    <% @collections.reverse.each do |collection| %>
+      <!-- A container for each collection -->
+      <div class="collection-container">
+        <hr class="collection-line">
+        <div class="small-card">
+          <% if collection.title %>
+            <p class=".small-card-title"><%= collection.title %></p>
+            <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+          <% end %>
+          <% if collection.description %>
+            <p class=".small-card-content"><%= collection.description %></p>
+            <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+          <% end %>
+        </div>
+        <hr class="collection-line">
+      </div>
+    <% end %>
+  </div>
+</div>
