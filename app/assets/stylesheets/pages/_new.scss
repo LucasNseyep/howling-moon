@@ -41,6 +41,10 @@
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
 }
 
+textarea {
+  resize: none;
+}
+
 .form-card-title {
   background-color: #f2f2f2;
   border: none;
@@ -69,4 +73,8 @@
 
 *:focus {
   outline: none;
+}
+
+#thought_content {
+  width: 95%;
 }

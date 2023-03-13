@@ -12,10 +12,11 @@
         <div class="buttons-container">
           <%= link_to "Back to all thoughts", thoughts_path, class:"button" %>
           <%= link_to "Edit", edit_thought_path(@thought), class:"button" %>
-          <%# <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
-          <%= link_to "Delete",
+          <div class="buttons-container-left">
+            <%= link_to "Delete",
               thought_path(@thought),
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button" %>
+          </div>
         </div>
       </div>
       <% if @thought.parent %>
@@ -34,16 +35,18 @@
             <div class="link-thoughts-title-container mt-4">
               <h5 class="mb-4">All the thoughts that led to this:</h5>
             </div>
-            <div class="small-card-roll">
-              <% if @thought.ancestors.any? %>
-                <% @thought.ancestors.each do |ancestor| %>
-                  <div class="small-card-ancestor">
-                    <p class="card-title"><%= ancestor.title %></p>
-                    <p class="card-content"><%= ancestor.content[0,100] + "..." %></p>
-                    <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
-                  </div>
+            <div class="inner-shadow">
+              <div class="small-card-roll">
+                <% if @thought.ancestors.any? %>
+                  <% @thought.ancestors.each do |ancestor| %>
+                    <div class="small-card-ancestor">
+                      <p class="card-title"><%= ancestor.title %></p>
+                      <p class="card-content"><%= ancestor.content[0,100] + "..." %></p>
+                      <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
+                    </div>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
         </div>
