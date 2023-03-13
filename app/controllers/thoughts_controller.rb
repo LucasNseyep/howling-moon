@@ -1,7 +1,7 @@
 class ThoughtsController < ApplicationController
-  before_action :set_thought, only: [:browse, :connect, :disconnect, :show]
+  before_action :set_thought, only: %i[browse connect disconnect show]
 
-  #shows cards that are not ourself with our connections to them
+  # shows cards that are not ourself with our connections to them
   def browse
     @thoughts = current_user.thoughts.where.not(id: @thought.id)
   end
@@ -47,7 +47,7 @@ class ThoughtsController < ApplicationController
     redirect_to thoughts_path status: :see_other
   end
 
-  #Used in the post requests to redirect on connect
+  # Used in the post requests to redirect on connect
   def connect
     set_selected_thought
     add_collection
@@ -55,25 +55,25 @@ class ThoughtsController < ApplicationController
     # @thought.collection = @selected_thought.collection
     @selected_thought.save
     @thought.save
-    if @thought.connect(@selected_thought.id)
-      respond_to do |format|
-        format.html { redirect_to thought_path(@selected_thought) }
-        format.js
-      end
+    return unless @thought.connect(@selected_thought.id)
+
+    respond_to do |format|
+      format.html { redirect_to thought_path(@selected_thought) }
+      format.js
     end
   end
 
-  #Used in the post requests to redirect on disconnect
+  # Used in the post requests to redirect on disconnect
   def disconnect
     set_selected_thought
-    if @thought.disconnect(@selected_thought.id)
-      respond_to do |format|
-        @selected_thought.collection = nil
-        @selected_thought.save
-        format.html { redirect_to thought_path(@selected_thought) }
-        format.js { render action: :disconnect }
-        # raise
-      end
+    return unless @thought.disconnect(@selected_thought.id)
+
+    respond_to do |format|
+      @selected_thought.collection = nil
+      @selected_thought.save
+      format.html { redirect_to thought_path(@selected_thought) }
+      format.js { render action: :disconnect }
+      # raise
     end
   end
 
@@ -84,7 +84,7 @@ class ThoughtsController < ApplicationController
   # SOMETHING TO DO WITH CONNECCTIONS?
   def add_collection
     set_selected_thought
-    if @thought.collection == nil
+    if @thought.collection.nil?
       @thought.collection = Collection.create
       @selected_thought.collection = @thought.collection
     else
@@ -96,7 +96,7 @@ class ThoughtsController < ApplicationController
 
   def set_thought
     @thought = Thought.find(params[:id])
-    return if @thought.user = current_user
+    return if @thought.user == current_user
   end
 
   def set_selected_thought

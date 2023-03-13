@@ -6,11 +6,11 @@ class Collection < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_collection,
-  against: [ :title, :description ],
-  associated_against: {
-    thought: [ :title, :content  ]
-  },
-  using: {
-    tsearch: { prefix: true}
-  }
+                  against: %i[title description],
+                  associated_against: {
+                    thought: %i[title content]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
