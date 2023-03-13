@@ -21,7 +21,7 @@
   .homeheader {
     font-family: $font;
     // font-size: 36px;
-    font-size: 16px; //new
+    font-size: 8px; //new
     font-weight: 400;
     // line-height: 46px;
     line-height: 24px; //new
@@ -61,7 +61,8 @@
       padding-top: 30px;
 
       font-size: 88px;
-      font-family: monospace;
+      font-family: $font;
+      font-weight: 700;
     }
 
 
@@ -72,7 +73,7 @@
     }
 
     .btn-outline-primary:hover {
-      background-color: $light-grey;
+      background-color: black;
     }
   }
 
@@ -437,5 +438,27 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+}
+
+.section4 {
+  background: url(white.jpg);
+  background-size: cover;
+  height: 100vh;
+  margin: 0px;
+  overflow: hidden ;
+
+  .review {
+    width: 50vmin;
+    position: absolute;
+    transform: translate(-50%, 50%);
+  }
+
+  .review[data-status="inactive"] {
+    display: none;
+  }
+
+  .review[data-status="active"] {
+    display: block;
   }
 }
