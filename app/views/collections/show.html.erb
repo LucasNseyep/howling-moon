@@ -1,12 +1,17 @@
 <% if @collection.title %>
   <h1><%= @collection.title  %> Collection:</h1>
 <% else %>
-  <h1>Titless Collection</h1>
+  <h1>Untitled Collection</h1>
 <% end %>
+
+<%= link_to "edit collection title and descirption", edit_collection_path(@collection) %>
+<%= link_to "Delete", collection_path(@collection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+
 <div id="tree-data"
   data-controller="tree-map"
   data-tree-map-data-value="<%= @stringified_data %>">
   </div>
-  
+
   <div id="col-tree-map" style="text-align: center;" >
 </div>
