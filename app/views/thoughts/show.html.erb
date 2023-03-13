@@ -38,8 +38,8 @@
               <% if @thought.ancestors.any? %>
                 <% @thought.ancestors.each do |ancestor| %>
                   <div class="small-card-ancestor">
-                    <p class="card-title"><%= @thought.title %></p>
-                    <p class="card-content"><%= @thought.content[0,100] + "..." %></p>
+                    <p class="card-title"><%= ancestor.title %></p>
+                    <p class="card-content"><%= ancestor.content[0,100] + "..." %></p>
                     <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
                   </div>
                 <% end %>
