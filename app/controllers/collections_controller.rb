@@ -48,13 +48,6 @@ class CollectionsController < ApplicationController
   def destroy
     @collection = Collection.find(params[:id])
     @collection.thoughts.first.child_relationships.destroy_all
-
-    # THINK THIS WILL WORK BUT NEED TO GO OVER IT ALL AGAIN TOMORROW
-    # CURRENTLY NOT LIKING THE DESTROY ON THE disconnect METHOD
-    # @collection.thoughts.each do |thought|
-    #   thought.disconnect_from_collection(thought[:id])
-    #   thought.save
-    # end
     @collection.destroy
     redirect_to collections_path
   end
