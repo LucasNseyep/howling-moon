@@ -9,28 +9,45 @@
 
 <h1>Your Collections:</h1>
 
-<% @collections.reverse.each do |collection| %>
-  <div class="small-card">
-  <% if collection.title %>
-      <p class="card-content"><%= collection.title %></p>
-      <%= link_to '', collection_path(collection), class: 'small-card-link' %>
-    </div>
-  <% else %>
-      <p class="card-content"><%= collection.title %></p>
-      <%= link_to '', collection_path(collection), class: 'small-card-link' %>
-    </div>
 
-  <%# <% @collections.each do |collection| %>
-    <%# <ul><%= link_to "view thoughts within the collection", collection_path(collection) %>
-    <%# <%= collection.id</ul> %>
-    <%# <% if collection.title == nil
-      <%# <%= simple_form_for(collection) do |f| %>
-        <%# <%= f.input :title %>
-        <%# <%= f.input :description %>
-        <%# <%= f.button :submit %>
-      <%# <% end %>
-    <%# <% else %>
-      <%# <%= collection.title %>
-      <%# <%= collection.description %>
-  <% end %>
-<% end %>
+<!--
+  <div class="search-bar-container">
+    <div class="search-input">
+      Look for a collection of thoughts...
+    </div>
+    <button class="button">Search</button>
+  </div>
+-->
+
+  <!-- A container for all the collections -->
+  <div class="collections-container">
+    <% @collections.reverse.each do |collection| %>
+      <!-- A container for each collection -->
+      <div class="collection-container">
+        <hr class="collection-line">
+        <div class="collection-card-container">
+          <div class="small-card">
+            <% if collection.title %>
+              <p class=".small-card-title"><%= collection.title %></p>
+              <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+            <% end %>
+            <% if collection.description %>
+              <p class=".small-card-content"><%= collection.description %></p>
+              <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="collection-thoughts-container">
+          <div class="small-card">
+            <% collection.thoughts.each do |thought| %>
+            <p class=".small-card-title"><%= thought.title %></p>
+            <p class=".small-card-content"><%= thought.content %></p>
+            <% end %>
+          </div>
+        </div>
+        <hr class="collection-line">
+      </div>
+    <% end %>
+  </div>
+</div>
