@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_151517) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_094318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_151517) do
     t.index ["child_id", "parent_id"], name: "index_connections_on_child_id_and_parent_id", unique: true
     t.index ["child_id"], name: "index_connections_on_child_id"
     t.index ["parent_id"], name: "index_connections_on_parent_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
   create_table "thoughts", force: :cascade do |t|
