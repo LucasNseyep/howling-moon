@@ -6,7 +6,6 @@
 .section1 {
   background-image: url(sky_unsplash.jpg); //new
   height: 100vh;  //new
-  padding-top: 40px;  //new
   background-size: cover; //new
   background-position: 0px -160px;  //new
 
@@ -28,17 +27,53 @@
     text-align: center;
   }
 
-  .btn-outline-primary {
-    margin-top: 10px;
+  .hometitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20vh;
+
+    .logo-title-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container1 {
+      margin-right: 10px;
+      font-size: 36px;
+
+      .fa-circle {
+        color: $white;
+        text-shadow: 0 0 3px #000;
+      }
+
+      .fa-note-sticky {
+        color: $black;
+      }
+    }
+
+    .maintitle { //new
+      text-align: center;
+      padding: 10px;
+      padding-top: 30px;
+
+      font-size: 88px;
+      font-family: monospace;
+    }
+
+
+    .btn-outline-primary {
+      border-radius: 20px;
+      color: $dark-grey;
+      border-color: $border;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: $light-grey;
+    }
   }
 
-  .maintitle { //new
-    text-align: center;
-    padding: 80px;
-    padding-top: 130px;
-    font-size: 45px;
-    font-family: monospace;
-  }
 
   .ellipses-container {
       width: 50rem;
