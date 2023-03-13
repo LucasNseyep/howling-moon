@@ -1,10 +1,14 @@
-<!-- A container for the entire page -->
-<div class="container page-container">
-  <!-- A container for the title of the page -->
-  <div class="header-container mb-5">
-    <h1>Your thought collections</h1>
-    <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
-  </div>
+<%= form_with url: collections_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a collection"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<h1>Your Collections:</h1>
+
 
 <!--
   <div class="search-bar-container">
