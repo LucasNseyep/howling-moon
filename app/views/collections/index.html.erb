@@ -3,14 +3,15 @@
   <!-- A container for the title of the page -->
   <div class="header-container mb-5">
     <h1>Your thought collections</h1>
-      <div search-container>
-      <%= form_with url: collections_path, method: :get, class: "d-flex justify-content-center" do %>
-      <%= text_field_tag :query,
+    <div class="search-bar align-self-center">
+      <%= form_with url: thoughts_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
           params[:query],
-          class: "form-control form-control-lg",
+          class: "form-control",
           placeholder: "Find a collection by title"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+        %>
+        <%# <%= submit_tag "Search", class: "search-button" %>
+        <button type="submit" class="search-button search-button-index"><i class="fa-solid fa-magnifying-glass"></i></button>
       <% end %>
     </div>
     <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>

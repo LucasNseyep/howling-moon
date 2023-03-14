@@ -24,7 +24,7 @@
     <h1>Welcome, <%= current_user.username %></h1>
 
     <%# searchbar %>
-    <div class="search-bar">
+    <div class="search-bar align-self-center">
       <%= form_with url: thoughts_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],
