@@ -10,6 +10,8 @@ class Thought < ApplicationRecord
   has_many :child_relationships, foreign_key: :parent_id, class_name: 'Connection'
   has_many :children, through: :child_relationships, source: :child
 
+  validates :content, presence: true
+  
   # SEARCH STUFF IMPLEMENTATION
   # PgSearch::Multisearch.rebuild(Thought)
   include PgSearch::Model
