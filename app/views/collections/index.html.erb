@@ -1,53 +1,80 @@
-<%= form_with url: collections_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a collection"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<h1>Your Collections:</h1>
-
-<%= link_to "add a new collection", new_collection_path %>
-<!--
-  <div class="search-bar-container">
-    <div class="search-input">
-      Look for a collection of thoughts...
-    </div>
-    <button class="button">Search</button>
+<!-- A container for the entire page -->
+<div class="container page-container">
+  <!-- A container for the title of the page -->
+  <div class="header-container mb-5">
+    <h1>Your thought collections</h1>
+    <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
   </div>
--->
 
-  <!-- A container for all the collections -->
-  <div class="collections-container">
-    <% @collections.reverse.each do |collection| %>
-      <!-- A container for each collection -->
-      <div class="collection-container">
-        <hr class="collection-line">
-        <div class="collection-card-container">
-          <div class="small-card">
-            <% if collection.title %>
-              <p class=".small-card-title"><%= collection.title %></p>
-              <%= link_to '', collection_path(collection), class: 'small-card-link' %>
-            <% end %>
-            <% if collection.description %>
-              <p class=".small-card-content"><%= collection.description %></p>
-              <%= link_to '', collection_path(collection), class: 'small-card-link' %>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="collection-thoughts-container">
-          <div class="small-card">
-            <% collection.thoughts.each do |thought| %>
-            <p class=".small-card-title"><%= thought.title %></p>
-            <p class=".small-card-content"><%= thought.content %></p>
-            <% end %>
-          </div>
-        </div>
-        <hr class="collection-line">
-      </div>
+  <!-- A container for the search bar -->
+  <div search-container>
+    <%= form_with url: collections_path, method: :get, class: "d-flex justify-content-center" do %>
+    <%= text_field_tag :query,
+        params[:query],
+        class: "form-control form-control-lg w-50",
+        placeholder: "Find a collection by title"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
+
+  <% @collections.reverse.each do |collection| %>
+    <div class="collections-wrapper d-flex flex-column align-items-center">
+      <div class="collection-container ">
+        <div class="small-card">
+          <% if collection.title %>
+            <p class="small-card-title"><%= collection.title %></p>
+            <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+          <% end %>
+          <% if collection.description %>
+            <p class="small-card-content"><%= collection.description[0,150] + "..." %></p>
+            <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+          <% end %>
+      </div>
+
+      <i class="fa-solid fa-arrow-right-long align-self-center fa-2x mx-5"></i>
+
+      <div id="carouselExampleControls_<%= collection.id %>" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% collection.thoughts.each do |thought| %>
+            <% if collection.thoughts.first == thought %>
+              <div class="carousel-item active">
+                <div class="small-card d-block w-100 small-thought-card-collection">
+                  <% if thought.title %>
+                    <p class="small-card-title"><%= thought.title %></p>
+                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
+                  <% end %>
+                  <% if thought.content %>
+                    <p class="small-card-content"><%= thought.content[0,150] + "..." %></p>
+                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
+                  <% end %>
+                </div>
+              </div>
+            <% else %>
+              <div class="carousel-item">
+                <div class="small-card d-block w-100 small-thought-card-collection">
+                  <% if thought.title %>
+                    <p class="small-card-title"><%= thought.title %></p>
+                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
+                  <% end %>
+                  <% if thought.content %>
+                    <p class="small-card-content"><%= thought.content[0,100] +  "..." %></p>
+                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls_<%= collection.id %>" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls_<%= collection.id %>" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  <% end %>
 </div>
