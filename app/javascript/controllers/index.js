@@ -10,5 +10,8 @@ application.register("button-switch", ButtonSwitchController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
 import TreeMapController from "./tree_map_controller"
 application.register("tree-map", TreeMapController)
