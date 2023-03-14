@@ -13,15 +13,13 @@ export default class extends Controller {
     const saveConnectBtn = document.querySelector("#save-connect-button")
 
     formInputText.addEventListener("keyup", () => {
-      if (text !== formInputText.value) {
+      if (text !== formInputText.value && formInputText.value) {
         saveBtn.classList.add("save-button")
         saveConnectBtn.classList.add("save-button")
       } else {
         saveBtn.classList.remove("save-button")
         saveConnectBtn.classList.remove("save-button")
       }
-      // console.log(formInputText.value)
-      // console.log(text)
     })
 
 
