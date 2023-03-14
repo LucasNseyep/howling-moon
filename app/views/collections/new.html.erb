@@ -34,6 +34,11 @@
         <h3><%= f.text_area :description, { class: "form-control form-control-lg", size: "60x7", placeholder: "This collection is about..." } %></h3>
       </div>
 
+      <%= simple_form_for(@thought) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :content %>
+      <% end %>
+
       <%= link_to 'Cancel', collections_path, class: 'button' %>
       <%= f.submit "Save", class: "button" %>
 
