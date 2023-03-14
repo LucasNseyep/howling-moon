@@ -43,7 +43,6 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
   end
 
-
   def new
     @collection = Collection.new
     @thought = Thought.new
