@@ -1,6 +1,6 @@
 <div class="container-home">
 
-  <div class="section1">
+  <section class="section1">
     <div class="hometitle">
       <div class="logo-title-container">
         <div class="logo-container1">
@@ -16,20 +16,20 @@
       <div class="button-container">
         <% if user_signed_in? %>
           <a href="/thoughts">
-            <button type="button" class="btn btn-outline-primary btn-lg">Your Thoughts</button>
+            <button type="button" class="btn btn-outline-primary">Your Thoughts</button>
           </a>
         <% else %>
           <a href="/users/sign_up">
-            <button type="button" class="btn btn-outline-primary btn-lg">Sign Up</button>
+            <button type="button" class="btn btn-outline-primary">Sign Up</button>
           </a>
         <% end %>
       </div>
     </div>
-  </div>
+  </section>
 
 
 
-  <div class="section2">
+  <section class="section2">
 
     <div class="section2-head">
       <h2 class="section2-header">Say goodbye to scattered notes and fragmented ideas</h2>
@@ -88,7 +88,59 @@
       </div>
       <h3 class="homeheader" style="color: grey; font-size: 24px">Connects all of your thoughts</h3>
     </div>
+  </section>
+
+
+
+
+  <div class="section5">
+    <section class="hero-section">
+      <div class="review-grid">
+        <a class="review">
+
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1609726121380-243fcdbb1935?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80)">
+          </div>
+
+          <div class="review__content">
+            <p class="review__category">Howling Moon has revolutionized the way I take notes. As someone who often struggles to connect my scattered thoughts together, this app has been a game-changer. The ability to link my rough notes and ideas together has helped me create more cohesive and organized notes. I no longer have to spend hours sorting through a jumbled mess of ideas - Howling Moon has made it easy to connect the dots and create a clear picture of my thoughts.</p>
+            <h3 class="review__heading">-Marco Ricci</h3>
+          </div>
+        </a>
+
+        <a class="review">
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1518326815392-fd33bc3e4ccb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          </div>
+
+          <div class="review__content">
+            <p class="review__category">I've been using Howling Moon for a few months now and I can't imagine going back to my old note-taking methods. This app has made it so easy to link my ideas together and create a more comprehensive understanding of my thoughts. Whether I'm brainstorming ideas for a project or jotting down quick notes, Howling Moon has helped me stay organized and on track. I highly recommend this app to anyone who wants to take their note-taking game to the next level.</p>
+            <h3 class="review__heading">-Hubert Yu</h3>
+          </div>
+        </a>
+
+        <a class="review">
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1530183779930-e5cb23103c3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          </div>
+
+          <div class="review__content">
+            <p class="review__category">Howling Moon has truly changed the way I approach note-taking. As someone who frequently has dozens of ideas running through my head at once, I used to struggle to keep track of everything. With Howling Moon, I can link my thoughts together in a way that makes sense and helps me stay on top of everything. The app is user-friendly and intuitive, and I love the ability to easily navigate between different ideas and notes. Overall, I can't recommend Howling Moon enough - it's the perfect tool for anyone looking to stay organized and focused.</p>
+            <h3 class="review__heading">-Ife Odugbesan</h3>
+          </div>
+        </a>
+
+        <a class="review">
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1527842891421-42eec6e703ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60)">
+          </div>
+
+          <div class="review__content">
+            <p class="review__category">I've tried a lot of note-taking apps in the past, but Howling Moon is by far my favorite. The linking feature is a game-changer, allowing me to easily connect my thoughts and create a more cohesive understanding of my ideas. The app is also incredibly user-friendly, making it easy to use on-the-go or during a brainstorming session. If you're looking for a note-taking app that can help you stay organized and productive, Howling Moon is the perfect choice.</p>
+            <h3 class="review__heading">-Jeff Bezos</h3>
+          </div>
+        </a>
+
+      <div>
+    </section>
   </div>
+
 
   <%# <div class="section3">
 
@@ -126,18 +178,17 @@
     </div>
   </div> %>
 
-  <div class="section4" data-controller="review">
+  <%# <div class="section4" data-controller="review">
     <h2>Testimonals</h2>
     <h6>Move your mouse!</h6>
     <%= image_tag 'krusty krab review.PNG', class: 'review', data: { index: 0, status: 'inactive' } %>
-    <%= image_tag 'lewagon review.PNG', class: 'review', data: { index: 1, status: 'inactive' } %>
-    <%= image_tag 'lse arman review.PNG', class: 'review', data: { index: 2, status: 'inactive' } %>
-    <%= image_tag 'enyo review.png', class: 'review', data: { index: 3, status: 'inactive' } %>
-    <%= image_tag 'lucas review.png', class: 'review', data: { index: 4, status: 'inactive' } %>
-    <%= image_tag 'hubert review.png', class: 'review', data: { index: 5, status: 'inactive' } %>
-    <%= image_tag 'carol review.png', class: 'review', data: { index: 6, status: 'inactive' } %>
-    <%= image_tag 'pedro review.png', class: 'review', data: { index: 7, status: 'inactive' } %>
-    <%= image_tag 'marco review.png', class: 'review', data: { index: 8, status: 'inactive' } %>
-  </div>
-
+    <%# <%= image_tag 'lewagon review.PNG', class: 'review', data: { index: 1, status: 'inactive' } %>
+    <%# <%= image_tag 'lse arman review.PNG', class: 'review', data: { index: 2, status: 'inactive' } %>
+    <%# <%= image_tag 'enyo review.png', class: 'review', data: { index: 3, status: 'inactive' } %>
+    <%# <%= image_tag 'lucas review.png', class: 'review', data: { index: 4, status: 'inactive' } %>
+    <%# <%= image_tag 'hubert review.png', class: 'review', data: { index: 5, status: 'inactive' } %>
+    <%# <%= image_tag 'carol review.png', class: 'review', data: { index: 6, status: 'inactive' } %>
+    <%# <%= image_tag 'pedro review.png', class: 'review', data: { index: 7, status: 'inactive' } %>
+    <%# <%= image_tag 'marco review.png', class: 'review', data: { index: 8, status: 'inactive' } %>
+  <%# </div> %>
 </div>
