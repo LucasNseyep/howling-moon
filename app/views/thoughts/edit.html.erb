@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-8">
 
-        <%= form_with model: @thought do |f| %>
+        <%= form_with model: @thought, data: { controller: "button-switch" } do |f| %>
         <div class="card-main">
           <div class="card-body">
             <h1><%= f.text_field :title, class:'form-card-title' %></h1>
@@ -15,7 +15,7 @@
           <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
           <%= link_to 'Cancel', thought_path(@thought), class: 'button' %>
           <div class="buttons-container-left">
-            <%= f.submit 'Save', class: 'button'%>
+            <%= f.submit 'Save', class: 'button', id: "save-button" %>
           </div>
         </div>
         <% end %>

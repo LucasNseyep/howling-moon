@@ -1,4 +1,4 @@
-<div style="padding-top: 50px;">
+<div>
   <div class="container">
     <div class="row">
       <div class="col-8">
@@ -15,10 +15,13 @@
           <div class="buttons-container-left">
             <%= link_to "Delete",
               thought_path(@thought),
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button" %>
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button", style:"display: block;" %>
           </div>
         </div>
       </div>
+      <%# if @thought.collection %>
+        <%#= @thought.collection.title %>
+      <%# end %>
       <% if @thought.parent %>
         <div class="col-4">
           <div class="right-side">
