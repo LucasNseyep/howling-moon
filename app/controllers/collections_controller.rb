@@ -2,10 +2,15 @@ require "json"
 
 class CollectionsController < ApplicationController
   def index
+    @collections = current_user.collections.uniq
+
     if params[:query].present?
       @collections = current_user.collections.search_by_title_and_description(params[:query]).uniq
-    else
-      @collections = current_user.collections.uniq
+      # @collections = Collection.where("user IS #{current_user} AND title ILIKE ?", "#{params[:query]}")
+    end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "list", locals: { collections: @collections }, formats: [:html] }
     end
   end
 
@@ -37,7 +42,6 @@ class CollectionsController < ApplicationController
   def edit
     @collection = Collection.find(params[:id])
   end
-
 
   def new
     @collection = Collection.new

@@ -1,3 +1,23 @@
+<%#= form_with url: collections_path, method: :get, class: "d-flex" do %>
+  <%#= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a collection"
+  %>
+  <%#= submit_tag "Search", class: "btn btn-primary" %>
+<%# end %>
+
+<div data-controller="search">
+  <%= form_with url: collections_path, method: :get, html: {class:
+    "mb-4", data: {search_target: "form"}} do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: "Search collections",
+                     value: params[:query],
+                     data: {search_target: "input",
+                     action: "keyup->search#update"} %>
+<% end %>
+
 <!-- A container for the entire page -->
 <div class="container page-container">
   <!-- A container for the title of the page -->
@@ -17,64 +37,10 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
+-->
+  <div>
+    <!-- A container for all the collections -->
+    <%= render "list" %>
+  </div>
 
-  <% @collections.reverse.each do |collection| %>
-    <div class="collections-wrapper d-flex flex-column align-items-center">
-      <div class="collection-container ">
-        <div class="small-card">
-          <% if collection.title %>
-            <p class="small-card-title"><%= collection.title %></p>
-            <%= link_to '', collection_path(collection), class: 'small-card-link' %>
-          <% end %>
-          <% if collection.description %>
-            <p class="small-card-content"><%= collection.description[0,150] + "..." %></p>
-            <%= link_to '', collection_path(collection), class: 'small-card-link' %>
-          <% end %>
-      </div>
-
-      <i class="fa-solid fa-arrow-right-long align-self-center fa-2x mx-5"></i>
-
-      <div id="carouselExampleControls_<%= collection.id %>" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% collection.thoughts.each do |thought| %>
-            <% if collection.thoughts.first == thought %>
-              <div class="carousel-item active">
-                <div class="small-card d-block w-100 small-thought-card-collection">
-                  <% if thought.title %>
-                    <p class="small-card-title"><%= thought.title %></p>
-                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
-                  <% end %>
-                  <% if thought.content %>
-                    <p class="small-card-content"><%= thought.content[0,150] + "..." %></p>
-                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
-                  <% end %>
-                </div>
-              </div>
-            <% else %>
-              <div class="carousel-item">
-                <div class="small-card d-block w-100 small-thought-card-collection">
-                  <% if thought.title %>
-                    <p class="small-card-title"><%= thought.title %></p>
-                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
-                  <% end %>
-                  <% if thought.content %>
-                    <p class="small-card-content"><%= thought.content[0,100] +  "..." %></p>
-                    <%= link_to '', thought_path(thought), class: 'small-card-link' %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls_<%= collection.id %>" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls_<%= collection.id %>" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  <% end %>
 </div>

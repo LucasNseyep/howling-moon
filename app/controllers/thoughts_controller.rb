@@ -7,10 +7,14 @@ class ThoughtsController < ApplicationController
   end
 
   def index
+    @thoughts = current_user.thoughts
+
     if params[:query].present?
       @thoughts = current_user.thoughts.search(params[:query])
-    else
-      @thoughts = current_user.thoughts
+    end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "list-thought", locals: { thoughts: @thoughts }, formats: [:html] }
     end
   end
 
