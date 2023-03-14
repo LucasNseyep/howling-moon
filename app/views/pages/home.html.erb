@@ -1,11 +1,6 @@
 <div class="container-home">
 
   <div class="section1">
-
-
-    <%# <h1 class="homeheader">Connects all of your thoughts</h1>
-    <h1 class="homeheader">No matter the shape or form</h1> %>
-
     <div class="hometitle">
       <div class="logo-title-container">
         <div class="logo-container1">
@@ -19,40 +14,26 @@
       </div>
 
       <div class="button-container">
-        <a href="/thoughts">
-          <button type="button" class="btn btn-outline-primary" >Your Thoughts</button>
-        </a>
+        <% if user_signed_in? %>
+          <a href="/thoughts">
+            <button type="button" class="btn btn-outline-primary btn-lg">Your Thoughts</button>
+          </a>
+        <% else %>
+          <a href="/users/sign_up">
+            <button type="button" class="btn btn-outline-primary btn-lg">Sign Up</button>
+          </a>
+        <% end %>
       </div>
     </div>
-
-    <%# <div class="ellipses-container">
-      <h2 class="greeting">Howling Moon</h2>
-      <div class="ellipses ellipses__outer--thin">
-          <div class="ellipses ellipses__orbit"></div>
-      </div>
-      <div class="ellipses ellipses__outer--thick"></div>
-    </div> %>
-
-
-    <%# <p class="homecloser"> Say goodbye to scattered notes and fragmented ideas</p> %>
   </div>
 
 
 
   <div class="section2">
 
-    <%#<div class="pc">
-      <div class="leftpc w-50">
-        <%= image_tag "howling moon linked cards.png" %>
-     <%# </div>
-      <div class="rightpc w-50">
-        <%= image_tag "howling moon create card.png" %>
-     <%# </div>
-    </div> %>
-
     <div class="section2-head">
       <h2 class="section2-header">Say goodbye to scattered notes and fragmented ideas</h2>
-      <h2 class="section2-header"> <em>'Howling Moon'</em> uses cutting-edge technology to extract and organize your ideas into a streamlined, user-friendly format.</h2>
+      <h2 class="section2-header"> <em>'Howling Moon' </em>  uses cutting-edge technology to extract and organize your ideas into a streamlined, user-friendly format.</h2>
     </div>
 
     <div class="container">
@@ -109,7 +90,7 @@
     </div>
   </div>
 
-  <div class="section3">
+  <%# <div class="section3">
 
     <div class="testimonal">
 
@@ -124,13 +105,13 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <%= image_tag "krusty krab review.PNG", class: "d-block w-100", alt: "The first testimonal" %>
-          </div>
+          <%# </div>
           <div class="carousel-item">
             <%= image_tag "lse arman review.PNG", class: "d-block w-100", alt: "The second testimonal" %>
-          </div>
+          <%# </div>
           <div class="carousel-item">
             <%= image_tag "lewagon review.PNG", class: "d-block w-100", alt: "The third testimonal" %>
-          </div>
+          <%# </div>
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -143,9 +124,11 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> %>
 
   <div class="section4" data-controller="review">
+    <h2>Testimonals</h2>
+    <h6>Move your mouse!</h6>
     <%= image_tag 'krusty krab review.PNG', class: 'review', data: { index: 0, status: 'inactive' } %>
     <%= image_tag 'lewagon review.PNG', class: 'review', data: { index: 1, status: 'inactive' } %>
     <%= image_tag 'lse arman review.PNG', class: 'review', data: { index: 2, status: 'inactive' } %>
@@ -155,19 +138,6 @@
     <%= image_tag 'carol review.png', class: 'review', data: { index: 6, status: 'inactive' } %>
     <%= image_tag 'pedro review.png', class: 'review', data: { index: 7, status: 'inactive' } %>
     <%= image_tag 'marco review.png', class: 'review', data: { index: 8, status: 'inactive' } %>
-
-
-    <%# <img class="review" data-index="3" data-status="inactive" src="https://images.unsplash.com/photo-1678614034692-adc10a37bef1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=1000&q=60">
-    <img class="review" data-index="4" data-status="inactive" src="https://images.unsplash.com/photo-1678663474154-fe251019117e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=60">
-    <img class="review" data-index="5" data-status="inactive" src="https://images.unsplash.com/photo-1678614034519-6d142721173f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8aVVJc25WdGpCMFl8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=60">
-    <img class="review" data-index="6" data-status="inactive" src="https://images.unsplash.com/photo-1678028205711-6333094a89ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI5fEpwZzZLaWRsLUhrfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=60">
-    <img class="review" data-index="7" data-status="inactive" src="https://images.unsplash.com/photo-1677822491074-5e84acdc3180?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMzfEpwZzZLaWRsLUhrfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=60">
-    <img class="review" data-index="8" data-status="inactive" src="https://images.unsplash.com/photo-1677491083327-e8df080cc68b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDQzfEpwZzZLaWRsLUhrfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=60">
-    <img class="review" data-index="9" data-status="inactive" src="https://images.unsplash.com/photo-1675620705848-bcab2d4d98a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDY4fEpwZzZLaWRsLUhrfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=60">
-  </div> %>
-
-
-  <div class="section5">
   </div>
 
 </div>
