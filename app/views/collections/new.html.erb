@@ -34,10 +34,13 @@
         <h3><%= f.text_area :description, { class: "form-control form-control-lg", size: "60x7", placeholder: "This collection is about..." } %></h3>
       </div>
 
-      <%= simple_form_for(@thought) do |f| %>
-        <%= f.input :title %>
-        <%= f.input :content %>
-      <% end %>
+      <div class="mb-5">
+        <h3>Add thought to new collection</h3>
+        <%= simple_form_for(@thought) do |f| %>
+          <h3><%= f.input :title, { class: "form-control form-control-lg", size: "60x7" } %></h3>
+          <h3><%= f.input :content, { class: "form-control form-control-lg", size: "60x7" } %></h3>
+        <% end %>
+      </div>
 
       <%= link_to 'Cancel', collections_path, class: 'button' %>
       <%= f.submit "Save", class: "button" %>
