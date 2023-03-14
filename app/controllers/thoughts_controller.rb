@@ -30,11 +30,10 @@ class ThoughtsController < ApplicationController
     @thought.user = current_user
     # add_collection
     @thought.save
-    if params[:commit] == 'Save'
+    if params[:commit] == 'Save' && @thought.save == true
       redirect_to thought_path(@thought)
-    elsif
-    params[:commit] == 'Save and Connect'
-    redirect_to browse_thoughts_path(@thought)
+    elsif params[:commit] == 'Save and Connect' && @thought.save == true
+      redirect_to browse_thoughts_path(@thought)
     end
   end
 
@@ -45,8 +44,9 @@ class ThoughtsController < ApplicationController
   def update
     @thought = Thought.find(params[:id])
     # add_collection
-    @thought.update(thought_params)
-    redirect_to thought_path(@thought)
+    if @thought.update(thought_params) == true
+      redirect_to thought_path(@thought)
+    end
   end
 
   def destroy
