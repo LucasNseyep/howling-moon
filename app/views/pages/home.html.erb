@@ -1,37 +1,39 @@
 <div class="container-home">
 
-  <div class="section1">
-    <h1 class="homeheader">Connects all of your thoughts</h1>
-    <h1 class="homeheader">No matter the shape or form</h1>
-    <a href="/thoughts">
-      <button type="button" class="btn btn-outline-primary" >Your Thoughts</button>
-    </a>
-    <%# /thoughts %>
-    <h2 class="maintitle">Howling Moon</h2>
-    <%# <div class="ellipses-container">
-      <h2 class="greeting">Howling Moon</h2>
-      <div class="ellipses ellipses__outer--thin">
-          <div class="ellipses ellipses__orbit"></div>
+  <section class="section1">
+    <div class="hometitle">
+      <div class="logo-title-container">
+        <div class="logo-container1">
+            <span class="fa-stack fa-md">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa-regular fa-note-sticky fa-stack-1x fa-inverse"></i>
+            </span>
+          </div>
+
+        <h1 class="maintitle">Howling Moon</h1>
       </div>
-      <div class="ellipses ellipses__outer--thick"></div>
-    </div> %>
-    <p class="homecloser"> Say goodbye to scattered notes and fragmented ideas</p>
-  </div>
 
-  <div class="section2">
+      <div class="button-container">
+        <% if user_signed_in? %>
+          <a href="/thoughts">
+            <button type="button" class="btn btn-outline-primary">Your Thoughts</button>
+          </a>
+        <% else %>
+          <a href="/users/sign_up">
+            <button type="button" class="btn btn-outline-primary">Sign Up</button>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </section>
 
-    <%#<div class="pc">
-      <div class="leftpc w-50">
-        <%= image_tag "howling moon linked cards.png" %>
-     <%# </div>
-      <div class="rightpc w-50">
-        <%= image_tag "howling moon create card.png" %>
-     <%# </div>
-    </div> %>
+
+
+  <section class="section2">
 
     <div class="section2-head">
-      <h2 class="section2-header">Whether it's notes, figures, or images</h2>
-      <h2 class="section2-header">'Howling Moon' uses cutting-edge technology to extract and organize your ideas into a streamlined, user-friendly format.</h2>
+      <h2 class="section2-header">Say goodbye to scattered notes and fragmented ideas</h2>
+      <h2 class="section2-header"> <em>'Howling Moon' </em>  uses cutting-edge technology to extract and organize your ideas into a streamlined, user-friendly format.</h2>
     </div>
 
     <div class="container">
@@ -84,10 +86,67 @@
           </div>
         </div>
       </div>
+      <h3 class="homeheader" style="color: grey; font-size: 24px">Connects all of your thoughts</h3>
     </div>
+  </section>
+
+
+
+
+  <div class="section5">
+    <section class="hero-section">
+      <div class="review-grid">
+        <a class="review">
+
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1609726121380-243fcdbb1935?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80)">
+          </div>
+
+          <div class="review__content">
+            <p>🌑</p>
+            <p class="review__category">Howling Moon has become my go-to note-taking app as a writer. Its linking feature easily connects my rough notes, providing a comprehensive understanding of my ideas. Its flexibility and ease-of-use have made it an essential tool that I can't imagine working without.</p>
+            <h3 class="review__heading">-Marco Ricci</h3>
+          </div>
+        </a>
+
+        <a class="review">
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1518326815392-fd33bc3e4ccb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          </div>
+
+          <div class="review__content">
+            <p>🌘</p>
+            <p class="review__category">Howling Moon has completely changed my approach to note-taking. The linking feature connects my ideas and the intuitive interface makes it easy to navigate between different notes and sections. It's the perfect tool for anyone who wants to stay organized and productive.</p>
+            <h3 class="review__heading">-Hubert Yu</h3>
+          </div>
+        </a>
+
+        <a class="review">
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1530183779930-e5cb23103c3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          </div>
+
+          <div class="review__content">
+            <p>🌗</p>
+            <p class="review__category">As someone who struggles to keep track of their thoughts, Howling Moon has been a game-changer for me. The linking feature connects my rough notes, and the app's flexibility and ease-of-use make it perfect for anyone who wants to improve their note-taking game.</p>
+            <h3 class="review__heading">-Ife Odugbesan</h3>
+          </div>
+        </a>
+
+        <a class="review">
+          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1527842891421-42eec6e703ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60)">
+          </div>
+
+          <div class="review__content">
+            <p>🌒</p>
+            <p class="review__category">Despite being skeptical at first, Howling Moon has quickly won me over. Its clean interface and user-friendly design make it easy to connect my thoughts together and stay organized. It's the perfect tool for anyone looking to take their productivity to the next level.</p>
+            <h3 class="review__heading">-Jeff Bezos</h3>
+          </div>
+        </a>
+
+      <div>
+    </section>
   </div>
 
-  <div class="section3">
+
+  <%# <div class="section3">
 
     <div class="testimonal">
 
@@ -102,13 +161,13 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <%= image_tag "krusty krab review.PNG", class: "d-block w-100", alt: "The first testimonal" %>
-          </div>
+          <%# </div>
           <div class="carousel-item">
             <%= image_tag "lse arman review.PNG", class: "d-block w-100", alt: "The second testimonal" %>
-          </div>
+          <%# </div>
           <div class="carousel-item">
             <%= image_tag "lewagon review.PNG", class: "d-block w-100", alt: "The third testimonal" %>
-          </div>
+          <%# </div>
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -121,5 +180,19 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> %>
+
+  <%# <div class="section4" data-controller="review">
+    <h2>Testimonals</h2>
+    <h6>Move your mouse!</h6>
+    <%= image_tag 'krusty krab review.PNG', class: 'review', data: { index: 0, status: 'inactive' } %>
+    <%# <%= image_tag 'lewagon review.PNG', class: 'review', data: { index: 1, status: 'inactive' } %>
+    <%# <%= image_tag 'lse arman review.PNG', class: 'review', data: { index: 2, status: 'inactive' } %>
+    <%# <%= image_tag 'enyo review.png', class: 'review', data: { index: 3, status: 'inactive' } %>
+    <%# <%= image_tag 'lucas review.png', class: 'review', data: { index: 4, status: 'inactive' } %>
+    <%# <%= image_tag 'hubert review.png', class: 'review', data: { index: 5, status: 'inactive' } %>
+    <%# <%= image_tag 'carol review.png', class: 'review', data: { index: 6, status: 'inactive' } %>
+    <%# <%= image_tag 'pedro review.png', class: 'review', data: { index: 7, status: 'inactive' } %>
+    <%# <%= image_tag 'marco review.png', class: 'review', data: { index: 8, status: 'inactive' } %>
+  <%# </div> %>
 </div>

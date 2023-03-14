@@ -18,3 +18,6 @@ application.register("search-thoughts", SearchThoughtsController)
 
 import TreeMapController from "./tree_map_controller"
 application.register("tree-map", TreeMapController)
+
+import ReviewController from "./review_controller"
+application.register("review", ReviewController)
