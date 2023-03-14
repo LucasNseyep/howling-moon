@@ -19,6 +19,9 @@
           </div>
         </div>
       </div>
+      <%# if @thought.collection %>
+        <%#= @thought.collection.title %>
+      <%# end %>
       <% if @thought.parent %>
         <div class="col-4">
           <div class="right-side">
