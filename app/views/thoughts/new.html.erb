@@ -3,19 +3,21 @@
     <div class="row">
       <div class="col-8">
 
-        <%= form_with model: @thought do |f| %>
-        <div class="card-main">
-          <div class="card-body">
-            <h1><%= f.text_field :title, class:'form-card-title', placeholder: 'Title of your card' %></h1>
-            <%= f.text_area :content, size: "66x8", class:'form-card-text', placeholder: 'Say it in your own words...' %>
+        <%= form_with model: @thought, data: { controller: "button-switch" } do |f| %>
+          <div class="card-main">
+            <div class="card-body">
+              <h1><%= f.text_field :title, class:'form-card-title text-center', placeholder: 'Title of your card' %></h1>
+              <%= f.text_area :content, size: "66x8", class:'form-card-text', placeholder: 'Say it in your own words...' %>
+            </div>
           </div>
-        </div>
 
-        <div class="buttons-container">
-          <%= link_to 'Cancel', thoughts_path, class: 'button' %>
-          <%= f.submit 'Save', class: 'button'%>
-           <%= f.submit 'Save and Connect', class: 'button'%>
-        </div>
+          <div class="buttons-container">
+            <%= link_to 'Cancel', thoughts_path, class: 'button' %>
+            <div class="buttons-container-left">
+              <%= f.submit 'Save', class: 'button', id: "save-button"%>
+              <%= f.submit 'Save and Connect', class: 'button', id: "save-connect-button"%>
+            </div>
+          </div>
         <% end %>
       </div>
 
@@ -37,12 +39,3 @@
     </div>
   </div>
 </div>
-
-
-<!--
-  <%= form_with model: @thought do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-  <% end %>
--->

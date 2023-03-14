@@ -4,8 +4,20 @@
 
 import { application } from "./application"
 
+import ButtonSwitchController from "./button_switch_controller"
+application.register("button-switch", ButtonSwitchController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
+import SearchThoughtsController from "./search_thoughts_controller"
+application.register("search-thoughts", SearchThoughtsController)
+
 import TreeMapController from "./tree_map_controller"
 application.register("tree-map", TreeMapController)
+
+import ReviewController from "./review_controller"
+application.register("review", ReviewController)

@@ -1,3 +1,9 @@
+// input.button {
+//   padding: 6.8px 20px;
+//   margin: 0;
+// }
+
+
 .button {
   font-size: larger;
   text-decoration: none;
@@ -15,5 +21,31 @@
 .button:hover {
   color: rgb(97, 97, 97);
   border: 1px solid rgb(97, 97, 97);
+  opacity: 1;
+}
+
+.button-completed {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.save-button {
+  font-size: larger;
+  text-decoration: none;
+  padding: 10px;
+  padding-inline: 20px;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid black;
+  color: white;
+  font-weight: 400;
+  border-radius: 50px;
+  opacity: 0.8;
+  margin-left: 10px;
+}
+
+.save-button:hover {
+  color: white;
+  border: 1px solid white;
   opacity: 1;
 }

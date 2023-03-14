@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-8">
 
-        <%= form_with model: @thought do |f| %>
+        <%= form_with model: @thought, data: { controller: "button-switch" } do |f| %>
         <div class="card-main">
           <div class="card-body">
-            <h1><%= f.text_field :title, class:'form-card-title' %></h1>
+            <h1><%= f.text_field :title, class:'form-card-title text-center' %></h1>
             <%= f.text_area :content, size: "66x8", class:'form-card-text' %>
           </div>
         </div>
@@ -14,7 +14,9 @@
         <div class="buttons-container">
           <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
           <%= link_to 'Cancel', thought_path(@thought), class: 'button' %>
-          <%= f.submit 'Complete', class: 'button'%>
+          <div class="buttons-container-left">
+            <%= f.submit 'Save', class: 'button', id: "save-button" %>
+          </div>
         </div>
         <% end %>
       </div>
@@ -27,8 +29,8 @@
             </div>
             <div class="small-card-parent">
               <% if @thought.parent %>
-                <p class="card-title"><%= @thought.title %></p>
-                <p class="card-content"><%= @thought.content[0,100] + "..." %></p>
+                <p class="card-title"><%= @thought.parent.title %></p>
+                <p class="card-content"><%= @thought.parent.content[0,100] + "..." %></p>
                 <%= link_to '', thought_path(@thought.parent), class: 'small-card-link' %>
               <% end %>
             </div>
@@ -39,8 +41,8 @@
               <% if @thought.ancestors.any? %>
                 <% @thought.ancestors.each do |ancestor| %>
                   <div class="small-card-ancestor">
-                    <p class="card-title"><%= @thought.title %></p>
-                    <p class="card-content"><%= @thought.content[0,100] + "..." %></p>
+                    <p class="card-title"><%= ancestor.title %></p>
+                    <p class="card-content"><%= ancestor.content[0,100] + "..." %></p>
                     <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
                   </div>
                 <% end %>

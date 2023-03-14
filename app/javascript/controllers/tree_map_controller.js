@@ -13,6 +13,7 @@ export default class extends Controller {
       return map;
     }, {});
 
+    //building the json
     let treeDataArray = [];
     data.forEach(function(node) {
     // add to parent
@@ -27,8 +28,6 @@ export default class extends Controller {
         treeDataArray.push(node);
       }
     });
-
-    console.log(treeDataArray)
 
     let treeData = treeDataArray[0]
 
@@ -55,8 +54,6 @@ export default class extends Controller {
   	var newNodeType = "Medium";
   	var newLinkWidth = 15;
 
-    console.log(treeData)
-
     // size of the diagram
     var viewerWidth = $(window).width();
     var viewerHeight = $(window).height();
@@ -66,8 +63,6 @@ export default class extends Controller {
       .style("opacity", 0)
       .attr("class", "tooltip")
       .style("background-color", "#F2F2F2")
-      // .style("border", "solid")
-      // .style("border-width", "2px")
       .style("border-radius", "20px")
       .style("padding", "20px")
       .style("width", "300px")
@@ -136,16 +131,14 @@ export default class extends Controller {
 
 
     // sort the tree according to the node names
-
     function sortTree() {
         tree.sort(function(a, b) {
             return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
         });
     }
+
     // Sort the tree initially incase the JSON isn't in a sorted order.
     sortTree();
-
-    // TODO: Pan function, can be better implemented.
 
     function pan(domNode, direction) {
         var speed = panSpeed;
@@ -173,56 +166,12 @@ export default class extends Controller {
     }
 
     // Define the zoom function for the zoomable tree
-
     function zoom() {
         svgGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
     }
 
-
     // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
     var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
-
-    // function initiateDrag(d, domNode) {
-    //     draggingNode = d;
-    //     d3.select(domNode).select('.ghostCircle').attr('pointer-events', 'none');
-    //     d3.selectAll('.ghostCircle').attr('class', 'ghostCircle show');
-    //     d3.select(domNode).attr('class', 'node activeDrag');
-
-    //     svgGroup.selectAll("g.node").sort(function(a, b) { // select the parent and sort the path's
-    //         if (a.id != draggingNode.id) return 1; // a is not the hovered element, send "a" to the back
-    //         else return -1; // a is the hovered element, bring "a" to the front
-    //     });
-    //     // if nodes has children, remove the links and nodes
-    //     if (nodes.length > 1) {
-    //         // remove link paths
-    //         links = tree.links(nodes);
-    //         nodePaths = svgGroup.selectAll("path.link")
-    //             .data(links, function(d) {
-    //                 return d.target.id;
-    //             }).remove();
-    //         // remove child nodes
-    //         nodesExit = svgGroup.selectAll("g.node")
-    //             .data(nodes, function(d) {
-    //                 return d.id;
-    //             }).filter(function(d, i) {
-    //                 if (d.id == draggingNode.id) {
-    //                     return false;
-    //                 }
-    //                 return true;
-    //             }).remove();
-    //     }
-
-    //     // remove parent link
-    //     parentLink = tree.links(tree.nodes(draggingNode.parent));
-    //     svgGroup.selectAll('path.link').filter(function(d, i) {
-    //         if (d.target.id == draggingNode.id) {
-    //             return true;
-    //         }
-    //         return false;
-    //     }).remove();
-
-    //     dragStarted = null;
-    // }
 
     // define the baseSvg, attaching a class for styling and the zoomListener
     var baseSvg = d3.select("#col-tree-map").append("svg")
@@ -230,7 +179,6 @@ export default class extends Controller {
         .attr("height", viewerHeight)
         .attr("class", "overlay")
         .call(zoomListener);
-
 
     // Define the drag listeners for drag/drop behaviour of nodes.
     let dragListener = d3.behavior.drag()
@@ -241,7 +189,8 @@ export default class extends Controller {
             dragStarted = true;
             nodes = tree.nodes(d);
             d3.event.sourceEvent.stopPropagation();
-            // it's important that we suppress the mouseover event on the node being dragged. Otherwise it will absorb the mouseover event and the underlying node will not detect it d3.select(this).attr('pointer-events', 'none');
+            // it's important that we suppress the mouseover event on the node being dragged.
+            // Otherwise it will absorb the mouseover event and the underlying node will not detect it d3.select(this).attr('pointer-events', 'none');
         })
         .on("drag", function(d) {
             if (d == root) {
@@ -325,7 +274,6 @@ export default class extends Controller {
     }
 
     // Helper functions for collapsing and expanding nodes.
-
     function collapse(d) {
         if (d.children) {
             d._children = d.children;
@@ -380,7 +328,6 @@ export default class extends Controller {
     };
 
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
-
     function centerNode(source) {
         let scale = zoomListener.scale();
         let x = -source.y0;
@@ -394,166 +341,7 @@ export default class extends Controller {
         zoomListener.translate([x, y]);
     }
 
-   // Define a context (popup) menu
-  var menu = [{
-    title: "Rename",
-    action: function(elm, d, i) {
-      var result = prompt('Change the name of the node', d.name);
-      if (result) {
-        temp = d.name;
-        d.name = result;
-        update(root);
-        centerNode(d);
-      }
-console.log('Renamed node name "' + temp + '" to "' + result + '"');
-    }
-  }, {
-    title: 'Add a node',
-    action: function(elm, d, i) {
-      newNodeName = newNodeBase + parseInt(Math.round(10000*Math.random()));
-      var newNode = {"name": newNodeName,
-        "nodeNo": nodeNoMax,
-        "value": newNodeValue,
-        "status": newNodeStatus,
-        "type": newNodeType,
-        "mainRoot": root.name,
-        "nodeBefore": d.name,
-        "linkWidth": 15,
-        "children": []
-//        "parent":d
-      };
-
-/*
-      if (!d.children && !d._children)
-        {
-//            d3.json("http://xxxx:2222/getChildNodes", function(error,response) {
-//          d.children.forEach(function(child){
-            if (!tree.nodes(d)[0]._children){
-              tree.nodes(d)[0]._children = [];
-            }
-            d.children[0].x = d.x0;
-            d.children[0].y = d.y0;
-            tree.nodes(d)[0]._children.push(newNode);
-//          });
-          if (d.children) {
-            d._children = d.children;
-            d.children = null;
-          }
-          else {
-            d.children = d._children;
-            d._children = null;
-          }
-          update(d);
-//            });
-        }
-      if (d.children) {
-        d._children = d.children;
-        d.children = null;
-      }
-      else {
-        d.children = d._children;
-        d._children = null;
-      }
-*/
-
-
-//Last working?
-      var currentNode = tree.nodes(d);
-//      var currentNode = _.where(d.parent.children, {name: d.name});
-      //var myJSONObject = {"name": "new Node","children": []};
-console.log("currentNode=");
-console.log(currentNode);
-
-//  if (currentNode.children) curentNode.children.push(newNode); else currentNode.children = [newNode];
-//  nodes.push(newNode);
-//*
-      if (currentNode[0]._children!=null) {
-//window.alert("currentNode[0]._children!=null");
-        currentNode[0]._children.push(newNode);
-console.log("_children != null");
-console.log(currentNode[0]._children);
-        d.children = d._children;
-        d._children = null;
-      }
-      else if (currentNode[0].children!=null && currentNode[0]._children!=null) {
-//window.alert("currentNode[0]._children!=null && currentNode[0]._children!=null");
-       currentNode[0].children.push(newNode);
-console.log("(_)children != null");
-console.log(currentNode[0].children);
-      }
-      else {
-//window.alert("else");
-        currentNode[0].children=[]; // erases previous children!
-        currentNode[0].children.push(newNode);
-        currentNode[0].children.x = d.x0;
-        currentNode[0].children.y = d.y0;
-console.log("children == null");
-console.log(currentNode[0].children);
-      };
-
-      update(root);
-      expand(currentNode);
-      sortTree();
-
-/*/
-//console.log("Current node added children: " + currentNode[0].children[0].name);
-
-/*
-// other way tested, not working
-      // repeating the code from moving the dragged node to other parent node ?
-        var selectedNode = tree.nodes(d);
-        if (typeof selectedNode.children !== 'undefined' || typeof selectedNode._children !== 'undefined') {
-          if (typeof selectedNode.children !== 'undefined') {
-            selectedNode.children.push(newNode);
-          } else {
-            selectedNode._children.push(newNode);
-          }
-        } else {
-          selectedNode.children = [];
-          selectedNode.children.push(newNode);
-        }
-
-        // Make sure that the node being added to is expanded so user can see added node is correctly moved
-//        tree.links(selectedNode).push(selectedNode[selectedNode.length-1]);
-
-//      bar1data = [[0,0],[0,0],[0,0]];
-//      tree.links(currentNode).push(currentNode[currentNode.length-1]);
-      update(root);
-      expand(currentNode);
-      sortTree();
-*/
-console.log('Inserted a new node to "' + d.name + '" with a node name "' + newNode.name + '"');
-    }
-  }, {
-    title: 'Delete a node',
-    action: function(elm, d, i) {
-      delName = d.name;
-      if (d.parent && d.parent.children){ // cannot delete a root
-        var nodeToDelete = _.where(d.parent.children, {name: delName});
-        if (nodeToDelete) {
-          if (nodeToDelete[0].children!=null || nodeToDelete[0]._children!=null) {
-            if (confirm('Deleting this node will delete all its children too! Proceed?')) {
-              d.parent.children = _.without(d.parent.children, nodeToDelete[0]);
-console.log('Deleted parent node "' + delName + '"');
-              update(root);
-            }
-            else {
-//console.log('Cancelled deleting the node "' + delName + '"');
-            }
-          }
-          else {
-            d.parent.children = _.without(d.parent.children, nodeToDelete[0]);
-console.log('Deleted end node "' + delName + '"');
-          }
-        }
-      }
-//      bar1data = [[0,0],[0,0],[0,0]];
-      update(root);
-    }
-  }];
-
     // Toggle children function
-
     function toggleChildren(d) {
         if (d.children) {
             d._children = d.children;
@@ -566,7 +354,6 @@ console.log('Deleted end node "' + delName + '"');
     }
 
     // Toggle children on click.
-
     function click(d) {
         if (d3.event.defaultPrevented) return; // click suppressed
         d = toggleChildren(d);
@@ -591,7 +378,7 @@ console.log('Deleted end node "' + delName + '"');
             }
         };
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
+        var newHeight = d3.max(levelWidth) * 700; // 25 pixels per line
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
@@ -600,7 +387,7 @@ console.log('Deleted end node "' + delName + '"');
 
         // Set widths between levels based on maxLabelLength.
         nodes.forEach(function(d) {
-            d.y = (d.depth * (maxLabelLength * 10)); //maxLabelLength * 10px
+            d.y = (d.depth * (maxLabelLength * 30)); //maxLabelLength * 10px
             // alternatively to keep a fixed scale one can set a fixed depth per level
             // Normalize for fixed-depth by commenting out below line
             // d.y = (d.depth * 500); //500px per level.
@@ -620,73 +407,63 @@ console.log('Deleted end node "' + delName + '"');
                 return "translate(" + source.y0 + "," + source.x0 + ")";
             })
             .on('click', click)
-            .on("mouseover", mouseover)
-            .on("mousemove", mousemove)
-            .on("mouseleave", mouseleave);
 
-          nodeEnter.append("circle")
+          nodeEnter
+              .append("circle")
               .attr('class', 'nodeCircle')
               .attr("r", 0)
               .style("fill", function(d) {
                   return d._children ? "lightsteelblue" : "#fff";
               })
-            // .on('contextmenu', d3.contextMenu(menu));
-	      // adding popup dialogue for changing/adding/deleting nodes to circles
-
 
         nodeEnter.append("a")
-            .attr("xlink:href", function(d) { return d.url; })
-            .attr("class", "clickable")
-            .append("text")
-            .attr("x", function(d) {
-                return d.children || d._children ? -10 : 10;
-            })
-            .attr("dy", ".35em")
-            .attr('class', 'nodeText')
-            .attr("text-anchor", function(d) {
-                return d.children || d._children ? "end" : "start";
-            })
-            .text(function(d) {
-                return d.name;
-            })
-            .style("fill-opacity", 0)
-            .attr("xlink:href", function(d) { return d.url; })
-            // .on('contextmenu', d3.contextMenu(menu));
-      // adding popup dialogue for changing/adding/deleting nodes for text captions too
+            .attr("xlink:href", function(d) { return d.url; }).append("rect")
+            .attr("class", "rect")
+            .attr("width", 300)
+            .attr("height", 136)
+            .style("fill", "#F2F2F2")
+            .attr("rx", 20)
+            .attr("ry", 20)
+            .attr("x", -150)
+            .attr("y", -150)
 
-
-        // phantom node to give us mouseover in a radius around it
-        nodeEnter.append("circle")
-            .attr('class', 'ghostCircle')
-            .attr("r", 30)
-            .attr("opacity", 0.2) // change this to zero to hide the target area
-        .style("fill", "red")
-            .attr('pointer-events', 'mouseover')
-            .on("mouseover", function(node) {
-                overCircle(node);
-            })
-            .on("mouseout", function(node) {
-                outCircle(node);
-            });
-
-        // Update the text to reflect whether node has children or not.
-        node.select('text')
-            .attr("x", function(d) {
-                return d.children || d._children ? -10 : 10;
-            })
-            .attr("text-anchor", function(d) {
-                return d.children || d._children ? "end" : "start";
-            })
-            .text(function(d) {
-                return d.name;
-            });
+        nodeEnter
+          .append("a")
+          .attr("xlink:href", function(d) { return d.url; })
+          .style("text-decoration", "none")
+          .style("fill", "black")
+          .attr("class", "clickable")
+          .append("foreignObject")
+          .attr("width", 300)
+          .attr("height", 136)
+          .attr("x", -150)
+          .attr("y", -150)
+          .append("xhtml:div")
+          .attr("class", "thoughtDiv")
+          .style("color", "black")
+          .style("height", 200)
+          .style("padding", "auto 0")
+          .style("text-align", "center")
+          .style("color", "$dark-grey")
+          .style("padding", "20px")
+          .attr("xmlns", "https://www.w3.org/1999/xhtml/")
+          .style("fill", "black")
+          .attr('class', 'nodeDiv')
+          .html(function(d) {
+              return `${d.name} \n ${d.content.slice(0,100)}...`
+          })
+          .style("fill-opacity", 0)
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemove)
+          .on("mouseleave", mouseleave);
 
         // Change the circle fill depending on whether it has children and is collapsed
         node.select("circle.nodeCircle")
-            .attr("r", 4.5)
+            .attr("r", 10)
             .style("fill", function(d) {
                 return d._children ? "lightsteelblue" : "#fff";
             });
+
 
         // Transition nodes to their new position.
         var nodeUpdate = node.transition()
@@ -767,8 +544,6 @@ console.log('Deleted end node "' + delName + '"');
     root = treeData;
     root.x0 = viewerHeight / 2;
     root.y0 = 0;
-
-    console.log(root)
 
     // Layout the tree initially and center on the root node.
     update(root);
