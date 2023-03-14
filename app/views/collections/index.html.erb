@@ -23,8 +23,20 @@
   <!-- A container for the title of the page -->
   <div class="header-container mb-5">
     <h1>Your thought collections</h1>
+    <div class="search-bar align-self-center">
+      <%= form_with url: thoughts_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a collection by title"
+        %>
+        <%# <%= submit_tag "Search", class: "search-button" %>
+        <button type="submit" class="search-button search-button-index"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <% end %>
+    </div>
     <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
   </div>
+
 
   <!-- A container for the search bar -->
   <div search-container>
@@ -37,7 +49,6 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
--->
   <div>
     <!-- A container for all the collections -->
     <%= render "list" %>

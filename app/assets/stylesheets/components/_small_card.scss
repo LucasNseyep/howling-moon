@@ -81,10 +81,11 @@
 
 .card-title {
   align-self: center;
-  margin-bottom: 12px;
+  // margin-bottom: 12px;
   font-weight: 500;
   color: $black;
-  padding-bottom: 2px;
+  // padding-bottom: 2px;
+  padding: 0;
 }
 
 .card-content {
@@ -100,8 +101,4 @@
 
 .small-card-roll::-webkit-scrollbar {
   display: none;
-}
-
-* {
-  font-family: 'Roboto', sans-serif;
 }
