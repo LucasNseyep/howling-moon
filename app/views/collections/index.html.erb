@@ -19,7 +19,7 @@
   </div>
 
   <% @collections.reverse.each do |collection| %>
-    <div class="collections-wrapper mt-5 d-flex flex-column align-items-center">
+    <div class="collections-wrapper d-flex flex-column align-items-center">
       <div class="collection-container ">
         <div class="small-card">
           <% if collection.title %>
@@ -27,7 +27,7 @@
             <%= link_to '', collection_path(collection), class: 'small-card-link' %>
           <% end %>
           <% if collection.description %>
-            <p class="small-card-content"><%= collection.description[0,100] + "..." %></p>
+            <p class="small-card-content"><%= collection.description[0,150] + "..." %></p>
             <%= link_to '', collection_path(collection), class: 'small-card-link' %>
           <% end %>
       </div>
@@ -39,20 +39,20 @@
           <% collection.thoughts.each do |thought| %>
             <% if collection.thoughts.first == thought %>
               <div class="carousel-item active">
-                <div class="small-card d-block w-100">
+                <div class="small-card d-block w-100 small-thought-card-collection">
                   <% if thought.title %>
                     <p class="small-card-title"><%= thought.title %></p>
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
                   <% end %>
                   <% if thought.content %>
-                    <p class="small-card-content"><%= thought.content[0,100] + "..." %></p>
+                    <p class="small-card-content"><%= thought.content[0,150] + "..." %></p>
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
                   <% end %>
                 </div>
               </div>
             <% else %>
               <div class="carousel-item">
-                <div class="small-card d-block w-100">
+                <div class="small-card d-block w-100 small-thought-card-collection">
                   <% if thought.title %>
                     <p class="small-card-title"><%= thought.title %></p>
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
