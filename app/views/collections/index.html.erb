@@ -9,7 +9,7 @@
 
 <div data-controller="search">
   <%= form_with url: collections_path, method: :get, html: {class:
-    "mb-4", data: {search_target: "form"}} do |f| %>
+    "d-flex justify-content-center", data: {search_target: "form"}} do |f| %>
     <%= f.text_field :query,
                      class: "form-control",
                      placeholder: "Search collections",
@@ -37,7 +37,7 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
--->
+
   <div>
     <!-- A container for all the collections -->
     <%= render "list" %>
