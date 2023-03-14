@@ -19,41 +19,25 @@
 
 -->
 
-<div class="page-container">
-  <div class="page-title-container container d-flex">
-    <h1>Welcome, <%= current_user.username %></h1>
-
-    <%# searchbar %>
-    <div class="search-bar align-self-center">
-      <%= form_with url: thoughts_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a thought"
-        %>
-        <%# <%= submit_tag "Search", class: "search-button" %>
-        <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row gy-3">
-      <div class="col-3 d-flex justify-content-center">
-        <div class="new-thought-card">
-          Start a new thought
-          <%= link_to '', new_thought_path, class: 'new-thought-card-link' %>
-        </div>
-      </div>
-        <% @thoughts.reverse.each do |thought| %>
-          <div class="col-3 d-flex justify-content-center">
-            <div class="small-card">
-              <p class="small-card-title"><%= thought.title %></p>
-              <p class="small-card-content"><%= thought.content[0,100] + "..." %></p>
-              <%= link_to '', thought_path(thought), class: 'small-card-link' %>
-            </div>
-          </div>
-        <% end %>
-    </div>
+<%#= form_with url: thoughts_path, method: :get, class: "d-flex" do %>
+  <%#= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a thought"
+  %>
+  <%#= submit_tag "Search", class: "btn btn-primary" %>
+<%# end %>
+<div data-controller="search-thoughts">
+  <%= form_with url: thoughts_path, method: :get, html: {class:
+    "mb-4", data: {search_thoughts_target: "form"}} do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: "Search thoughts",
+                     value: params[:query],
+                     data: {search_thoughts_target: "inputThought",
+                     action: "keyup->search-thoughts#update"} %>
+  <% end %>
+  <div>
+    <%= render "list-thought" %>
   </div>
 </div>
