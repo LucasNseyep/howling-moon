@@ -41,12 +41,16 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
+    @thought = Thought.new
   end
 
   def create
     @collection = Collection.new(collection_params)
-    @collection.user = current_user
+    @thought = Thought.new(thought_params)
+    @thought.user = current_user
+    @thought.collection = @collection
     @collection.save
+    @thought.save
 
     redirect_to collections_path
     # redirect_to collection_path(@collection)
@@ -71,5 +75,9 @@ class CollectionsController < ApplicationController
 
   def collection_params
     params.require(:collection).permit(:title, :description)
+  end
+
+  def thought_params
+    params.require(:thought).permit(:title, :content)
   end
 end
