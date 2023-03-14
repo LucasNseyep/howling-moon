@@ -6,7 +6,7 @@
         <%= form_with model: @thought, data: { controller: "button-switch" } do |f| %>
           <div class="card-main">
             <div class="card-body">
-              <h1><%= f.text_field :title, class:'form-card-title', placeholder: 'Title of your card' %></h1>
+              <h1><%= f.text_field :title, class:'form-card-title text-center', placeholder: 'Title of your card' %></h1>
               <%= f.text_area :content, size: "66x8", class:'form-card-text', placeholder: 'Say it in your own words...' %>
             </div>
           </div>
