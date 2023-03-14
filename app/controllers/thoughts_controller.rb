@@ -29,19 +29,10 @@ class ThoughtsController < ApplicationController
     if params[:commit] == 'Save'
       redirect_to thought_path(@thought)
     elsif
-      params[:commit] == 'Save and Connect'
-      redirect_to browse_thoughts_path(@thought)
+    params[:commit] == 'Save and Connect'
+    redirect_to browse_thoughts_path(@thought)
     end
   end
-
-  # def create_and_parent
-  #   @thought = Thought.new(thought_params)
-  #   @thought.user = current_user
-  #   # add_collection
-  #   @thought.save
-
-  #   redirect_to browse_thoughts_path(@thought)
-  # end
 
   def edit
     @thought = Thought.find(params[:id])
