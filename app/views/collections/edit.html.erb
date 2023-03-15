@@ -1,9 +1,36 @@
-<%= @collection.title %>
-
-<%= link_to "Delete", collection_path(@collection), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<!--
 
 <%= simple_form_for(@collection) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.button :submit %>
 <% end %>
+
+-->
+
+<div class="container page-container mb-2">
+  <div class="page-title-container mb-5">
+    <h1><%= @collection.title %></h1>
+  </div>
+
+  <%= simple_form_for(@collection) do |f| %>
+    <div class="card px-3 py-3 w-50">
+      <div class="card-body">
+        <div class="mb-5">
+          <h3><%= f.label :title, { class: "form-label mb-4"} %></h3>
+          <h3><%= f.text_field :title, { class: "form-control form-control-lg new-collection-input" } %></h3>
+        </div>
+
+        <div class="mb-5">
+          <h3><%= f.label :description, { class: "form-label mb-4"} %></h3>
+          <h3><%= f.text_area :description, { class: "form-control form-control-lg new-collection-textarea", size: "60x8" } %></h3>
+        </div>
+
+        <section class="form-flex-bottom align-self-center justify-content-center">
+          <%= link_to "Delete", collection_path(@collection), class: "button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <%= f.button :submit, class: "button" %>
+        </section>
+      </div>
+    </div>
+  <% end %>
+</div>

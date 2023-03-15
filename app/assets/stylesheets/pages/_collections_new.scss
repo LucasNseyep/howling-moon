@@ -1,9 +1,6 @@
-.form-container {
-  width: 500px;
-}
-
 .card {
-  width: 60% !important;
+  // width: 60% !important;
+  width: 80vw;
   margin: 0 auto !important;
   border-radius: 20px !important;
 }
@@ -19,4 +16,28 @@
 
 //   resize: none; /*remove the resize handle on the bottom right*/
 //   background-color: inherit;
+// }
+
+.form-flex-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-flex-top {
+  display: flex;
+  gap: 50px;
+}
+
+.form-flex-bottom {
+  display: flex;
+}
+
+.new-collection-input,
+.new-collection-textarea {
+  border: none;
+  border-radius: 20px;
+}
+
+// .new-collection-textarea {
 // }

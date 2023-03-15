@@ -8,16 +8,11 @@
 <%# end %>
 
 <div data-controller="search">
-
-
-
-<!-- A container for the entire page -->
   <div class="container page-container">
-  <!-- A container for the title of the page -->
-    <div class="header-container mb-5">
+    <section class="title-search-container">
       <h1>Your thought collections</h1>
       <div class="search-bar align-self-center">
-      <%= form_with url: collections_path, method: :get, html: {class: "d-flex justify-content-center", data: {search_target: "form"}} do |f| %>
+      <%= form_with url: collections_path, method: :get, html: {class: "", data: {search_target: "form"}} do |f| %>
           <%= f.text_field :query,
                       class: "form-control",
                       placeholder: "Search collections",
@@ -26,8 +21,11 @@
                       action: "keyup->search#update"} %>
         <% end %>
       </div>
-      <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
-    </div>
-    </div>
-  <%= render "list" %>
+      <div class="new-collection-button-container align-self-center">
+        <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
+      </div>
+    </section>
+
+    <%= render 'list' %>
+  </div>
 </div>
