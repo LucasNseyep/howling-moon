@@ -30,7 +30,11 @@
             </div>
             <div class="small-card-parent">
               <% if @thought.parent %>
-                <p class="small-card-title"><%= @thought.parent.title %></p>
+                <p class="small-card-title"><%=
+                  @thought.title.length > 20 ?
+                  @thought.title[0,20] + "..." :
+                  @thought.title
+                  %></p>
                 <p class="small-card-content">
                   <%= @thought.parent.content.length >= 100 ?
                    @thought.parent.content[0,100] + "..." :
@@ -47,7 +51,11 @@
                 <% if @thought.ancestors.any? %>
                   <% @thought.ancestors.each do |ancestor| %>
                     <div class="small-card-ancestor">
-                      <p class="small-card-title"><%= ancestor.title %></p>
+                      <p class="small-card-title"><%=
+                        ancestor.title.length > 20 ?
+                        ancestor.title[0,20] + "..." :
+                        ancestor.title
+                        %></p>
                       <p class="small-card-content"><%=
                       ancestor.content.length > 100 ?
                       ancestor.content[0,100] + "..." :

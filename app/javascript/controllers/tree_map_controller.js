@@ -62,7 +62,7 @@ export default class extends Controller {
       .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
-      .style("background-color", "#F2F2F2")
+      .style("background-color", "white")
       .style("border-radius", "20px")
       .style("padding", "20px")
       .style("width", "300px")
@@ -82,7 +82,7 @@ export default class extends Controller {
     }
     var mousemove = function(d) {
       Tooltip
-        .html(d.content)
+        .html(`<strong>${d.name}</strong> <br> ${d.content}`)
         .style("text-align", "center")
     }
 
@@ -421,7 +421,7 @@ export default class extends Controller {
             .attr("class", "rect")
             .attr("width", 300)
             .attr("height", 136)
-            .style("fill", "#F2F2F2")
+            .style("fill", "white")
             .attr("rx", 20)
             .attr("ry", 20)
             .attr("x", -150)
@@ -450,7 +450,7 @@ export default class extends Controller {
           .style("fill", "black")
           .attr('class', 'nodeDiv')
           .html(function(d) {
-              return `${d.name} \n ${d.content.slice(0,100)}...`
+              return `<strong>${d.name}</strong> <br> ${d.content.slice(0,90)}...`
           })
           .style("fill-opacity", 0)
           .on("mouseover", mouseover)
