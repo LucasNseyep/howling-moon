@@ -30,8 +30,12 @@
             </div>
             <div class="small-card-parent">
               <% if @thought.parent %>
-                <p class="card-title"><%= @thought.parent.title %></p>
-                <p class="card-content"><%= @thought.parent.content[0,100] + "..." %></p>
+                <p class="small-card-title"><%= @thought.parent.title %></p>
+                <p class="small-card-content">
+                  <%= @thought.parent.content.length >= 100 ?
+                   @thought.parent.content[0,100] + "..." :
+                    @thought.parent.content %>
+                </p>
                 <%= link_to '', thought_path(@thought.parent), class: 'small-card-link' %>
               <% end %>
             </div>
@@ -43,8 +47,8 @@
                 <% if @thought.ancestors.any? %>
                   <% @thought.ancestors.each do |ancestor| %>
                     <div class="small-card-ancestor">
-                      <p class="card-title"><%= ancestor.title %></p>
-                      <p class="card-content"><%= ancestor.content[0,100] + "..." %></p>
+                      <p class="small-card-title"><%= ancestor.title %></p>
+                      <p class="small-card-content"><%= ancestor.content[0,100] + "..." %></p>
                       <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
                     </div>
                   <% end %>
