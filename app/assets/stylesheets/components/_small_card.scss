@@ -47,13 +47,14 @@
   margin-bottom: 24px !important;
 }
 
-.small-card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
+// .small-card-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+// }
+
 
 .small-card-title {
   align-self: center;
@@ -79,6 +80,10 @@
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+.small-card:hover {
+  background-color: $secondary1;
 }
 
 .card-title {
