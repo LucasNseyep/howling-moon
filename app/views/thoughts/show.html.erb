@@ -48,8 +48,12 @@
                   <% @thought.ancestors.each do |ancestor| %>
                     <div class="small-card-ancestor">
                       <p class="small-card-title"><%= ancestor.title %></p>
-                      <p class="small-card-content"><%= ancestor.content[0,100] + "..." %></p>
-                      <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
+                      <p class="small-card-content"><%=
+                      ancestor.content.length > 100 ?
+                      ancestor.content[0,100] + "..." :
+                      ancestor.content
+                      %></p>
+                      <%= link_to '', thought_path(ancestor), class: 'small-card-link ancestor-text' %>
                     </div>
                   <% end %>
                 <% end %>
