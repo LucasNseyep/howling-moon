@@ -29,8 +29,8 @@
             </div>
             <div class="small-card-parent">
               <% if @thought.parent %>
-                <p class="card-title"><%= @thought.parent.title %></p>
-                <p class="card-content"><%= @thought.parent.content[0,100] + "..." %></p>
+                <p class="small-card-title"><%= @thought.parent.title %></p>
+                <p class="small-card-content"><%= @thought.parent.content[0,100] + "..." %></p>
                 <%= link_to '', thought_path(@thought.parent), class: 'small-card-link' %>
               <% end %>
             </div>
