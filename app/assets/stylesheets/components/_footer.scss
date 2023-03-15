@@ -1,0 +1,29 @@
+.footer-para {
+  margin: 0;
+}
+
+.footer {
+  height: 70px;
+  background-color: #00303F;
+  color: #F5F4F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-heart {
+  color: #CDAC81;
+}
+
+.footer-heart:hover {
+  color: #F5F4F4;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #F5F4F4;
+}
+
+.footer-link:hover {
+  color: #CDAC81;
+}
