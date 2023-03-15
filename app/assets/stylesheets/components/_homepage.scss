@@ -10,7 +10,7 @@
   background-size: cover;
   background-position: bottom;
 
-  // height: 100vh;
+  height: 100vh; //comment out for ellipse
   margin: 0px;
   padding: 24px;
 
@@ -58,7 +58,7 @@
     }
 
     .maintitle {
-      font-size: 1.5rem;
+      font-size: 4rem;
       // text-shadow: 2px 2px #ffffff;
       font-family: $font;
     }
@@ -719,10 +719,11 @@
     top: 0;
     padding: var(--spacing-l);
     transition: filter 0.5 ease;
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
   }
 
-  .review-grid:hover > .review:not(:hover) .review__content{
-    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+  .review-grid:hover > .review:hover .review__content{
+    filter: none;
   }
 
   .review__category{
