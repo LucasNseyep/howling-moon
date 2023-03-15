@@ -719,11 +719,10 @@
     top: 0;
     padding: var(--spacing-l);
     transition: filter 0.5 ease;
-    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
   }
 
-  .review-grid:hover > .review:hover .review__content{
-    filter: none;
+  .review-grid:hover > .review:not(:hover) .review__content{
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
   }
 
   .review__category{
