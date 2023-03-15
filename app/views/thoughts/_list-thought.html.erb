@@ -1,23 +1,23 @@
-<div class="page-container" data-search-thoughts-target="listThought">
+  <div class="page-container" data-search-thoughts-target="listThought">
 
-
-  <div class="container">
-    <div class="row gy-3">
-      <div class="col-3 d-flex justify-content-center">
-        <div class="new-thought-card">
-          Start a new thought
-          <%= link_to '', new_thought_path, class: 'new-thought-card-link' %>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-3 d-flex justify-content-center">
+          <div class="new-thought-card">
+            Create a new thought
+            <%= link_to '', new_thought_path, class: 'new-thought-card-link' %>
+          </div>
         </div>
-      </div>
         <% @thoughts.reverse.each do |thought| %>
           <div class="col-3 d-flex justify-content-center">
-            <div class="small-card">
+            <div class="small-card align-self-end">
               <p class="small-card-title"><%= thought.title %></p>
               <p class="small-card-content"><%= thought.content[0,100] + "..." %></p>
               <%= link_to '', thought_path(thought), class: 'small-card-link' %>
             </div>
           </div>
         <% end %>
+      </div>
     </div>
+
   </div>
-</div>
