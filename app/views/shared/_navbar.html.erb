@@ -23,9 +23,11 @@
               <input type="text" class="searchbar">
               <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div> %>
-            <%= link_to "+", "/thoughts/new", :class=>"add-button", :style=>"text-decoration: none;" %>
-            <%= link_to "Thoughts", "/thoughts", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
-            <%= link_to "Collections", "/collections", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
+            <div class="navbar-buttons-container-flex d-flex jsutify-content-center align-items-center">
+              <%= link_to "+", "/thoughts/new", :class=>"add-button", :style=>"text-decoration: none;" %>
+              <%= link_to "Thoughts", "/thoughts", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
+              <%= link_to "Collections", "/collections", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
+            </div>
           </li>
           <li class="nav-item dropdown h-100">
             <div class="dropdown-toggle menu-profile h-100" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
