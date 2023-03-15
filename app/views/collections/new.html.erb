@@ -1,75 +1,50 @@
 <div class="container page-container mb-2">
-  <div class="page-title-container">
+  <div class="page-title-container mb-5">
     <h1>Start your new collection</h1>
   </div>
 
-  <!--
-
-  <div class="form-container">
-    <%= form_with model: @collection do |f| %>
-    <%= f.text_field :title, placeholder: 'Title of your collection' %>
-    <br>
-    <%= f.text_area :title, placeholder: 'Insert a description for your collection' %>
-    <br>
-    <%= f.button :submit, class: 'button' %>
-    <% end %>
-    <br>
-    <%= link_to 'Cancel', collections_path, class: 'button' %>
-  </div>
-
-  -->
-
-
   <%= form_with(model: @collection) do |f| %>
-  <div class="card px-3 py-3">
-    <div class="card-body">
-
-      <div class="mb-5">
-        <h3><%= f.label :title, { class: "form-label"} %></h3>
-        <h3><%= f.text_field :title, { class: "form-control form-control-lg", placeholder: "New collection" } %></h3>
-      </div>
-
-      <div class="mb-5">
-        <h3><%= f.label :description, { class: "form-label"} %></h3>
-        <h3><%= f.text_area :description, { class: "form-control form-control-lg", size: "60x7", placeholder: "This collection is about..." } %></h3>
-      </div>
-
-      <div class="">
-        <h3 class="mb-4">Add first thought to start your new collection</h3>
-
-        <%= form_with model: @thought, data: { controller: "button-switch" } do |f| %>
-          <div class="card-main">
-            <div class="card-body">
-              <h3><%= f.text_field :title, class:'form-card-title text-center mb-5', placeholder: 'Title of your card' %></h3>
-              <h4><%= f.text_area :content, size: "66x8", class:'form-card-text', placeholder: 'Say it in your own words...' %></h4>
-            </div>
-          </div>
-        <% end %>
-
-        <!--
-        <%= simple_form_for(@thought) do |f| %>
-          <h4><%= f.input :title, { class: "form-control form-control-lg", size: "60x7" } %></h4>
-          <h4><%= f.input :content, { class: "form-control form-control-lg", size: "60x7" } %></h4>
-        <% end %>
-        -->
-      </div>
-
-      <p class="text-start mt-1 mb-4">*Remember: You need to create a first thought card to start your collection</p>
-      <%= link_to 'Cancel', collections_path, class: 'button' %>
-      <%= f.submit "Save", class: "button" %>
-
-    </div>
-  </div>
-  <% end %>
-
-<!--
-  <%= form_with(model: @collection) do |f| %>
-    <div class="card-main w-50 mt-5 mb-5 mx-auto">
+    <div class="card px-3 py-3">
       <div class="card-body">
-        <h3><%= f.text_field :title, { class: "", placeholder: "Title" } %></h3>
-        <h4><%= f.text_area :description, { class: "", placeholder: 'This collection will be about...' } %><h4>
+
+        <div class="form-flex-wrapper">
+
+          <div class="form-flex-top">
+            <section class="left-side-form">
+              <div class="mb-5">
+                <h3><%= f.label :title, { class: "form-label mb-4"} %></h3>
+                <h3><%= f.text_field :title, { class: "form-control form-control-lg new-collection-input", placeholder: "New collection" } %></h3>
+              </div>
+
+              <div class="mb-5">
+                <h3><%= f.label :description, { class: "form-label mb-4"} %></h3>
+                <h3><%= f.text_area :description, { class: "form-control form-control-lg new-collection-textarea", size: "60x8", placeholder: "This collection is about..." } %></h3>
+              </div>
+            </section>
+
+            <section class="right-side-form">
+              <h3 class="mb-4">Add first thought to start your new collection</h3>
+
+              <%= form_with model: @thought, data: { controller: "button-switch" } do |f| %>
+                <div class="card-main">
+                  <div class="card-body">
+                    <h3><%= f.text_field :title, class:'form-card-title text-center mb-4', placeholder: 'Title of your card' %></h3>
+                    <h4><%= f.text_area :content, size: "66x8", class:'form-card-text', placeholder: 'Say it in your own words...' %></h4>
+                  </div>
+                </div>
+              <% end %>
+              <p class="text-start mt-1 mb-4">*Remember: You need to create a first thought card to start your collection</p>
+            </section>
+          </div>
+
+          <div class="form-flex-bottom align-self-center">
+            <section class="buttons-form-container">
+              <%= link_to 'Cancel', collections_path, class: 'button' %>
+              <%= f.submit "Save", class: "button input-save-btn" %>
+            </section>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
--->
 </div>
