@@ -8,7 +8,13 @@
             <%= link_to '', collection_path(collection), class: 'small-card-link' %>
           <% end %>
           <% if collection.description %>
-            <p class="small-card-content"><%= collection.description[0,150] + "..." %></p>
+            <p class="small-card-content">
+            <%=
+              collection.description.length > 100 ?
+              collection.description[0,100] + "..." :
+              collection.description
+               %>
+            </p>
             <%= link_to '', collection_path(collection), class: 'small-card-link' %>
           <% end %>
       </div>
@@ -26,7 +32,12 @@
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
                   <% end %>
                   <% if thought.content %>
-                    <p class="small-card-content"><%= thought.content[0,150] + "..." %></p>
+                    <p class="small-card-content">
+                    <%=
+                      thought.content.length > 150 ?
+                      thought.content[0,150] + "..." :
+                      thought.content
+                    %></p>
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
                   <% end %>
                 </div>
@@ -39,7 +50,12 @@
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
                   <% end %>
                   <% if thought.content %>
-                    <p class="small-card-content"><%= thought.content[0,100] +  "..." %></p>
+                    <p class="small-card-content">
+                    <%=
+                      thought.content.length > 150 ?
+                      thought.content[0,150] + "..." :
+                      thought.content
+                     %></p>
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
                   <% end %>
                 </div>

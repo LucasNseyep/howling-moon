@@ -5,9 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "Deleting all users"
+User.delete_all
 puts "Deleting all thoughts"
 Thought.delete_all
+puts "Deleting all collections"
 Collection.delete_all
+puts "Deleting all connections"
 Connection.delete_all
 
 
@@ -170,6 +174,10 @@ thought_12 = Thought.new(
   user: lucas,
   collection: deep_work_collection,
 )
+thought_12.parent = thought_11
+thought_12.save!
+puts "Thought 12 created"
+
 
 thought_13 = Thought.new(
   title: "There's a solution",
@@ -179,6 +187,9 @@ thought_13 = Thought.new(
   user: lucas,
   collection: deep_work_collection,
 )
+thought_13.parent = thought_12
+thought_13.save!
+puts "Thought 13 created"
 
 thought_14 = Thought.new(
   title: "The Science of Deep Work",
@@ -188,6 +199,9 @@ thought_14 = Thought.new(
   user: lucas,
   collection: deep_work_collection,
 )
+thought_14.parent = thought_11
+thought_14.save!
+puts "Thought 14 created"
 
 thought_15 = Thought.new(
   title: "Distractions",
@@ -196,6 +210,9 @@ thought_15 = Thought.new(
   user: lucas,
   collection: deep_work_collection,
 )
+thought_15.parent = thought_14
+thought_15.save!
+puts "Thought 15 created"
 
 thought_16 = Thought.new(
   title: "Eudaimonia Machine",
@@ -204,6 +221,9 @@ thought_16 = Thought.new(
   user: lucas,
   collection: deep_work_collection,
 )
+thought_16.parent = thought_13
+thought_16.save!
+puts "Thought 16 created"
 
 thought_17 = Thought.new(
   title: "Bimodal Philosophy",
@@ -211,6 +231,9 @@ thought_17 = Thought.new(
   user: lucas,
   collection: deep_work_collection,
 )
+thought_17.parent = thought_13
+thought_17.save!
+puts "Thought 17 created"
 
 thought_18 = Thought.new(
   title: "Systemisation",
@@ -220,13 +243,19 @@ thought_18 = Thought.new(
   user: lucas,
   collection: deep_work_collection,
 )
+thought_18.parent = thought_17
+thought_18.save!
+puts "Thought 18 created"
 
-thought_18 = Thought.new(
+thought_19 = Thought.new(
   title: "Have a buddy",
   content: "Working with someone else or just having someone else working near you can help make you push out insights and
   avoid shallow work.",
   user: lucas,
   collection: deep_work_collection,
 )
+thought_19.parent = thought_18
+thought_19.save!
+puts "Thought 18 created"
 
 puts "All done!"

@@ -2,7 +2,7 @@
 
   <section class="section1">
     <div class="hometitle">
-      <div class="logo-title-container">
+       <div class="logo-title-container">
         <div class="logo-container1">
         <span class="fa-stack fa-md">
           <i class="fa fa-circle fa-stack-2x"></i>
@@ -11,6 +11,7 @@
       </div>
 
         <h1 class="maintitle">Howling Moon</h1>
+        <%# <h2 class="maintitle"><em>Link your thoughts, unleash your ideas</em></h2> %>
       </div>
 
       <div class="button-container">
@@ -25,6 +26,16 @@
         <% end %>
       </div>
     </div>
+
+    <%# <div class="ellipses-container">
+      <h2 class="greeting">Howling Moon</h2>
+      <div class="ellipses ellipses__outer--thin">
+        <div class="ellipses ellipses__orbit"></div>
+      </div>
+      <div class="ellipses ellipses__outer--thick"></div>
+    </div>
+
+    <p class="homecloser"> Discover a new way of note-taking</p> %>
   </section>
 
 
@@ -135,7 +146,7 @@
           </div>
 
           <div class="review__content">
-            <p>🌒</p>
+            <p>🌖</p>
             <p class="review__category">Despite being skeptical at first, Howling Moon has quickly won me over. Its clean interface and user-friendly design make it easy to connect my thoughts together and stay organized. It's the perfect tool for anyone looking to take their productivity to the next level.</p>
             <h3 class="review__heading">-Jeff Bezos</h3>
           </div>
@@ -195,4 +206,5 @@
     <%# <%= image_tag 'pedro review.png', class: 'review', data: { index: 7, status: 'inactive' } %>
     <%# <%= image_tag 'marco review.png', class: 'review', data: { index: 8, status: 'inactive' } %>
   <%# </div> %>
+  <%= render 'shared/footer' %>
 </div>
