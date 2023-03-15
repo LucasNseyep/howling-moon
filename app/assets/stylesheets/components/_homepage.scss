@@ -51,7 +51,7 @@
         text-shadow: 0 0 3px #000;
       }
 
-      .fa-note-sticky {
+      .fa-moon {
         color: $white;
         text-shadow: 0 0 3px #ffffff;
       }
@@ -66,7 +66,7 @@
     .btn-outline-primary {
       border-radius: 50px;
       font-size: 1rem;
-      color: $light-grey;
+      color: $dark-grey;
       border-color: $border;
     }
 
@@ -198,10 +198,11 @@
     font-style: italic;
     font-weight: 600;
     line-height: 20px;
-    letter-spacing: 0em;
+    letter-spacing: 0.2em;
     text-align: center;
     margin: 0;
-    padding-bottom: 50px;
+    margin-top: -170px;
+    padding-bottom: 10px;
   }
 
 
@@ -710,9 +711,7 @@
     transform: scale(1.05) translateZ(0);
   }
 
-  .review-grid:hover > .review:not(:hover) .review__background{
-    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
-  }
+
 
   .review__content{
     position: absolute;
@@ -722,7 +721,7 @@
     transition: filter 0.5 ease;
   }
 
-  .review-grid:hover > .review:not(:hover) {
+  .review-grid:hover > .review:not(:hover) .review__content{
     filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
   }
 
