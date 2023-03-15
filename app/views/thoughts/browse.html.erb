@@ -1,22 +1,26 @@
-<div class="page-container">
-  <div class="container">
-    <h1>Browse thoughts to connect to: <%= @thought.title %></h1>
-    <h1>Thoughts:</h1>
-  </div>
-  <div class="container">
-    <div class="row gy-3">
-      <% @thoughts.each do |thought| %>
-        <% if !thought.is_connected?(@thought.id) %>
-          <div class="col-3 d-flex justify-content-center mb-3">
-          <%# why was this ever content rather than title? could be both? %>
-            <%= button_to thought.title[0,120] + "...", connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
-          </div>
-        <% else %>
-          <div class="col-3 d-flex justify-content-center mb-3">
-            <%= button_to thought.title[0,120] + "...", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-parent", method: :post %>
-          </div>
-        <% end %>
-      <% end %>
+<div data-controller="search-browse">
+  <div class="page-container">
+    <div class="container">
+      <h1>Browse thoughts to connect to: <%= @thought.title %></h1>
+      <h1>Thoughts:</h1>
     </div>
+    <br>
+    <section class="title-search-container container">
+
+    <div class="search-bar">
+      <%= form_with url: browse_thoughts_path(@thought), method: :get, html: {class:
+        "w-100", data: {search_browse_target: "browseForm"}} do |f| %>
+        <%= f.text_field :query,
+                        class: "form-control",
+                        placeholder: "Search thoughts",
+                        value: params[:query],
+                        data: {search_browse_target: "browseInput",
+                        action: "keyup->search-browse#update"} %>
+      <% end %>
+    <div>
+    </section>
+
+    <%= render "list-browse" %>
+
   </div>
 </div>

@@ -10,6 +10,12 @@ application.register("button-switch", ButtonSwitchController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ReviewController from "./review_controller"
+application.register("review", ReviewController)
+
+import SearchBrowseController from "./search_browse_controller"
+application.register("search-browse", SearchBrowseController)
+
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 
@@ -18,6 +24,3 @@ application.register("search-thoughts", SearchThoughtsController)
 
 import TreeMapController from "./tree_map_controller"
 application.register("tree-map", TreeMapController)
-
-import ReviewController from "./review_controller"
-application.register("review", ReviewController)
