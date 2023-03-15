@@ -34,11 +34,11 @@
         <% if !thought.is_connected?(@thought.id) %>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
           <%# why was this ever content rather than title? could be both? %>
-            <%= button_to thought.title[0,120] + "...", connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+            <%= button_to thought.title[0,120], connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
           </div>
         <% else %>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
-            <%= button_to thought.title[0,120] + "...", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-parent", method: :post %>
+            <%= button_to thought.title[0,120], disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-parent", method: :post %>
           </div>
         <% end %>
       <% end %>
