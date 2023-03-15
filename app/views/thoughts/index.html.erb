@@ -27,16 +27,22 @@
   %>
   <%#= submit_tag "Search", class: "btn btn-primary" %>
 <%# end %>
+<div class="page-title-container container">
+    <h1>Welcome, <%= current_user.username %></h1>
+  </div>
+
 <div data-controller="search-thoughts">
-  <%= form_with url: thoughts_path, method: :get, html: {class:
-    "mb-4", data: {search_thoughts_target: "form"}} do |f| %>
-    <%= f.text_field :query,
-                     class: "form-control",
-                     placeholder: "Search thoughts",
-                     value: params[:query],
-                     data: {search_thoughts_target: "inputThought",
-                     action: "keyup->search-thoughts#update"} %>
-  <% end %>
+  <div class="search-bar align-self-center">
+    <%= form_with url: thoughts_path, method: :get, html: {class:
+      "d-flex", data: {search_thoughts_target: "form"}} do |f| %>
+      <%= f.text_field :query,
+                      class: "form-control",
+                      placeholder: "Search thoughts",
+                      value: params[:query],
+                      data: {search_thoughts_target: "inputThought",
+                      action: "keyup->search-thoughts#update"} %>
+    <% end %>
+    </div>
   <div>
     <%= render "list-thought" %>
   </div>
