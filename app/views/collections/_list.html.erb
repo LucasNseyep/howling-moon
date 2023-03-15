@@ -6,6 +6,8 @@
           <% if collection.title %>
             <p class="small-card-title"><%= collection.title %></p>
             <%= link_to '', collection_path(collection), class: 'small-card-link' %>
+          <% else %>
+            <%= link_to '', collection_path(collection), class: 'small-card-link' %>
           <% end %>
           <% if collection.description %>
             <p class="small-card-content">
