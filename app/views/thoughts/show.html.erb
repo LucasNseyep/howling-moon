@@ -45,7 +45,7 @@
                     <div class="small-card-ancestor">
                       <p class="card-title"><%= ancestor.title %></p>
                       <p class="card-content"><%= ancestor.content[0,100] + "..." %></p>
-                      <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
+                      <%= link_to '', thought_path(ancestor), class: 'small-card-link ancestor-text' %>
                     </div>
                   <% end %>
                 <% end %>
