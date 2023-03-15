@@ -4,6 +4,14 @@ class ThoughtsController < ApplicationController
   # shows cards that are not ourself with our connections to them
   def browse
     @thoughts = current_user.thoughts.where.not(id: @thought.id)
+
+    if params[:query].present?
+      @thoughts = current_user.thoughts.search(params[:query]).where.not(id: @thought.id)
+    end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "list-browse", locals: { thoughts: @thoughts }, formats: [:html] }
+    end
   end
 
   def index
