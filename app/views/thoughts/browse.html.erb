@@ -1,3 +1,27 @@
+<%# <div class="page-container">
+  <div class="container">
+    <h1>Browse thoughts to connect to: <%= @thought.title %> <%# </h1> %>
+    <%# <h1>Thoughts:</h1>
+  </div>
+  <div class="container">
+    <div class="row gy-3">
+      <% @thoughts.each do |thought| %>
+        <%# <% if !thought.is_connected?(@thought.id) %>
+          <%# <div class="col-3 d-flex justify-content-center mb-3"> %>
+          <%# why was this ever content rather than title? could be both? %>
+            <%# <%= button_to thought.title[0,120] + "...", connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+          <%# </div>
+        <% else %>
+          <%# <div class="col-3 d-flex justify-content-center mb-3">
+            <%= button_to thought.title[0,120] + "...", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-parent", method: :post %>
+          <%# </div>
+        <% end %>
+      <%# <% end %>
+    <%# </div>
+  </div>
+</div> %>
+<%#  %>
+
 <div class="page-container">
   <div class="container">
     <h1>Browse thoughts to connect to: <%= @thought.title %></h1>
@@ -7,12 +31,12 @@
     <div class="row gy-3">
       <% @thoughts.each do |thought| %>
         <% if !thought.is_connected?(@thought.id) %>
-          <div class="col-3 d-flex justify-content-center mb-3">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
           <%# why was this ever content rather than title? could be both? %>
             <%= button_to thought.title[0,120] + "...", connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
           </div>
         <% else %>
-          <div class="col-3 d-flex justify-content-center mb-3">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
             <%= button_to thought.title[0,120] + "...", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-parent", method: :post %>
           </div>
         <% end %>
@@ -20,3 +44,50 @@
     </div>
   </div>
 </div>
+
+<style>
+  @media (min-width: 576px) {
+    .col-sm-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .col-md-4 {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .col-lg-3 {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+</style>
+
+
+<style>
+  @media (min-width: 576px) {
+    .col-sm-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .col-md-4 {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .col-lg-3 {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+</style>
