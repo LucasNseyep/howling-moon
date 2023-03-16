@@ -1,12 +1,5 @@
-<%#= form_with url: collections_path, method: :get, class: "d-flex" do %>
-  <%#= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a collection"
-  %>
-  <%#= submit_tag "Search", class: "btn btn-primary" %>
-<%# end %>
 
+<div class="wrapper-to-fix-footer">
   <div data-controller="search">
     <div class="container page-container">
       <section class="title-search-container">
@@ -14,7 +7,7 @@
         <div class="search-bar align-self-center">
         <%= form_with url: collections_path, method: :get, html: {class: "", data: {search_target: "form"}} do |f| %>
             <%= f.text_field :query,
-                        class: "form-control",
+                        class: "form-control form-control-lg",
                         placeholder: "Search collections",
                         value: params[:query],
                         data: {search_target: "input",
@@ -31,6 +24,6 @@
   </div>
 </div>
 
-<%# <div class="footer-container"> %>
-  <%= render 'shared/footer' %>
-<%# </div> %>
+<footer class="footer">
+  <p class="footer-para">Made with <span class="footer-heart">♥</span> by <a href="https://github.com/LucasNseyep/howling-moon" title="Howling Moon" class="footer-link">Howling Moon</a></p>
+</footer>
