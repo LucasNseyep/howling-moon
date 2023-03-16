@@ -78,7 +78,7 @@ class CollectionsController < ApplicationController
   private
 
   def collection_params
-    params.require(:collection).permit(:title, :description)
+    params.require(:collection).permit(:title, :description, :colour)
   end
 
   def thought_params

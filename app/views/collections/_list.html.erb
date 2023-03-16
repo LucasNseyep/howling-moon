@@ -1,10 +1,10 @@
 <div data-search-target="list">
   <% @collections.reverse.each do |collection| %>
     <div class="collections-wrapper d-flex flex-column align-items-center">
-      <div class="collection-container ">
-        <div class="small-card">
+      <div class="collection-container">
+        <div class="small-card" style="background-color:<%=collection.colour%>;">
           <% if collection.title %>
-            <p class="small-card-title"><%= collection.title %></p>
+            <p class="small-card-title" style="background-colour: #fcba03;"><%= collection.title %></p>
             <%= link_to '', collection_path(collection), class: 'small-card-link' %>
           <% end %>
           <% if collection.description %>
@@ -26,7 +26,7 @@
           <% collection.thoughts.each do |thought| %>
             <% if collection.thoughts.first == thought %>
               <div class="carousel-item active">
-                <div class="small-card d-block w-100 small-thought-card-collection">
+                <div class="small-card d-block w-100 small-thought-card-collection" style="background-color:<%=collection.colour%>;">
                   <% if thought.title %>
                     <p class="small-card-title"><%= thought.title %></p>
                     <%= link_to '', thought_path(thought), class: 'small-card-link' %>
