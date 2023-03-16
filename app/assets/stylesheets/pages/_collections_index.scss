@@ -9,7 +9,7 @@
 // }
 
 .carousel {
-  width: 460px;
+  width: 500px;
   height: 200px;
 }
 
@@ -34,10 +34,4 @@
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(100%);
-}
-
-.footer-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
