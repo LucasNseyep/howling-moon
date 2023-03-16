@@ -18,12 +18,7 @@
   display: none
 }
 
-.new-thought-card:hover {
-  background-color:  #459568;
-}
-
 .new-thought-card:hover:before {
-  color: black;
   content: "Add a thought"
 }
 

@@ -39,7 +39,7 @@
         <%= form_with url: thoughts_path, method: :get, html: {class:
           "w-100", data: {search_thoughts_target: "form"}} do |f| %>
           <%= f.text_field :query,
-                          class: "form-control",
+                          class: "form-control form-control-lg",
                           placeholder: "Search thoughts",
                           value: params[:query],
                           data: {search_thoughts_target: "inputThought",
