@@ -7,7 +7,12 @@
        <% collection.thoughts.each do |thought| %>
          <div class="small-card small-thought-card-collection mb-5 mx-3">
             <% if thought.title %>
-              <p class="small-card-title"><%= thought.title %></p>
+              <p class="small-card-title">
+                <%=
+                thought.title.length > 20 ?
+                thought.title[0,20] + "..." :
+                thought.title
+              %></p>
               <%= link_to '', thought_path(thought), class: 'small-card-link' %>
             <% end %>
             <% if thought.content %>
