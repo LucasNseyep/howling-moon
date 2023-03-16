@@ -705,6 +705,9 @@
     list-style: none;
     position: relative;
     transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .review:before{
@@ -763,7 +766,6 @@
   }
 }
 
-
 // arrow
 
 .scroll-down {
@@ -804,4 +806,24 @@
 .scroll-down a:hover {
   color: white;
   opacity: 1;
+}
+
+.avatar-review {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  justify-content: space-between;
+  width: 260px;
+  padding-left: 24px;
+  padding-right: 24px;
+  align-items: center;
+}
+
+.user-review {
+  font-size: 16px;
+  font-style: italic;
+  color: white;
+}
+
+.review-bottom {
 }
