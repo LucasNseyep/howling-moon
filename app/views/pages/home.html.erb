@@ -3,21 +3,14 @@
   <section class="section1">
     <div class="hometitle">
        <div class="logo-title-container">
-        <div class="logo-container1">
-        <span class="fa-stack fa-md">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa-solid fa-moon fa-stack-1x fa-inverse"></i>
-        </span>
-      </div>
-
-        <h1 class="maintitle">Howling Moon</h1>
-        <%# <h2 class="maintitle"><em>Link your thoughts, unleash your ideas</em></h2> %>
-      </div>
+          <h1 class="maintitle">Howling Moon</h1>
+        </div>
+        <h4 class="mb-4">Say goodbye to scattered notes and fragmented ideas</h4>
 
       <div class="button-container">
         <% if user_signed_in? %>
-          <a href="/thoughts">
-            <button type="button" class="btn btn-outline-primary">Your Thoughts</button>
+          <a href="/collections">
+            <button type="button" class="btn btn-outline-primary">Your Collections</button>
           </a>
         <% else %>
           <a href="/users/sign_up">
@@ -37,16 +30,6 @@
           <%# <i class="fa-solid fa-chevron-down"></i> %>
         <%# <% end %>
     </div>
-
-    <%# <div class="ellipses-container">
-      <h2 class="greeting">Howling Moon</h2>
-      <div class="ellipses ellipses__outer--thin">
-        <div class="ellipses ellipses__orbit"></div>
-      </div>
-      <div class="ellipses ellipses__outer--thick"></div>
-    </div>
-
-    <p class="homecloser"> Discover a new way of note-taking</p> %>
   </section>
 
 
@@ -54,61 +37,59 @@
   <section class="section2">
 
     <div class="section2-head">
-      <h2 class="section2-header">Say goodbye to scattered notes and fragmented ideas</h2>
-      <h2 class="section2-header"> <em>'Howling Moon' </em>  uses cutting-edge technology to extract and organize your ideas into a streamlined, user-friendly format.</h2>
+      <h2 class="section2-header"> <em>Howling Moon</em>  uses cutting-edge technology to extract and organize your ideas into a streamlined, user-friendly format.</h2>
     </div>
 
     <div class="container">
       <div class="infogrid row">
         <div class="col-12 col-sm-6 col-lg-4">
-          <div class="simpletxt">
+          <div class="txt">
             <i class="fa-sharp fa-regular fa-face-smile"></i>
-            <h3 class="simpletxt-h3">Simple</h3>
-            <p class="simpletxt-p">Displays your thoughts in an accessible, user-friendly format, making it easy to navigate and review your ideas</p>
+            <h3 class="txt-h3">Simple</h3>
+            <p class="txt-p">Displays your thoughts in an accessible, user-friendly format, making it easy to navigate and review your ideas</p>
           </div>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-4">
-          <div class="chaintxt">
+          <div class="txt">
             <i class="fa-sharp fa-solid fa-link"></i>
-            <h3 class="chaintxt-h3">Chain Ideas</h3>
-            <p class="chaintxt-p">Allows you to connect related thoughts and ideas together. Identify common themes and connections between your notes.</p>
+            <h3 class="txt-h3">Chain Ideas</h3>
+            <p class="txt-p">Allows you to connect related thoughts and ideas together. Identify common themes and connections between your notes.</p>
           </div>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-4">
-          <div class="chronologytxt">
+          <div class="txt">
             <i class="fa-sharp fa-solid fa-calendar-check"></i>
-            <h3 class="chronologytxt-h3">Chronology</h3>
-            <p class="chronologytxt-p">Track your train of thought over time by organizing notes in chronological order, making it easy to follow the development of their ideas and see how they have evolved over time.</p>
+            <h3 class="txt-h3">Chronology</h3>
+            <p class="txt-p">Track your train of thought over time by organizing notes in chronological order, making it easy to follow the development of their ideas and see how they have evolved over time.</p>
           </div>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-4">
-          <div class="securetxt">
+          <div class="txt">
             <i class="fa-sharp fa-solid fa-lock"></i>
-            <h3 class="securetxt-h3">Secure</h3>
-            <p class="securetxt-p">Provides a secure platform for storing your thoughts, with password protection to keep your ideas safe and private.</p>
+            <h3 class="txt-h3">Secure</h3>
+            <p class="txt-p">Provides a secure platform for storing your thoughts, with password protection to keep your ideas safe and private.</p>
           </div>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-4">
-          <div class="desktoptxt">
+          <div class="txt">
             <i class="fa-sharp fa-solid fa-computer"></i>
-            <h3 class="desktoptxt-h3">Desktop</h3>
-            <p class="desktoptxt-p">Optimized for desktop use, with a user interface designed for larger screens and enhanced functionality to take advantage of the capabilities of desktop computers.</p>
+            <h3 class="txt-h3"  id="section2">Desktop</h3>
+            <p class="txt-p">Optimized for desktop use, with a user interface designed for larger screens and enhanced functionality to take advantage of the capabilities of desktop computers.</p>
           </div>
         </div>
 
         <div class="col-12 col-sm-6 col-lg-4">
-          <div class="freetxt">
+          <div class="txt">
             <i class="fa-solid fa-piggy-bank"></i>
-            <h3 class="freetxt-h3">Free</h3>
-            <p class="freetxt-p">Full version completely free, providing you with access to all features and functionality without any cost or subscription fees.</p>
+            <h3 class="txt-h3">Free</h3>
+            <p class="txt-p">Full version completely free, providing you with access to all features and functionality without any cost or subscription fees.</p>
           </div>
         </div>
       </div>
-      <h3 class="homeheader" id="section2" style="color: grey; font-size: 24px">Connects all of your thoughts</h3>
     </div>
   </section>
 
@@ -120,46 +101,42 @@
       <div class="review-grid">
         <a class="review">
 
-          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1609726121380-243fcdbb1935?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80)">
+          <div class="review__background" style="background-color: #727272b3">
           </div>
 
           <div class="review__content">
-            <p>🌑</p>
             <p class="review__category">Howling Moon has become my go-to note-taking app as a writer. Its linking feature easily connects my rough notes, providing a comprehensive understanding of my ideas. Its flexibility and ease-of-use have made it an essential tool that I can't imagine working without.</p>
-            <h3 class="review__heading">-Marco Ricci</h3>
+            <p class="review__category">-Marco Ricci</p>
           </div>
         </a>
 
         <a class="review">
-          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1518326815392-fd33bc3e4ccb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          <div class="review__background" style="background-color: #727272b3">
           </div>
 
           <div class="review__content">
-            <p>🌘</p>
             <p class="review__category">Howling Moon has completely changed my approach to note-taking. The linking feature connects my ideas and the intuitive interface makes it easy to navigate between different notes and sections. It's the perfect tool for anyone who wants to stay organized and productive.</p>
-            <h3 class="review__heading">-Hubert Yu</h3>
+            <p class="review__category">-Hubert Yu</p>
           </div>
         </a>
 
         <a class="review">
-          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1530183779930-e5cb23103c3c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+          <div class="review__background" style="background-color: #727272b3">
           </div>
 
           <div class="review__content">
-            <p>🌗</p>
             <p class="review__category">As someone who struggles to keep track of their thoughts, Howling Moon has been a game-changer for me. The linking feature connects my rough notes, and the app's flexibility and ease-of-use make it perfect for anyone who wants to improve their note-taking game.</p>
-            <h3 class="review__heading">-Ife Odugbesan</h3>
+            <p class="review__category">-Ife Odugbesan</p>
           </div>
         </a>
 
         <a class="review">
-          <div class="review__background" style="background-image: url(https://images.unsplash.com/photo-1527842891421-42eec6e703ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9vbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60)">
+          <div class="review__background" style="background-color: #727272b3;">
           </div>
 
           <div class="review__content">
-            <p>🌖</p>
             <p class="review__category">Despite being skeptical at first, Howling Moon has quickly won me over. Its clean interface and user-friendly design make it easy to connect my thoughts together and stay organized. It's the perfect tool for anyone looking to take their productivity to the next level.</p>
-            <h3 class="review__heading">-Jeff Bezos</h3>
+            <p class="review__category">-Jeff Bezos</p>
           </div>
         </a>
 
@@ -167,55 +144,6 @@
     </section>
   </div>
 
-
-  <%# <div class="section3">
-
-    <div class="testimonal">
-
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%= image_tag "krusty krab review.PNG", class: "d-block w-100", alt: "The first testimonal" %>
-          <%# </div>
-          <div class="carousel-item">
-            <%= image_tag "lse arman review.PNG", class: "d-block w-100", alt: "The second testimonal" %>
-          <%# </div>
-          <div class="carousel-item">
-            <%= image_tag "lewagon review.PNG", class: "d-block w-100", alt: "The third testimonal" %>
-          <%# </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </div> %>
-
-  <%# <div class="section4" data-controller="review">
-    <h2>Testimonals</h2>
-    <h6>Move your mouse!</h6>
-    <%= image_tag 'krusty krab review.PNG', class: 'review', data: { index: 0, status: 'inactive' } %>
-    <%# <%= image_tag 'lewagon review.PNG', class: 'review', data: { index: 1, status: 'inactive' } %>
-    <%# <%= image_tag 'lse arman review.PNG', class: 'review', data: { index: 2, status: 'inactive' } %>
-    <%# <%= image_tag 'enyo review.png', class: 'review', data: { index: 3, status: 'inactive' } %>
-    <%# <%= image_tag 'lucas review.png', class: 'review', data: { index: 4, status: 'inactive' } %>
-    <%# <%= image_tag 'hubert review.png', class: 'review', data: { index: 5, status: 'inactive' } %>
-    <%# <%= image_tag 'carol review.png', class: 'review', data: { index: 6, status: 'inactive' } %>
-    <%# <%= image_tag 'pedro review.png', class: 'review', data: { index: 7, status: 'inactive' } %>
-    <%# <%= image_tag 'marco review.png', class: 'review', data: { index: 8, status: 'inactive' } %>
-  <%# </div> %>
+<div>
   <%= render 'shared/footer' %>
 </div>

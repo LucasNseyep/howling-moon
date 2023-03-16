@@ -34,7 +34,6 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      margin-bottom: 18px;
     }
 
     .logo-container1 {
@@ -58,22 +57,28 @@
     }
 
     .maintitle {
-      font-size: 4rem;
+      font-size: 7rem;
       // text-shadow: 2px 2px #ffffff;
+      font-family: $font;
+    }
+
+    .maintitle2 {
+      font-size: 2rem;
+      text-shadow: 2px 2px #ffffff;
       font-family: $font;
     }
 
     .btn-outline-primary {
       border-radius: 50px;
-      font-size: 1rem;
-      color: $dark-grey;
-      border-color: $border;
+      font-size: 1.5rem;
+      background-color: $navy;
+      color: white;;
+      padding-inline: 40px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: none;
     }
 
-    .btn-outline-primary:hover {
-      background-color: black;
-      color: white;
-    }
   }
 
   .ellipses-container {
@@ -269,14 +274,13 @@
   padding: 20px;
 
   .section2-head {
-    padding: 30px;
+    padding: 30px 15vw;
   }
 
   .section2-header {
-    font-family: $font;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 20px;
+    font-family: $body-font;
+    font-size: 24px;
+    line-height: 24px;
     letter-spacing: 0em;
     text-align: center;
     color: $light-grey;
@@ -288,37 +292,60 @@
     justify-content: space-evenly;
     padding: 30px;
 
-    .simpletxt {
+    .txt {
+      padding: 20px;
+
       .fa-face-smile {
         color: #FFFFFFBF;
       }
 
-      .simpletxt-h3 {
-        font-family: $font;
-        font-size: 18px;
-        font-weight: 800;
-        line-height: 20px;
-        text-align: center;
+      .fa-link {
         color: #FFFFFFBF;
       }
 
-      .simpletxt-p {
-        font-family: $font;
-        font-size: 14px;
+      .fa-calendar-check {
+        color: #FFFFFFBF;
+      }
+
+      .fa-lock {
+        color: #FFFFFFBF;
+      }
+
+      .fa-computer {
+        color: #FFFFFFBF;
+      }
+
+      .txt-h3 {
+        font-family: $body-font;
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 28px;
+        text-align: center;
+        color: #FFFFFFBF;
+        margin-bottom: 8px;
+      }
+
+      .txt-p {
+        font-family: $body-font;
+        font-size: 18px;
         font-weight: 400;
-        line-height: 14px;
+        line-height: 18px;
         text-align: center;
         color: #FFFFFFBF;
       }
     }
 
-    .chaintxt {
+    .txt {
       .fa-link {
         color: #FFFFFFBF;
       }
 
+    .fa-piggy-bank {
+      color: #FFFFFFBF;
+    }
+
       .chaintxt-h3 {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 18px;
         font-weight: 800;
         line-height: 20px;
@@ -327,7 +354,7 @@
       }
 
       .chaintxt-p {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 14px;
         font-weight: 400;
         line-height: 14px;
@@ -342,7 +369,7 @@
       }
 
       .chronologytxt-h3 {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 18px;
         font-weight: 800;
         line-height: 20px;
@@ -351,7 +378,7 @@
       }
 
       .chronologytxt-p {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 14px;
         font-weight: 400;
         line-height: 14px;
@@ -366,7 +393,7 @@
       }
 
       .securetxt-h3 {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 18px;
         font-weight: 800;
         line-height: 20px;
@@ -375,7 +402,7 @@
       }
 
       .securetxt-p {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 14px;
         font-weight: 400;
         line-height: 14px;
@@ -390,7 +417,7 @@
       }
 
       .desktoptxt-h3 {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 18px;
         font-weight: 800;
         line-height: 20px;
@@ -399,7 +426,7 @@
       }
 
       .desktoptxt-p {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 14px;
         font-weight: 400;
         line-height: 14px;
@@ -414,7 +441,7 @@
       }
 
       .freetxt-h3 {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 18px;
         font-weight: 800;
         line-height: 20px;
@@ -423,7 +450,7 @@
       }
 
       .freetxt-p {
-        font-family: $font;
+        font-family: $body-font;
         font-size: 14px;
         font-weight: 400;
         line-height: 14px;
@@ -438,10 +465,6 @@
 @media (min-width: 576px) {
   .section2-head {
     padding: 30px 0;
-  }
-  .section2-header {
-    font-size: 22px;
-    line-height: 26px;
   }
   .infogrid {
     padding: 40px 0;
@@ -496,7 +519,7 @@
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .section2-head {
     padding: 40px 0;
   }
@@ -505,7 +528,7 @@
     line-height: 40px;
   }
   .infogrid {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 80px 0;
   }
@@ -681,6 +704,7 @@
   .review{
     list-style: none;
     position: relative;
+    transition: 0.5s;
   }
 
   .review:before{
@@ -707,8 +731,9 @@
       transform 200ms linear;
   }
 
-  .review:hover .review__background{
-    transform: scale(1.05) translateZ(0);
+  .review:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
   }
 
 
@@ -719,10 +744,7 @@
     top: 0;
     padding: var(--spacing-l);
     transition: filter 0.5 ease;
-  }
-
-  .review-grid:hover > .review:not(:hover) .review__content{
-    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+    text-align: center;
   }
 
   .review__category{
