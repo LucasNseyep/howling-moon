@@ -1,18 +1,19 @@
 <div class="container-home">
 
-  <section class="section1">
+  <section class="section1" id="section1">
     <div class="hometitle">
-       <div class="logo-title-container">
+      <div class="logo-title-container">
         <div class="logo-container1">
-        <span class="fa-stack fa-md">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa-solid fa-moon fa-stack-1x fa-inverse"></i>
-        </span>
-      </div>
+          <%# <span class="fa-stack fa-md">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa-solid fa-moon fa-stack-1x fa-inverse"></i>
+          </span> %>
+       </div>
 
         <h1 class="maintitle">Howling Moon</h1>
-        <%# <h2 class="maintitle"><em>Link your thoughts, unleash your ideas</em></h2> %>
       </div>
+
+      <p class="maintitle2">“Say goodbye to scattered notes and fragmented ideas”</p>
 
       <div class="button-container">
         <% if user_signed_in? %>
@@ -25,6 +26,8 @@
           </a>
         <% end %>
       </div>
+
+      <a href="#section2" class="scroll-down" address="true"></a>
     </div>
 
     <%# <div class="ellipses-container">
@@ -40,7 +43,7 @@
 
 
 
-  <section class="section2">
+  <section class="section2" id="section2">
 
     <div class="section2-head">
       <h2 class="section2-header"> <em>'Howling Moon' </em>  uses cutting-edge technology to extract and organize your ideas into a streamlined, user-friendly format.</h2>
