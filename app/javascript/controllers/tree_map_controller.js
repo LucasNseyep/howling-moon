@@ -62,7 +62,7 @@ export default class extends Controller {
       .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
-      .style("background-color", "white")
+      .style("background-color", "#CAE4DB")
       .style("border-radius", "20px")
       .style("padding", "20px")
       .style("width", "300px")
@@ -421,7 +421,7 @@ export default class extends Controller {
             .attr("class", "rect")
             .attr("width", 300)
             .attr("height", 136)
-            .style("fill", "white")
+            .style("fill", "#CAE4DB")
             .attr("rx", 20)
             .attr("ry", 20)
             .attr("x", -150)
@@ -450,7 +450,8 @@ export default class extends Controller {
           .style("fill", "black")
           .attr('class', 'nodeDiv')
           .html(function(d) {
-              return `<strong>${d.name}</strong> <br> ${d.content.slice(0,90)}...`
+              return `<strong>${d.name.length > 18 ? d.name.slice(0,18) + `...` :  d.name}
+              </strong> <br> ${d.content.length > 90 ? d.content.slice(0,90) + `...` : d.content}`
           })
           .style("fill-opacity", 0)
           .on("mouseover", mouseover)

@@ -1,4 +1,4 @@
-<div style="overflow-y: hidden; overflow-x: hidden;">
+<div style="overflow-y: hidden; overflow-x: hidden; height: 85.3%;">
   <div class="container show-header-container">
     <div class="show-left-container">
       <% if @collection.title %>
@@ -14,7 +14,8 @@
     </div>
   </div>
 
-  <div id="tree-data"
+  <div class="mt-3"
+    id="tree-data"
     data-controller="tree-map"
     data-tree-map-data-value="<%= @stringified_data %>">
     </div>
