@@ -41,21 +41,23 @@
         </div>
       </div>
         <% @thoughts.reverse.each do |thought| %>
-          <div class="col-3 d-flex justify-content-center">
-            <div class="small-card align-self-end">
-              <p class="small-card-title"><%=
-              thought.title.length > 20 ?
-               thought.title[0,20] + "..." :
-               thought.title
-               %></p>
-              <p class="small-card-content">
-                <%= thought.content.length >= 100 ?
-                    thought.content[0,100] + "..." :
-                      thought.content %>
-              </p>
-              <%= link_to '', thought_path(thought), class: 'small-card-link' %>
+          <% if thought.collection == nil %>
+            <div class="col-3 d-flex justify-content-center">
+              <div class="small-card align-self-end">
+                <p class="small-card-title"><%=
+                thought.title.length > 20 ?
+                thought.title[0,20] + "..." :
+                thought.title
+                %></p>
+                <p class="small-card-content">
+                  <%= thought.content.length >= 100 ?
+                      thought.content[0,100] + "..." :
+                        thought.content %>
+                </p>
+                <%= link_to '', thought_path(thought), class: 'small-card-link' %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
