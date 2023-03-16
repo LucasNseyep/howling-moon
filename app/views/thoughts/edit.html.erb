@@ -12,7 +12,7 @@
         </div>
 
         <div class="buttons-container">
-          <%= link_to "Connect to a parent thought", browse_thoughts_path(@thought), class:"button" %>
+          <%= link_to "Connections", browse_thoughts_path(@thought), class:"button" %>
           <%= link_to 'Cancel', thought_path(@thought), class: 'button' %>
           <div class="buttons-container-left">
             <%= f.submit 'Save', class: 'button', id: "save-button" %>
