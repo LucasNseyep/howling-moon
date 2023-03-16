@@ -2,7 +2,7 @@
   <div class="collections-wrapper">
    <% @collections.reverse.each do |collection| %>
     <h2 class="mb-5"><%= link_to collection.title, collection_path(collection), class: 'collection-title' %></h2>
-    <p><%= collection.description %></p>
+    <!--<p><%#= collection.description %></p>-->
      <div class="collection-wrapper d-flex">
        <% collection.thoughts.each do |thought| %>
          <div class="small-card small-thought-card-collection mb-5 mx-3">

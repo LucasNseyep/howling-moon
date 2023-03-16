@@ -3,7 +3,7 @@
   <div data-controller="search">
     <div class="container page-container">
       <section class="title-search-container">
-        <h1>Your thought collections</h1>
+        <h1>My collections</h1>
         <div class="search-bar align-self-center">
         <%= form_with url: collections_path, method: :get, html: {class: "", data: {search_target: "form"}} do |f| %>
             <%= f.text_field :query,
