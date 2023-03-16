@@ -27,30 +27,31 @@
   %>
   <%#= submit_tag "Search", class: "btn btn-primary" %>
 <%# end %>
+<div class="wrapper-to-fix-footer">
+  <div data-controller="search-thoughts">
 
-<div data-controller="search-thoughts">
+    <section class="title-search-container container">
+      <div class="page-title-container">
+        <h1>Welcome, <%= current_user.username %></h1>
+      </div>
 
-  <section class="title-search-container container">
-    <div class="page-title-container">
-      <h1>Welcome, <%= current_user.username %></h1>
-    </div>
+      <div class="search-bar">
+        <%= form_with url: thoughts_path, method: :get, html: {class:
+          "w-100", data: {search_thoughts_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+                          class: "form-control",
+                          placeholder: "Search thoughts",
+                          value: params[:query],
+                          data: {search_thoughts_target: "inputThought",
+                          action: "keyup->search-thoughts#update"} %>
+        <% end %>
+      <div>
+    </section>
 
-    <div class="search-bar">
-      <%= form_with url: thoughts_path, method: :get, html: {class:
-        "w-100", data: {search_thoughts_target: "form"}} do |f| %>
-        <%= f.text_field :query,
-                        class: "form-control",
-                        placeholder: "Search thoughts",
-                        value: params[:query],
-                        data: {search_thoughts_target: "inputThought",
-                        action: "keyup->search-thoughts#update"} %>
-      <% end %>
-    <div>
-  </section>
-
-  <%= render "list-thought" %>
+    <%= render "list-thought" %>
+  </div>
 </div>
 
-<section class="mt-5">
-  <%= render 'shared/footer' %>
-</section>
+<footer class="footer">
+  <p class="footer-para">Made with <span class="footer-heart">♥</span> by <a href="https://github.com/LucasNseyep/howling-moon" title="Howling Moon" class="footer-link">Howling Moon</a></p>
+</footer>
