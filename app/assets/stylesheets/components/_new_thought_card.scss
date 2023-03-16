@@ -14,6 +14,18 @@
   // margin-bottom: 12px;
 }
 
+.new-thought-card:hover span {
+  display: none
+}
+
+.new-thought-card:hover {
+  background-color: $light-grey;
+}
+
+.new-thought-card:hover:before {
+  content: "Add a thought"
+}
+
 .new-thought-card-link {
   position: absolute;
   top: 0;
