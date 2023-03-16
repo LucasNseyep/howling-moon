@@ -1,13 +1,18 @@
 <div data-search-target="list">
   <div class="collections-wrapper">
    <% @collections.reverse.each do |collection| %>
-    <h2 class="mb-5"><%= link_to collection.title, collection_path(collection), class: 'collection-title' %></h2>
-    <!--<p><%#= collection.description %></p>-->
-     <div class="collection-wrapper d-flex">
+   <hr>
+    <h2 class="mb-5 mt-5"><%= link_to collection.title, collection_path(collection), class: 'collection-title' %></h2>
+      <div class="collection-wrapper d-flex">
        <% collection.thoughts.each do |thought| %>
          <div class="small-card small-thought-card-collection mb-5 mx-3">
             <% if thought.title %>
-              <p class="small-card-title"><%= thought.title %></p>
+              <p class="small-card-title">
+                <%=
+                thought.title.length > 20 ?
+                thought.title[0,20] + "..." :
+                thought.title
+              %></p>
               <%= link_to '', thought_path(thought), class: 'small-card-link' %>
             <% end %>
             <% if thought.content %>
@@ -21,8 +26,9 @@
             <% end %>
           </div>
        <% end %>
-     </div>
-
+      </div>
    <% end %>
+   <div class="mb-5">
+   </div>
   </div>
 </div>
