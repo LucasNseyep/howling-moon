@@ -740,3 +740,46 @@
     line-height: 1.4;
   }
 }
+
+
+// arrow
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  font-size: 32px;
+  text-align: center;
+  animation: bounce 2s infinite 2s;
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+.scroll-down a {
+  color: white;
+  opacity: 0.6;
+}
+
+.scroll-down a:hover {
+  color: white;
+  opacity: 1;
+}
