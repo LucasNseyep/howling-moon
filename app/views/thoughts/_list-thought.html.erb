@@ -46,12 +46,11 @@
               <p class="small-card-title"><%=
               thought.title.length > 20 ?
                thought.title[0,20] + "..." :
-               thought.title
-               %></p>
+               thought.title%>
               <p class="small-card-content">
                 <%= thought.content.length >= 100 ?
-                    thought.content[0,100] + "..." :
-                      thought.content %>
+                  thought.content[0,100] + "..." :
+                  thought.content %>
               </p>
               <%= link_to '', thought_path(thought), class: 'small-card-link' %>
             </div>

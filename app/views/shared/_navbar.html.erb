@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon height-3 border-bottom fixed-top">
   <div class="container-fluid text-center">
-    <%= link_to user_signed_in? ? "/thoughts" : "/", class: "navbar-brand fw-bolder" do %>
+    <%= link_to user_signed_in? ? "/collections" : "/", class: "navbar-brand fw-bolder" do %>
       <div class="logo-container">
         <span class="fa-stack fa-md">
           <i class="fa fa-circle fa-stack-2x"></i>
@@ -24,8 +24,8 @@
               <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div> %>
             <div class="navbar-buttons-container-flex d-flex justify-content-center align-items-center">
-              <%= link_to "+", "/thoughts/new", :class=>"add-button", :style=>"text-decoration: none;" %>
-              <%= link_to "Thoughts", "/thoughts", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
+              <%# <%= link_to "Add a thought +", "/thoughts/new", :class=>"add-button", :style=>"text-decoration: none;" %>
+              <%= link_to "Add a thought +", "/thoughts/new", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
               <%= link_to "Collections", "/collections", :class=>"nav-items-list", :style=>"text-decoration: none;" %>
             </div>
           </li>
@@ -36,6 +36,7 @@
             </div>
               <div class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="navbarDropdown">
                 <%= link_to "My Collections", "/collections", class: "dropdown-item" %>
+                <%= link_to "Thoughts", "/thoughts", :class=>"dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item btn-log-out", data: {turbo_method: :delete} %>
               </div>
           </li>

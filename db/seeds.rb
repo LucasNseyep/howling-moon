@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-puts "Deleting all users"
-User.delete_all
 puts "Deleting all thoughts"
 Thought.delete_all
+puts "Deleting all users"
+User.delete_all
 puts "Deleting all collections"
 Collection.delete_all
 puts "Deleting all connections"
