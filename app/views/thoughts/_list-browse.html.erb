@@ -54,7 +54,7 @@
       <% @thoughts.each do |thought| %>
         <% if !thought.is_connected?(@thought.id) %>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
-          <%# why was this ever content rather than title? could be both? %>
+            <%# why was this ever content rather than title? could be both? %>
             <%# <div class="small-card align-self-end"> %>
               <!--<p class="small-card-title"><%#= thought.title %></p>-->
               <!--<p class="small-card-content"><%#= thought.content[0,100] + "..." %></p>-->
@@ -73,7 +73,7 @@
               <%#= link_to '', thought_path(thought), class: 'small-card-link' %>
               <%#= link_to '', connect_thought_path(thought, selected_id: @thought.id), class: "small-card-link", method: :post %>
             <%# </div> %>
-            <%= button_to thought.title[0,120], disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+            <%= button_to thought.title[0,120], disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-connected", method: :post %>
           </div>
         <% end %>
       <% end %>

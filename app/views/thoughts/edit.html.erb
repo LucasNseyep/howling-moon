@@ -21,32 +21,52 @@
         <% end %>
       </div>
 
-      <% if @thought.parent %>
+            <% if @thought.parent %>
         <div class="col-4">
           <div class="right-side">
-            <div class="link-thoughts-title-container">
-              <h5 class="mb-4">Thought that came before: </h5>
-            </div>
-            <div class="small-card-parent">
-              <% if @thought.parent %>
-                <p class="small-card-title"><%= @thought.parent.title %></p>
-                <p class="small-card-content"><%= @thought.parent.content[0,100] + "..." %></p>
-                <%= link_to '', thought_path(@thought.parent), class: 'small-card-link' %>
-              <% end %>
-            </div>
             <div class="link-thoughts-title-container mt-4">
               <h5 class="mb-4">All the thoughts that led to this:</h5>
             </div>
-            <div class="small-card-roll">
-              <% if @thought.ancestors.any? %>
-                <% @thought.ancestors.each do |ancestor| %>
-                  <div class="small-card-ancestor">
-                    <p class="card-title"><%= ancestor.title %></p>
-                    <p class="card-content"><%= ancestor.content[0,100] + "..." %></p>
-                    <%= link_to '', thought_path(ancestor), class: 'small-card-link' %>
-                  </div>
+            <div class="inner-shadow">
+              <div class="small-card-roll">
+                <% if @thought.ancestors.any? %>
+                  <% @thought.ancestors.each do |ancestor| %>
+                    <% if ancestor == @thought.parent%>
+                      <div class="small-card-parent">
+                        <p class="small-card-title"><%=
+                          ancestor.title.length > 20 ?
+                          ancestor.title[0,20] + "..." :
+                          ancestor.title
+                          %></p>
+                        <p class="small-card-content"><%=
+                        ancestor.content.length > 100 ?
+                        ancestor.content[0,100] + "..." :
+                        ancestor.content
+                        %></p>
+                        <%= link_to '', thought_path(ancestor), class: 'small-card-link ancestor-text' %>
+                      </div>
+                    <% else %>
+                      <div class="small-card-ancestor">
+                        <p class="small-card-title"><%=
+                          ancestor.title.length > 20 ?
+                          ancestor.title[0,20] + "..." :
+                          ancestor.title
+                          %></p>
+                        <p class="small-card-content"><%=
+                        ancestor.content.length > 100 ?
+                        ancestor.content[0,100] + "..." :
+                        ancestor.content
+                        %></p>
+                        <%= link_to '', thought_path(ancestor), class: 'small-card-link ancestor-text' %>
+                      </div>
+                    <% end %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
+              <div class="collection-link">
+              <%= link_to "Collection",
+              collection_path(@thought.collection), class: 'button collection-button' %>
+              </div>
             </div>
           </div>
         </div>
@@ -62,6 +82,7 @@
           </div>
         </div>
       <% end %>
+    </div>
     </div>
   </div>
 </div>
