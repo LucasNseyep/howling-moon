@@ -1,30 +1,29 @@
 
+<div class="wrapper-to-fix-footer">
+  <div data-controller="search">
+    <div class="container page-container">
+      <section class="title-search-container">
+        <h1>Your thought collections</h1>
+        <div class="search-bar align-self-center">
+        <%= form_with url: collections_path, method: :get, html: {class: "", data: {search_target: "form"}} do |f| %>
+            <%= f.text_field :query,
+                        class: "form-control form-control-lg",
+                        placeholder: "Search collections",
+                        value: params[:query],
+                        data: {search_target: "input",
+                        action: "keyup->search#update"} %>
+          <% end %>
+        </div>
+        <div class="new-collection-button-container align-self-center">
+          <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
+        </div>
+      </section>
 
-<div data-controller="search">
-  <div class="container page-container">
-    <section class="title-search-container">
-      <h1>Your thought collections</h1>
-      <div class="search-bar align-self-center">
-      <%= form_with url: collections_path, method: :get, html: {class: "", data: {search_target: "form"}} do |f| %>
-          <%= f.text_field :query,
-                      class: "form-control form-control-lg",
-                      placeholder: "Search collections",
-                      value: params[:query],
-                      data: {search_target: "input",
-                      action: "keyup->search#update"} %>
-        <% end %>
-      </div>
-      <div class="new-collection-button-container align-self-center">
-        <%= link_to 'Start a new collection', new_collection_path, class: 'button' %>
-      </div>
-    </section>
-
-    <%= render 'list' %>
-
+      <%= render 'list' %>
+    </div>
   </div>
 </div>
 
-<footer class="footer mt-5">
+<footer class="footer">
   <p class="footer-para">Made with <span class="footer-heart">♥</span> by <a href="https://github.com/LucasNseyep/howling-moon" title="Howling Moon" class="footer-link">Howling Moon</a></p>
 </footer>
-

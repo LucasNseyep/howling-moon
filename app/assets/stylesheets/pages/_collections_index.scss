@@ -1,5 +1,23 @@
-.collection-container {
-  display: flex;
+// .collection-container {
+//   // display: flex;
+// }
+.collection-wrapper {
+  // width: 60vw;
+  // overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.collection-title {
+  text-decoration: none;
+  color: $black;
+}
+
+.collection-title:hover {
+  color: $beige;
+}
+
+.wrapper-to-fix-footer {
+  min-height: 100%
 }
 
 // .collection-line {
@@ -8,30 +26,30 @@
 //   border-top: 1px solid $black;
 // }
 
-.carousel {
-  width: 500px;
-  height: 200px;
-}
+// .carousel {
+//   width: 500px;
+//   height: 200px;
+// }
 
-.collections-wrapper {
-  margin-top: 60px;
-}
+// .collections-wrapper {
+//   margin-top: 60px;
+// }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  // background-color: $dark-grey;
-  // color: $black;
-  // border-radius: 50%;
-  width: 22px;
-  height: 22px;
-}
+// .carousel-control-prev-icon,
+// .carousel-control-next-icon {
+//   // background-color: $dark-grey;
+//   // color: $black;
+//   // border-radius: 50%;
+//   width: 22px;
+//   height: 22px;
+// }
 
-.small-thought-card-collection {
-  padding-left: 50px;
-  padding-right: 50px;
-}
+// .small-thought-card-collection {
+//   padding-left: 50px;
+//   padding-right: 50px;
+// }
 
-.carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
-    filter: invert(100%);
-}
+// .carousel-control-next,
+// .carousel-control-prev /*, .carousel-indicators */ {
+//     filter: invert(100%);
+// }

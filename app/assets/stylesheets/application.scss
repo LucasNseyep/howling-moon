@@ -30,3 +30,7 @@ h1, h2, h3 {
 input {
   font-family: $body-font !important;
 }
+
+body, html {
+  height: 100%;
+}
