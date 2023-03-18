@@ -7,7 +7,7 @@
           "w-100", data: {search_browse_target: "browseForm"}} do |f| %>
           <%= f.text_field :query,
                           class: "form-control form-control-lg",
-                          placeholder: "Search thoughts",
+                          placeholder: "Search your thoughts",
                           value: params[:query],
                           data: {search_browse_target: "browseInput",
                           action: "keyup->search-browse#update"} %>
