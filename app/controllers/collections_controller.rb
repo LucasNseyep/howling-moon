@@ -23,14 +23,14 @@ class CollectionsController < ApplicationController
         {
           name: thought.title,
           parent: "null",
-          url: "http://www.howlingmoon.xyz/thoughts/#{thought.id}",
+          url: "../thoughts/#{thought.id}",
           content: thought.content
         }
       else
         {
           name: thought.title,
           parent: thought.parent.title,
-          url: "http://www.howlingmoon.xyz/thoughts/#{thought.id}",
+          url: "../thoughts/#{thought.id}",
           content: thought.content
         }
       end

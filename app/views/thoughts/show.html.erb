@@ -19,9 +19,6 @@
           </div>
         </div>
       </div>
-      <%# if @thought.collection %>
-        <%#= @thought.collection.title %>
-      <%# end %>
       <% if @thought.parent %>
         <div class="col-4">
           <div class="right-side">
@@ -34,14 +31,16 @@
                   <% @thought.ancestors.each do |ancestor| %>
                     <% if ancestor == @thought.parent%>
                       <div class="small-card-parent">
-                        <p class="small-card-title"><%=
+                        <p class="small-card-title">
+                        <%=
                           ancestor.title.length > 20 ?
                           ancestor.title[0,20] + "..." :
                           ancestor.title
                           %></p>
-                        <p class="small-card-content"><%=
-                        ancestor.content.length > 100 ?
-                        ancestor.content[0,100] + "..." :
+                        <p class="small-card-content">
+                        <%=
+                        ancestor.content.length > 94 ?
+                        ancestor.content[0,94] + "..." :
                         ancestor.content
                         %></p>
                         <%= link_to '', thought_path(ancestor), class: 'small-card-link ancestor-text' %>
@@ -54,8 +53,8 @@
                           ancestor.title
                           %></p>
                         <p class="small-card-content"><%=
-                        ancestor.content.length > 100 ?
-                        ancestor.content[0,100] + "..." :
+                        ancestor.content.length > 94 ?
+                        ancestor.content[0,94] + "..." :
                         ancestor.content
                         %></p>
                         <%= link_to '', thought_path(ancestor), class: 'small-card-link ancestor-text' %>
@@ -86,31 +85,3 @@
     </div>
   </div>
 </div>
-
-
-<!--
-      <div class="col-4" style="margin-left: 70px">
-        <h3 class="mb-4">Your parent is: </h3>
-          <div class="small-card">
-            <% if @thought.parent %>
-              <p><%= @thought.parent.title %></p>
-              <p><%= @thought.parent.content[0,100] %></p>
-            </div>
-          <% end %>
-
-        <%# <div class="mb-4">--------------------------------------</div> %>
-
-      <div class="ancestor">
-        <h3 class="mb-4">Ancestors:</h3>
-        <div class="small-card-roll">
-          <% if @thought.ancestors.any? %>
-            <% @thought.ancestors.each do |ancestor| %>
-              <div class="small-card">
-                <p><%= ancestor.title %></p>
-                <p><%= ancestor.content %></p>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
--->

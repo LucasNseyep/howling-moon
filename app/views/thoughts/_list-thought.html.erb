@@ -49,8 +49,8 @@
                   thought.title
                 %></p>
                 <p class="small-card-content">
-                  <%= thought.content.length >= 100 ?
-                      thought.content[0,100] + "..." :
+                  <%= thought.content.length >= 94 ?
+                      thought.content[0,94] + "..." :
                         thought.content %>
                 </p>
                 <%= link_to '', thought_path(thought), class: 'small-card-link' %>

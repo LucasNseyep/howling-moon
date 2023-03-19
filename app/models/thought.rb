@@ -10,8 +10,8 @@ class Thought < ApplicationRecord
   has_many :child_relationships, foreign_key: :parent_id, class_name: 'Connection'
   has_many :children, through: :child_relationships, source: :child
 
-  validates :content, presence: true
-  
+  validates :form_is_filled, presence: true, if: :form_is_filled
+
   # SEARCH STUFF IMPLEMENTATION
   # PgSearch::Multisearch.rebuild(Thought)
   include PgSearch::Model
@@ -75,5 +75,11 @@ class Thought < ApplicationRecord
       roots.append(thought) if thought.parent.nil?
     end
     return roots
+  end
+
+  private
+
+  def form_is_filled
+    title || content
   end
 end

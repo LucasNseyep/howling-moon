@@ -1,28 +1,4 @@
 <div class="container" data-search-browse-target="browseList">
-     <%# <div class="page-container">
-  <div class="container">
-    <h1>Browse thoughts to connect to: <%= @thought.title %> <%# </h1> %>
-    <%# <h1>Thoughts:</h1>
-  </div>
-  <div class="container">
-    <div class="row gy-3">
-      <% @thoughts.each do |thought| %>
-        <%# <% if !thought.is_connected?(@thought.id) %>
-          <%# <div class="col-3 d-flex justify-content-center mb-3"> %>
-          <%# why was this ever content rather than title? could be both? %>
-            <%# <%= button_to thought.title[0,120] + "...", connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
-          <%# </div>
-        <% else %>
-          <%# <div class="col-3 d-flex justify-content-center mb-3">
-            <%= button_to thought.title[0,120] + "...", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-parent", method: :post %>
-          <%# </div>
-        <% end %>
-      <%# <% end %>
-    <%# </div>
-  </div>
-</div> %>
-<%#  %>
-
 <div class="page-container">
   <div class="container">
 
@@ -51,39 +27,40 @@
   </div>
   <div class="container">
     <div class="row gy-3">
-      <% @thoughts.each do |thought| %>
+      <% @thoughts.reverse.each do |thought| %>
         <% if !thought.is_connected?(@thought.id) %>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
-            <%# why was this ever content rather than title? could be both? %>
               <div class="small-card align-self-end">
-                <p class="small-card-title"><%= thought.title[0, 20] + "..." %></p>
-                <p class="small-card-content"><%= thought.content[0,100] + "..." %></p>
-
-                <%#= button_to thought.title[0,120], connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+                <p class="small-card-title">
+                <%=
+                  thought.title.length > 20 ?
+                  thought.title[0,20] + "..." :
+                  thought.title
+                %></p>
+                <p class="small-card-content">
+                  <%= thought.content.length >= 94 ?
+                      thought.content[0,94] + "..." :
+                        thought.content %>
+                </p>
                <%= link_to "", connect_thought_path(thought, selected_id: @thought.id), class: "small-card-link", data: {turbo_method: :post} %>
-
-                <%#= link_to '', connect_thought_path(thought, selected_id: @thought.id), class: "small-card-link", method: :post %>
               </div>
-            <%#= button_to thought.title[0,120], connect_thought_path(thought, selected_id: @thought.id), class: "small-card small-card-title", method: :post %>
           </div>
         <% else %>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
-            <%# <div class="small-card align-self-end"> %>
-              <!--<p class="small-card-title"><%#= thought.title %></p>-->
-              <!--<p class="small-card-content"><%#= thought.content[0,100] + "..." %></p>-->
-              <%#= link_to '', thought_path(thought), class: 'small-card-link' %>
-              <%#= link_to '', connect_thought_path(thought, selected_id: @thought.id), class: "small-card-link", method: :post %>
-            <%# </div> %>
             <div class="small-card-connected align-self-end">
-              <p class="small-card-title"><%= thought.title[0, 20] + "..." %></p>
-              <p class="small-card-content"><%= thought.content[0,100] + "..." %></p>
-
-              <%#= button_to thought.title[0,120], connect_thought_path(thought, selected_id: @thought.id), class: "small-card", method: :post %>
+                <p class="small-card-title">
+                <%=
+                  thought.title.length > 20 ?
+                  thought.title[0,20] + "..." :
+                  thought.title
+                %></p>
+                <p class="small-card-content">
+                  <%= thought.content.length >= 94 ?
+                      thought.content[0,94] + "..." :
+                        thought.content %>
+                </p>
               <%= link_to "", disconnect_thought_path(thought, selected_id: @thought.id), class: "small-card-link", data: {turbo_method: :post} %>
-
-              <%#= link_to '', connect_thought_path(thought, selected_id: @thought.id), class: "small-card-link", method: :post %>
             </div>
-
           </div>
         <% end %>
       <% end %>

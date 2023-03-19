@@ -1,7 +1,7 @@
 <div data-controller="search-browse">
   <div class="page-container container">
     <section class="title-search-container">
-      <h1>Browse thoughts</h1>
+      <h1>Connect to</h1>
       <div class="search-bar">
         <%= form_with url: browse_thoughts_path(@thought), method: :get, html: {class:
           "w-100", data: {search_browse_target: "browseForm"}} do |f| %>
@@ -12,12 +12,11 @@
                           data: {search_browse_target: "browseInput",
                           action: "keyup->search-browse#update"} %>
         <% end %>
-      <div>
+      </div>
     </section>
-
-    <h2 class="mb-5"><%= @thought.title %></h2>
-
     <%= render "list-browse" %>
+
+    <p class="mb-3">* If wanting to reconnect the thought to another, you will need to break the current link and create the new one.</p>
 
   </div>
 </div>
