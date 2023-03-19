@@ -8,14 +8,14 @@
         <%= form_with url: collections_path, method: :get, html: {class: "", data: {search_target: "form"}} do |f| %>
             <%= f.text_field :query,
                         class: "form-control form-control-lg",
-                        placeholder: "Search collections",
+                        placeholder: "Search your collections",
                         value: params[:query],
                         data: {search_target: "input",
                         action: "keyup->search#update"} %>
           <% end %>
         </div>
         <div class="new-collection-button-container align-self-center">
-          <%= link_to 'New collection', new_collection_path, class: 'button' %>
+          <%= link_to '+ Add a collection', new_collection_path, class: 'button' %>
         </div>
       </section>
 
