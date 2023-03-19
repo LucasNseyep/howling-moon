@@ -70,19 +70,24 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot1]](http://www.howlingmoon.xyz/collections)
-[![Product Name Screen Shot][product-screenshot2]]
-[![Product Name Screen Shot][product-screenshot3]](http://www.howlingmoon.xyz/thoughts)
+There are many great note taking apps out there (Notion, OneNote, ...); however, I didn't find one that really suited my needs so I created this one. I wanted to create a note taking app that would tear down all the barriers that blocked people from going through their notes to find their past amazing ideas.
+
+would let users generate ideas and chain them visually like a family tree. Allowing them to see the evolution of their thoughts as time moves. Now you may ask how is this different form Miro? Howling Moon is made for individuals and helps them focus on the writing. No need to think about the idea in its entirety, just focus on the smaller steps.
+
+How does Howling Moon do that?:
+* Your time should be focused on creating something amazing
+* You shouldn't be spending hours trying to retrieve an idea you had months ago and then more time finding your other related ideas. By the time you get all the materials together, you will already be reluctant to sit down and put things together
+* Let Howling Moon help you turn your amazing thoughts into the story you want write
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+<p><a href="#product-screen-shots">Some Screen Shots of the App</a></p>
 
 ### Built With
 
 * [![Rails][Rails]][Rails-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![D3][D3.js]][D3-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![Heroku][Heroku]][Heroku-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -96,26 +101,33 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Install ruby and rails
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/LucasNseyep/howling-moon.git
    ```
-3. Install NPM packages
+   or 
    ```sh
-   npm install
+   git clone git@github.com:LucasNseyep/howling-moon.git
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+2. Install ruby gems
+   ```sh
+   bundle install
+   ```
+3. Install yarn packages
+   ```sh
+   yarn install
+   ```
+4. Create the database and populate it
+   ```sh
+   rails db:create db:migrate db:seed
+   ```
+5. Run the app
+   ```sh
+   bin/dev
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -125,21 +137,23 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<a name="product-screen-shots"></a>
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+[![Product Name Screen Shot][product-screenshot1]](http://www.howlingmoon.xyz/collections)
+![Product Name Screen Shot][product-screenshot3]
+[![Product Name Screen Shot][product-screenshot2]](http://www.howlingmoon.xyz/thoughts)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [x] MVP
+- [ ] 
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
@@ -164,33 +178,21 @@ Don't forget to give the project a star! Thanks again!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - lucas.nseyep@gmail.com
-
-Project Link: [https://github.com/LucasNseyep/howling-moon](https://github.com/LucasNseyep/howling-moon)
+[Lucas Nseyep](https://github.com/LucasNseyep) - lucas.nseyep@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [Carolina Bacelar](https://github.com/cazbacelar)
+* [Enyo Ha](https://github.com/EnyoHA)
+* [Pedro Tasca](https://github.com/pedrotasca1)
+* [Arman Akhter](https://github.com/Arman-Akther)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
