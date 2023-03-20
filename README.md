@@ -70,14 +70,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-There are many great note taking apps out there (Notion, OneNote, ...); however, I didn't find one that really suited my needs so I created this one. I wanted to create a note taking app that would tear down all the barriers that blocked people from going through their notes to find their past amazing ideas.
-
-would let users generate ideas and chain them visually like a family tree. Allowing them to see the evolution of their thoughts as time moves. Now you may ask how is this different form Miro? Howling Moon is made for individuals and helps them focus on the writing. No need to think about the idea in its entirety, just focus on the smaller steps.
+There are many great note taking apps out there (Notion, OneNote, ...); however, none really suited my needs so I created this one. I wanted a note taking app that would make me want to go back and reread my thoughts. An app that would help me use those ideas in my work or hobbies.
 
 How does Howling Moon do that?:
-* Your time should be focused on creating something amazing
-* You shouldn't be spending hours trying to retrieve an idea you had months ago and then more time finding your other related ideas. By the time you get all the materials together, you will already be reluctant to sit down and put things together
-* Let Howling Moon help you turn your amazing thoughts into the story you want write
+* Lets you focus on recording ideas
+* Eliminates the time you spent trying to retrieve your thoughts
+* Displays all of your thoughts in a more intuitive way making them easier to utilise
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
