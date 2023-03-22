@@ -66,7 +66,6 @@
 </details>
 
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -99,7 +98,14 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Install ruby and rails
+Made with
+   ```sh
+   ruby 3.1.2p20
+   ```
+   and
+   ```sh
+   Rails 7.0.4.2
+   ```
 
 ### Installation
 
@@ -150,9 +156,11 @@ Use this space to show useful examples of how a project can be used. Additional 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] MVP
+- [x] [Figma of the core user journeys](https://www.figma.com/file/iSw9ghom6XtZJowbQ32xgH/Howling-Moon---Established-user?node-id=0%3A1&t=LfLeH8pstqz2jZ1h-1) (creating and displaying thoughts, and displaying collections)
+- [x] MVP for the midway demo
+- [x] MLP (Minimum Lovable product) for the final demo
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/LucasNseyep/howling-moon/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
