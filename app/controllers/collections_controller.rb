@@ -23,14 +23,14 @@ class CollectionsController < ApplicationController
         {
           name: thought.title,
           parent: "null",
-          url: "http://www.howlingmoon.xyz/thoughts/#{thought.id}",
+          url: "../thoughts/#{thought.id}",
           content: thought.content
         }
       else
         {
           name: thought.title,
           parent: thought.parent.title,
-          url: "http://www.howlingmoon.xyz/thoughts/#{thought.id}",
+          url: "../thoughts/#{thought.id}",
           content: thought.content
         }
       end
@@ -53,11 +53,13 @@ class CollectionsController < ApplicationController
     @thought = Thought.new(thought_params)
     @thought.user = current_user
     @thought.collection = @collection
-    @collection.save
-    @thought.save
+    if @thought.valid?
+      @collection.save!
+    end
+    @thought.save!
 
-    redirect_to collections_path
-    # redirect_to collection_path(@collection)
+    # redirect_to collections_path
+    redirect_to collection_path(@collection)
   end
 
   def update

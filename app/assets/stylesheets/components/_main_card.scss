@@ -30,6 +30,7 @@
   font-size: 24px;
   // line-height: 33px;
   color: $dark-grey;
+  word-wrap: break-word;
   // position: absolute;
   // left: 7.45%;
   // right: 7.33%;
@@ -44,4 +45,5 @@
 .card-title {
   padding-bottom: 20px !important;
   font-weight: 400 !important;
+  word-wrap: break-word;
 }

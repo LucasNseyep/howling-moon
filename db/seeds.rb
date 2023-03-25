@@ -15,7 +15,7 @@ puts "Deleting all connections"
 Connection.delete_all
 
 
-lucas = User.create!(email: "lucas.nseyep@gmail.com", password:"1234567", username: "Lucas" )
+lucas = User.create!(email: "lucas@howlingmoon.xyz", password:"1234567", username: "Lucas" )
 
 post_lewagon_collection = Collection.create!(title:"Post Le Wagon")
 
