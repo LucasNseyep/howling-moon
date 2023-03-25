@@ -2,8 +2,9 @@ class Thought < ApplicationRecord
   belongs_to :user
   belongs_to :collection, optional: true
 
-  # Tis section makes subtables of connections for parents and children
+  # This section makes subtables of connections for parents and children
   # https://3rd-edition.railstutorial.org/book/following_users#fig-user_has_many_followers
+
   has_one :parent_relationship, foreign_key: :child_id, class_name: 'Connection'
   has_one :parent, through: :parent_relationship, source: :parent
 
@@ -12,7 +13,7 @@ class Thought < ApplicationRecord
 
   validates :form_is_filled, presence: true, if: :form_is_filled
 
-  # SEARCH STUFF IMPLEMENTATION
+  # SEARCH IMPLEMENTATION
   # PgSearch::Multisearch.rebuild(Thought)
   include PgSearch::Model
   pg_search_scope :search,
