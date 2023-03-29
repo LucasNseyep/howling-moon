@@ -29,7 +29,7 @@
   <p align="center">
     Say goodbye to scattered notes and fragmented ideas
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://youtu.be/3VqsIqYLSFM?t=1185">View Demo</a>
     ·
     <a href="https://github.com/LucasNseyep/howling-moon/issues">Report Bug</a>
     ·
