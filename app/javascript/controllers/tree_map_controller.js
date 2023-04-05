@@ -378,7 +378,7 @@ export default class extends Controller {
             }
         };
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 700; // 25 pixels per line
+        var newHeight = d3.max(levelWidth) * 400; // 25 pixels per line
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
