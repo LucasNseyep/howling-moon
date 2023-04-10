@@ -39,7 +39,6 @@
   color: $light-grey;
   border : 0;
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.04));
-  word-wrap: break-word;
 }
 
 .small-card-ancestor {
@@ -68,10 +67,9 @@
 }
 
 .small-card-content {
-  align-self: flex-start;
+  word-wrap: break-word;
   font-size: 18px;
   text-align: center;
-  word-wrap: break-word;
 }
 
 .small-card-link {
@@ -93,13 +91,13 @@
   color: $black;
   font-size: 22px;
   font-weight: 400;
-  word-wrap: break-word;
   padding: 0;
 }
 
 .card-content {
   align-self: flex-start;
   font-size: 18px;
+  word-wrap: break-word;
 }
 
 .small-card-roll {

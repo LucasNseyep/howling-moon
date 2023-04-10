@@ -448,6 +448,7 @@ export default class extends Controller {
           .style("padding", "20px")
           .attr("xmlns", "https://www.w3.org/1999/xhtml/")
           .style("fill", "black")
+          .style("word-wrap","break-word")
           .attr('class', 'nodeDiv')
           .html(function(d) {
               return `<strong>${d.name.length > 18 ? d.name.slice(0,18) + `...` :  d.name}
