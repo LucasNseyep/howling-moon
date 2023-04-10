@@ -378,7 +378,7 @@ export default class extends Controller {
             }
         };
         childCount(0, root);
-        var newHeight = d3.max(levelWidth) * 700; // 25 pixels per line
+        var newHeight = d3.max(levelWidth) * 400; // 25 pixels per line
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
@@ -448,10 +448,11 @@ export default class extends Controller {
           .style("padding", "20px")
           .attr("xmlns", "https://www.w3.org/1999/xhtml/")
           .style("fill", "black")
+          .style("word-wrap","break-word")
           .attr('class', 'nodeDiv')
           .html(function(d) {
               return `<strong>${d.name.length > 18 ? d.name.slice(0,18) + `...` :  d.name}
-              </strong> <br> ${d.content.length > 90 ? d.content.slice(0,90) + `...` : d.content}`
+              </strong> <br> ${d.content.length > 75 ? d.content.slice(0,75) + `...` : d.content}`
           })
           .style("fill-opacity", 0)
           .on("mouseover", mouseover)
