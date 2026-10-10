@@ -77,10 +77,10 @@ These are yours to make, and they change the plan.
 | Decision | Why it matters | Assumed here |
 | --- | --- | --- |
 | What is the app for now: portfolio piece, personal tool, or public product? | Sets where to stop. A portfolio piece needs projects 1 to 3 and a deploy. A public product needs all eight | Public product |
-| Does a thought keep exactly one parent (a tree) or link to many (a graph)? | Changes PRs 6, 8, 14 and 15. Hard to reverse once users have data | Tree, as today |
-| Should auto-created collections get a default name or prompt for one? | Shapes PR 8 | Default name, renamed later |
-| Keep drag-to-reparent in the tree? | Decides PR 16 | Decide after the rewrite |
-| Where to host? | Decides PR 21 | Undecided |
+| Does a thought keep exactly one parent (a tree) or link to many (a graph)? | Changes PRs 7, 9, 15 and 16. Hard to reverse once users have data | Tree, as today |
+| Should auto-created collections get a default name or prompt for one? | Shapes PR 9 | Default name, renamed later |
+| Keep drag-to-reparent in the tree? | Decides PR 17 | Decide after the rewrite |
+| Where to host? | Decides PR 22 | Undecided |
 
 ## The projects
 
@@ -91,8 +91,9 @@ These are yours to make, and they change the plan.
 | PR | What | Why |
 | --- | --- | --- |
 | 1. Repo hygiene | Commit the `Gemfile.lock` platform line. Delete `yarn-error.log` and the dead JS controllers. Remove `console.log` calls. Refresh the README setup section | Dead files hide what the app really does and add noise to every later diff |
-| 2. Fixtures and model tests | Add fixtures for users, thoughts, collections and connections. Fix the three failing tests. Add tests for `connect`, `disconnect`, `root` and `ancestors` | The current tests fail because `User.first` is nil. One of them passes for the wrong reason, which hid the inverted validation |
-| 3. CI | A GitHub Actions workflow that runs the tests, RuboCop, `bundler-audit` and Brakeman | Tests that are not run automatically stop being run. The two scanners will also list the known vulnerabilities in the locked gems |
+| 2. Fix and update the existing tests | Add the user fixture the current tests need, so the three broken ones run. Rewrite the empty-thought test to check the validation error instead of passing because the user is missing. Correct the test names and failure messages. Skip, with a pointer to PR 8, any test that then fails only because of the inverted validation | The suite is 2 failures and 1 error out of 5 because `User.first` is nil, so it says nothing about the code. One test passes for the wrong reason, which hid the inverted validation. Making the existing tests honest first keeps that fix separate from new coverage |
+| 3. Fixtures and model tests | Add fixtures for thoughts, collections and connections. Add tests for `connect`, `disconnect`, `root` and `ancestors` | The linking logic that projects 2 and 3 change has no tests at all, so nothing would catch a regression there |
+| 4. CI | A GitHub Actions workflow that runs the tests, RuboCop, `bundler-audit` and Brakeman | Tests that are not run automatically stop being run. The two scanners will also list the known vulnerabilities in the locked gems |
 
 ### 2. Security and ownership
 
@@ -100,9 +101,9 @@ These are yours to make, and they change the plan.
 
 | PR | What | Why |
 | --- | --- | --- |
-| 4. Scope every lookup to the current user | Replace `Thought.find` and `Collection.find` with lookups through `current_user`, including the `selected_id` parameter. Add request tests that prove cross-user access returns 404 | Closes the authorization holes. The tests stop them coming back |
-| 5. Give collections an owner | Add `collections.user_id` and backfill it from each collection's thoughts. Scope title uniqueness to the user. Remove the invalid `has_one :user, through: :thought` | Ownership inferred through thoughts breaks when a collection is empty, and global title uniqueness lets users block each other |
-| 6. Harden the connection graph | Add foreign keys and bigint columns on `connections`. Add `dependent: :destroy`. Add a validation that rejects self-links and cycles | A cycle hangs the server in an infinite loop. Orphaned connections make thoughts disappear from the graph |
+| 5. Scope every lookup to the current user | Replace `Thought.find` and `Collection.find` with lookups through `current_user`, including the `selected_id` parameter. Add request tests that prove cross-user access returns 404 | Closes the authorization holes. The tests stop them coming back |
+| 6. Give collections an owner | Add `collections.user_id` and backfill it from each collection's thoughts. Scope title uniqueness to the user. Remove the invalid `has_one :user, through: :thought` | Ownership inferred through thoughts breaks when a collection is empty, and global title uniqueness lets users block each other |
+| 7. Harden the connection graph | Add foreign keys and bigint columns on `connections`. Add `dependent: :destroy`. Add a validation that rejects self-links and cycles | A cycle hangs the server in an infinite loop. Orphaned connections make thoughts disappear from the graph |
 
 ### 3. Core flow fixes
 
@@ -110,10 +111,10 @@ These are yours to make, and they change the plan.
 
 | PR | What | Why |
 | --- | --- | --- |
-| 7. Thought validation and error handling | Require a title or content. Re-render the form with errors when `create` or `update` fails | Today an empty thought saves and a content-only thought does not, with no message either way |
-| 8. Connect and disconnect | Create a titled collection on first connect. Move the whole subtree on disconnect. Handle "already has a parent" with a message instead of a 500 | Connecting two unlinked thoughts leaves them outside any collection, so the main feature produces nothing visible |
-| 9. Collection create and delete | Wrap create in a transaction and render errors. Remove all connections when a collection is deleted | Create can raise half way through. Delete leaves stale links between thoughts that no longer share a collection |
-| 10. One nil-safe card partial | Extract a shared thought-card partial that uses `truncate`, replacing the six copies that call `.length` on fields that can be nil | A thought with no title or no content crashes every list it appears in. Six copies means six places to fix each bug |
+| 8. Thought validation and error handling | Require a title or content. Re-render the form with errors when `create` or `update` fails | Today an empty thought saves and a content-only thought does not, with no message either way |
+| 9. Connect and disconnect | Create a titled collection on first connect. Move the whole subtree on disconnect. Handle "already has a parent" with a message instead of a 500 | Connecting two unlinked thoughts leaves them outside any collection, so the main feature produces nothing visible |
+| 10. Collection create and delete | Wrap create in a transaction and render errors. Remove all connections when a collection is deleted | Create can raise half way through. Delete leaves stale links between thoughts that no longer share a collection |
+| 11. One nil-safe card partial | Extract a shared thought-card partial that uses `truncate`, replacing the six copies that call `.length` on fields that can be nil | A thought with no title or no content crashes every list it appears in. Six copies means six places to fix each bug |
 
 ### 4. Platform upgrade
 
@@ -121,9 +122,9 @@ These are yours to make, and they change the plan.
 
 | PR | What | Why |
 | --- | --- | --- |
-| 11. Ruby upgrade | Move from Ruby 3.1 to a current release. Bump Puma, pg, Nokogiri and Devise | Needed before Rails can move, and it clears most of the known gem vulnerabilities |
-| 12. Rails upgrade | Go 7.0 to 7.1 to 7.2 to 8.x, one PR per step, updating `load_defaults` each time | One version at a time keeps deprecation warnings readable and regressions easy to trace |
-| 13. Asset build | Replace `sassc-rails` and webpack with `dartsass-rails` plus esbuild or importmap. Drop the `webdrivers` gem. Pin `simple_form` to a released version | `sassc-rails` and `webdrivers` are deprecated. A dependency tracked from a git branch can change under you |
+| 12. Ruby upgrade | Move from Ruby 3.1 to a current release. Bump Puma, pg, Nokogiri and Devise | Needed before Rails can move, and it clears most of the known gem vulnerabilities |
+| 13. Rails upgrade | Go 7.0 to 7.1 to 7.2 to 8.x, one PR per step, updating `load_defaults` each time | One version at a time keeps deprecation warnings readable and regressions easy to trace |
+| 14. Asset build | Replace `sassc-rails` and webpack with `dartsass-rails` plus esbuild or importmap. Drop the `webdrivers` gem. Pin `simple_form` to a released version | `sassc-rails` and `webdrivers` are deprecated. A dependency tracked from a git branch can change under you |
 
 ### 5. Graph view rewrite
 
@@ -131,9 +132,9 @@ These are yours to make, and they change the plan.
 
 | PR | What | Why |
 | --- | --- | --- |
-| 14. Serve tree data by id | A JSON endpoint that returns nodes with `id` and `parent_id`, and supports more than one root | Keying nodes by title breaks on duplicate titles. Showing only the first root hides thoughts |
-| 15. Rewrite the tree controller on D3 v7 | Bundle D3 from npm. Remove jQuery and Underscore. Escape text. Size the graph from its container | Removes the blocked HTTP scripts and the HTML injection, and makes the graph work in production at all |
-| 16. Decide on drag-to-reparent | Remove it, or make it real by saving the new parent through the connect endpoint | The current drag code throws errors and saves nothing. A control that looks like it works and does not is worse than no control |
+| 15. Serve tree data by id | A JSON endpoint that returns nodes with `id` and `parent_id`, and supports more than one root | Keying nodes by title breaks on duplicate titles. Showing only the first root hides thoughts |
+| 16. Rewrite the tree controller on D3 v7 | Bundle D3 from npm. Remove jQuery and Underscore. Escape text. Size the graph from its container | Removes the blocked HTTP scripts and the HTML injection, and makes the graph work in production at all |
+| 17. Decide on drag-to-reparent | Remove it, or make it real by saving the new parent through the connect endpoint | The current drag code throws errors and saves nothing. A control that looks like it works and does not is worse than no control |
 
 ### 6. Frontend cleanup
 
@@ -141,9 +142,9 @@ These are yours to make, and they change the plan.
 
 | PR | What | Why |
 | --- | --- | --- |
-| 17. One search controller | Merge the three controllers into one with debounce and URL encoding, or replace them with Turbo Frames | Three copies drift apart. Unencoded queries break on `&` and `#`. A request per keystroke is wasteful |
-| 18. Layout and styles | Remove inline styles and the Bootstrap overrides. Fix unclosed tags. Use the footer partial everywhere. Split the 829-line `_homepage.scss` | Overriding `.col-3` globally from inside a partial affects every page that renders it. Invalid markup renders differently across browsers |
-| 19. Home page and navbar content | Remove the invented testimonials and the hardcoded Slack avatars. Show initials or a Gravatar | Fake reviews under real names are a trust and consent problem on a public site. The images are hosted on someone else's Slack workspace and can vanish |
+| 18. One search controller | Merge the three controllers into one with debounce and URL encoding, or replace them with Turbo Frames | Three copies drift apart. Unencoded queries break on `&` and `#`. A request per keystroke is wasteful |
+| 19. Layout and styles | Remove inline styles and the Bootstrap overrides. Fix unclosed tags. Use the footer partial everywhere. Split the 829-line `_homepage.scss` | Overriding `.col-3` globally from inside a partial affects every page that renders it. Invalid markup renders differently across browsers |
+| 20. Home page and navbar content | Remove the invented testimonials and the hardcoded Slack avatars. Show initials or a Gravatar | Fake reviews under real names are a trust and consent problem on a public site. The images are hosted on someone else's Slack workspace and can vanish |
 
 ### 7. Redeploy
 
@@ -151,8 +152,8 @@ These are yours to make, and they change the plan.
 
 | PR | What | Why |
 | --- | --- | --- |
-| 20. Production config | Turn on `force_ssl`. Set a real mailer host and SMTP provider. Add a content security policy. Read `DATABASE_URL` | Password reset cannot send mail today. HTTPS and a CSP are the baseline for an app that takes logins |
-| 21. Deployment target | Add a Dockerfile with Kamal, Fly or Render config, or a Heroku Procfile. Point a domain at it | The repo holds no record of how the app was deployed, so the deploy cannot be reproduced |
+| 21. Production config | Turn on `force_ssl`. Set a real mailer host and SMTP provider. Add a content security policy. Read `DATABASE_URL` | Password reset cannot send mail today. HTTPS and a CSP are the baseline for an app that takes logins |
+| 22. Deployment target | Add a Dockerfile with Kamal, Fly or Render config, or a Heroku Procfile. Point a domain at it | The repo holds no record of how the app was deployed, so the deploy cannot be reproduced |
 
 ### 8. Product work
 
@@ -160,7 +161,7 @@ These are yours to make, and they change the plan.
 
 | PR | What | Why |
 | --- | --- | --- |
-| 22. An "all thoughts" view with pagination | A page listing every thought, linked or not, in pages | The index shows only unlinked thoughts, so a linked thought can be reached only through its collection's graph |
-| 23. Rename and reorganise | Rename auto-created collections. Move a thought to a new parent in one step | Today moving a thought means disconnecting it and connecting it again, and the UI says so in a footnote |
-| 24. Richer notes | Markdown or Action Text for content. Export | Plain text limits what people will keep in the app. Export lowers the risk of committing to it |
-| 25. Use or drop `pg_search_documents` | Build a global search across thoughts and collections, or remove the unused table | Unused schema is confusing. A single search box is the stated goal of "eliminating the time spent retrieving your thoughts" |
+| 23. An "all thoughts" view with pagination | A page listing every thought, linked or not, in pages | The index shows only unlinked thoughts, so a linked thought can be reached only through its collection's graph |
+| 24. Rename and reorganise | Rename auto-created collections. Move a thought to a new parent in one step | Today moving a thought means disconnecting it and connecting it again, and the UI says so in a footnote |
+| 25. Richer notes | Markdown or Action Text for content. Export | Plain text limits what people will keep in the app. Export lowers the risk of committing to it |
+| 26. Use or drop `pg_search_documents` | Build a global search across thoughts and collections, or remove the unused table | Unused schema is confusing. A single search box is the stated goal of "eliminating the time spent retrieving your thoughts" |
