@@ -3,9 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="button-switch"
 export default class extends Controller {
   connect() {
-
-    console.log("hello")
-
     const formInputText = document.querySelector("#thought_content")
     const text = formInputText.value
 
