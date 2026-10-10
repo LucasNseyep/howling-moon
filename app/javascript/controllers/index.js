@@ -7,12 +7,6 @@ import { application } from "./application"
 import ButtonSwitchController from "./button_switch_controller"
 application.register("button-switch", ButtonSwitchController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
-import ReviewController from "./review_controller"
-application.register("review", ReviewController)
-
 import SearchBrowseController from "./search_browse_controller"
 application.register("search-browse", SearchBrowseController)
 

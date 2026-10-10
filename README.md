@@ -93,19 +93,14 @@ How does Howling Moon do that?:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To run the app locally you need the tools below, then the installation steps.
 
 ### Prerequisites
 
-Made with
-   ```sh
-   ruby 3.1.2p20
-   ```
-   and
-   ```sh
-   Rails 7.0.4.2
-   ```
+* Ruby 3.1.2 (see `.ruby-version`)
+* Rails 7.0.4.2, installed by `bundle install`
+* PostgreSQL, running locally
+* Node.js and Yarn 1.x, to build the JavaScript
 
 ### Installation
 
@@ -113,7 +108,7 @@ Made with
    ```sh
    git clone https://github.com/LucasNseyep/howling-moon.git
    ```
-   or 
+   or
    ```sh
    git clone git@github.com:LucasNseyep/howling-moon.git
    ```
@@ -125,14 +120,21 @@ Made with
    ```sh
    yarn install
    ```
-4. Create the database and populate it
+4. Create the database and populate it. The seeds delete any existing users, thoughts and collections before creating the demo data, so only run them on a development database.
    ```sh
-   rails db:create db:migrate db:seed
+   bin/rails db:create db:migrate db:seed
    ```
-5. Run the app
+5. Run the app. This starts the Rails server and the JavaScript build in watch mode.
    ```sh
    bin/dev
    ```
+6. Open http://localhost:3000 and sign in with the demo user created in `db/seeds.rb`, or sign up.
+
+### Tests
+
+```sh
+bin/rails test
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -149,16 +151,14 @@ Made with
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] [Figma of the core user journeys](https://www.figma.com/file/iSw9ghom6XtZJowbQ32xgH/Howling-Moon---Established-user?node-id=0%3A1&t=LfLeH8pstqz2jZ1h-1) (creating and displaying thoughts, and displaying collections)
 - [x] MVP for the midway demo
 - [x] MLP (Minimum Lovable product) for the final demo
+
+See [ROADMAP.md](ROADMAP.md) for the current state of the app and the planned work.
 
 See the [open issues](https://github.com/LucasNseyep/howling-moon/issues) for a full list of proposed features (and known issues).
 
